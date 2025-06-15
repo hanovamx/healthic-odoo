@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    
+    <!-- Vista Tree/List para Clientes Hospitalarios -->
+    <record id="view_hospital_client_tree" model="ir.ui.view">
+        <field name="name">hospital.client.tree</field>
+        <field name="model">hospital.client</field>
+        <field name="arch" type="xml">
+            <list string="Clientes Hospitalarios" sample="1">
+                <field name="name"/>
+                <field name="tipo_facturacion" decoration-info="tipo_facturacion == 'stu'" 
+                       decoration-warning="tipo_facturacion == 'metro3'"
+                       decoration-success="tipo_facturacion == 'carga'"
+                       widget="badge"/>
+                <field name="facturacion_concepto"/>
+                <field name="phone"/>
+                <field name="email"/>
+                <field name="orden_count"/>
+                <field name="active" widget="boolean_toggle"/>
+            </list>
+        </field>
+    </record>
+
+    <!-- Vista Formulario para Clientes Hospitalarios -->
+    <record id="view_hospital_client_form" model="ir.ui.view">
+        <field name="name">hospital.client.form</field>
+        <field name="model">hospital.client</field>
+        <field name="arch" type="xml">
+            <form string="Cliente Hospitalario">
+                <sheet>
+                    <widget name="web_ribbon" title="Inactivo" bg_color="bg-danger" invisible="active"/>
+                    
+                    <div class="oe_title">
+                        <h1>
+                            <field name="name" placeholder="Nombre del hospital/cliente..."/>
+                        </h1>
+                    </div>
+                    
+                    <group>
+                        <group name="billing_info">
+                            <field name="tipo_facturacion" widget="radio" options="{'horizontal': true}"/>
+                            <field name="facturacion_concepto"/>
+                            <field name="active"/>
+                        </group>
+                        <group name="contact_info">
+                            <field name="phone" widget="phone"/>
+                            <field name="email" widget="email"/>
+                        </group>
+                    </group>
+                    
+                    <group string="Dirección">
+                        <field name="address" nolabel="1" placeholder="Dirección completa del cliente..."/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Vista Search para Clientes -->
+    <record id="view_hospital_client_search" model="ir.ui.view">
+        <field name="name">hospital.client.search</field>
+        <field name="model">hospital.client</field>
+        <field name="arch" type="xml">
+            <search string="Buscar Clientes">
+                <field name="name" string="Nombre"/>
+                <field name="phone" string="Teléfono"/>
+                <field name="email" string="Email"/>
+                <field name="address" string="Dirección"/>
+                
+                <separator/>
+                <filter name="filter_active" string="Activos" domain="[('active', '=', True)]"/>
+                <filter name="filter_inactive" string="Inactivos" domain="[('active', '=', False)]"/>
+                
+                <separator/>
+                <filter name="filter_stu" string="Facturación STU" domain="[('tipo_facturacion', '=', 'stu')]"/>
+                <filter name="filter_metro3" string="Facturación Metro³" domain="[('tipo_facturacion', '=', 'metro3')]"/>
+                <filter name="filter_carga" string="Facturación por Carga" domain="[('tipo_facturacion', '=', 'carga')]"/>
+                
+                <group expand="1" string="Group By">
+                    <filter name="group_tipo_facturacion" string="Tipo Facturación" context="{'group_by': 'tipo_facturacion'}"/>
+                    <filter name="group_active" string="Estado" context="{'group_by': 'active'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <!-- Vista Kanban para Clientes -->
+    <record id="view_hospital_client_kanban" model="ir.ui.view">
+        <field name="name">hospital.client.kanban</field>
+        <field name="model">hospital.client</field>
+        <field name="arch" type="xml">
+            <kanban class="o_kanban_mobile">
+                <field name="name"/>
+                <field name="tipo_facturacion"/>
+                <field name="phone"/>
+                <field name="email"/>
+                <field name="orden_count"/>
+                <field name="active"/>
+                <templates>
+                    <t t-name="kanban-box">
+                        <div class="oe_kanban_card oe_kanban_global_click">
+                            <div class="oe_kanban_content">
+                                <div class="o_kanban_record_top">
+                                    <div class="o_kanban_record_headings">
+                                        <strong class="o_kanban_record_title">
+                                            <t t-esc="record.name.value"/>
+                                        </strong>
+                                    </div>
+                                    <div class="o_kanban_record_title">
+                                        <span t-attf-class="badge #{record.tipo_facturacion.raw_value === 'stu' ? 'badge-info' : record.tipo_facturacion.raw_value === 'metro3' ? 'badge-warning' : 'badge-success'}">
+                                            <field name="tipo_facturacion"/>
+                                        </span>
+                                    </div>
+                                </div>
+                                
+                                <div class="o_kanban_record_body">
+                                    <div t-if="record.phone.raw_value">
+                                        <i class="fa fa-phone" title="Teléfono"/> <field name="phone"/>
+                                    </div>
+                                    <div t-if="record.email.raw_value">
+                                        <i class="fa fa-envelope" title="Email"/> <field name="email"/>
+                                    </div>
+                                </div>
+                                
+                                <div class="o_kanban_record_bottom">
+                                    <div class="oe_kanban_bottom_left">
+                                        <strong><field name="orden_count"/> órdenes</strong>
+                                    </div>
+                                    <div class="oe_kanban_bottom_right">
+                                        <span t-if="!record.active.raw_value" class="badge badge-danger">Inactivo</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <!-- Acción Principal para Clientes -->
+    <record id="action_hospital_client" model="ir.actions.act_window">
+        <field name="name">Clientes Hospitalarios</field>
+        <field name="res_model">hospital.client</field>
+        <field name="view_mode">list,kanban,form</field>
+        <field name="view_id" ref="view_hospital_client_tree"/>
+        <field name="search_view_id" ref="view_hospital_client_search"/>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Crear un nuevo cliente hospitalario
+            </p>
+            <p>
+                Gestiona la información de los hospitales y clínicas que utilizan el servicio de esterilización.
+            </p>
+        </field>
+    </record>
+
+</odoo> 

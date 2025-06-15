@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    
+    <!-- Menú Principal -->
+    <menuitem id="main_menu_healthic" 
+              name="Healthic MS4" 
+              web_icon="healthic-odoo,static/description/logo.png"
+              sequence="10"/>
+    
+    <!-- Submenu: Operaciones -->
+    <menuitem id="menu_operaciones" 
+              name="📋 Operaciones" 
+              parent="main_menu_healthic" 
+              sequence="10"/>
+    
+    <!-- Dashboard de Órdenes (Kanban) -->
+    <menuitem id="menu_orden_dashboard" 
+              name="🎛️ Dashboard de Órdenes" 
+              parent="menu_operaciones"
+              action="action_instrument_order"
+              sequence="10"/>
+    
+    <!-- Todas las Órdenes (Lista) -->
+    <record id="action_instrument_order_list" model="ir.actions.act_window">
+        <field name="name">Todas las Órdenes</field>
+        <field name="res_model">instrument.order</field>
+        <field name="view_mode">list,form</field>
+        <field name="view_id" ref="view_instrument_order_tree"/>
+        <field name="search_view_id" ref="view_instrument_order_search"/>
+    </record>
+    
+    <menuitem id="menu_orden_list" 
+              name="📊 Todas las Órdenes" 
+              parent="menu_operaciones"
+              action="action_instrument_order_list"
+              sequence="20"/>
+    
+    <!-- Detalle de Instrumentos -->
+    <menuitem id="menu_orden_lines" 
+              name="🔍 Detalle de Instrumentos" 
+              parent="menu_operaciones"
+              action="action_instrument_order_lines"
+              sequence="30"/>
+    
+    <!-- Submenu: Configuración -->
+    <menuitem id="menu_configuracion" 
+              name="⚙️ Configuración" 
+              parent="main_menu_healthic" 
+              sequence="20"/>
+    
+    <!-- Catálogo de Instrumentos -->
+    <menuitem id="menu_catalog" 
+              name="🏥 Catálogo de Instrumentos" 
+              parent="menu_configuracion"
+              action="action_instrument_catalog"
+              sequence="10"/>
+    
+    <!-- Clientes Hospitalarios -->
+    <menuitem id="menu_clients" 
+              name="🏢 Clientes Hospitalarios" 
+              parent="menu_configuracion"
+              action="action_hospital_client"
+              sequence="20"/>
+    
+    <!-- Métodos de Proceso -->
+    <menuitem id="menu_methods" 
+              name="🔧 Métodos de Proceso" 
+              parent="menu_configuracion"
+              action="action_instrument_method"
+              sequence="30"/>
+    
+    <!-- Submenu: Reportes -->
+    <menuitem id="menu_reportes" 
+              name="📈 Reportes" 
+              parent="main_menu_healthic" 
+              sequence="30"/>
+    
+    <!-- Reportes por Cliente -->
+    <record id="action_report_by_client" model="ir.actions.act_window">
+        <field name="name">Reporte por Cliente</field>
+        <field name="res_model">instrument.order</field>
+        <field name="view_mode">list,form</field>
+        <field name="view_id" ref="view_instrument_order_tree"/>
+        <field name="search_view_id" ref="view_instrument_order_search"/>
+        <field name="context">{'search_default_group_cliente': 1}</field>
+        <field name="domain">[]</field>
+    </record>
+    
+    <menuitem id="menu_report_client" 
+              name="👥 Por Cliente" 
+              parent="menu_reportes"
+              action="action_report_by_client"
+              sequence="10"/>
+    
+    <!-- Reportes por Fecha -->
+    <record id="action_report_by_date" model="ir.actions.act_window">
+        <field name="name">Reporte por Fecha</field>
+        <field name="res_model">instrument.order</field>
+        <field name="view_mode">list,form</field>
+        <field name="view_id" ref="view_instrument_order_tree"/>
+        <field name="search_view_id" ref="view_instrument_order_search"/>
+        <field name="context">{'search_default_group_fecha': 1, 'search_default_filter_esta_semana': 1}</field>
+    </record>
+    
+    <menuitem id="menu_report_date" 
+              name="📅 Por Fecha" 
+              parent="menu_reportes"
+              action="action_report_by_date"
+              sequence="20"/>
+    
+    <!-- Trazabilidad por Instrumento -->
+    <record id="action_report_traceability" model="ir.actions.act_window">
+        <field name="name">Trazabilidad de Instrumentos</field>
+        <field name="res_model">instrument.order.line</field>
+        <field name="view_mode">list,form</field>
+        <field name="view_id" ref="view_instrument_order_line_tree"/>
+        <field name="search_view_id" ref="view_instrument_order_line_search"/>
+        <field name="context">{'search_default_group_instrumento': 1}</field>
+    </record>
+    
+    <menuitem id="menu_report_traceability" 
+              name="🔍 Trazabilidad" 
+              parent="menu_reportes"
+              action="action_report_traceability"
+              sequence="30"/>
+    
+    <!-- Submenu: Accesos Rápidos para Tablet -->
+    <menuitem id="menu_accesos_rapidos" 
+              name="⚡ Accesos Rápidos" 
+              parent="main_menu_healthic" 
+              sequence="5"/>
+    
+    <!-- Nueva Orden -->
+    <record id="action_new_order" model="ir.actions.act_window">
+        <field name="name">Nueva Orden</field>
+        <field name="res_model">instrument.order</field>
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="view_instrument_order_form"/>
+        <field name="target">current</field>
+    </record>
+    
+    <menuitem id="menu_new_order" 
+              name="➕ Nueva Orden" 
+              parent="menu_accesos_rapidos"
+              action="action_new_order"
+              sequence="10"/>
+    
+    <!-- Órdenes Pendientes -->
+    <record id="action_pending_orders" model="ir.actions.act_window">
+        <field name="name">Órdenes Pendientes</field>
+        <field name="res_model">instrument.order</field>
+        <field name="view_mode">kanban,list,form</field>
+        <field name="view_id" ref="view_instrument_order_kanban"/>
+        <field name="search_view_id" ref="view_instrument_order_search"/>
+        <field name="context">{'search_default_filter_pendiente': 1}</field>
+        <field name="domain">[('estado', '=', 'pendiente')]</field>
+    </record>
+    
+    <menuitem id="menu_pending_orders" 
+              name="⏳ Pendientes" 
+              parent="menu_accesos_rapidos"
+              action="action_pending_orders"
+              sequence="20"/>
+    
+    <!-- En Proceso -->
+    <record id="action_in_process_orders" model="ir.actions.act_window">
+        <field name="name">Órdenes en Proceso</field>
+        <field name="res_model">instrument.order</field>
+        <field name="view_mode">kanban,list,form</field>
+        <field name="view_id" ref="view_instrument_order_kanban"/>
+        <field name="search_view_id" ref="view_instrument_order_search"/>
+        <field name="context">{'search_default_filter_en_proceso': 1}</field>
+        <field name="domain">[('estado', 'in', ['en_lavado', 'empaque'])]</field>
+    </record>
+    
+    <menuitem id="menu_in_process_orders" 
+              name="🔄 En Proceso" 
+              parent="menu_accesos_rapidos"
+              action="action_in_process_orders"
+              sequence="30"/>
+    
+    <!-- Listo para Entrega -->
+    <record id="action_ready_orders" model="ir.actions.act_window">
+        <field name="name">Listo para Entrega</field>
+        <field name="res_model">instrument.order</field>
+        <field name="view_mode">kanban,list,form</field>
+        <field name="view_id" ref="view_instrument_order_kanban"/>
+        <field name="search_view_id" ref="view_instrument_order_search"/>
+        <field name="context">{'search_default_filter_listo': 1}</field>
+        <field name="domain">[('estado', '=', 'esterilizado')]</field>
+    </record>
+    
+    <menuitem id="menu_ready_orders" 
+              name="✅ Listo para Entrega" 
+              parent="menu_accesos_rapidos"
+              action="action_ready_orders"
+              sequence="40"/>
+
+</odoo> 

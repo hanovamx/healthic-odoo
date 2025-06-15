@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        
+        <!-- Clientes Hospitalarios de Demostración -->
+        <record id="client_hospital_central" model="hospital.client">
+            <field name="name">Hospital Central</field>
+            <field name="facturacion_concepto">Procesamiento de instrumental quirúrgico</field>
+            <field name="tipo_facturacion">stu</field>
+            <field name="phone">+1-555-0123</field>
+            <field name="email">admin@hospitalcentral.com</field>
+            <field name="address">Av. Principal 123, Ciudad</field>
+        </record>
+        
+        <record id="client_clinica_norte" model="hospital.client">
+            <field name="name">Clínica Norte</field>
+            <field name="facturacion_concepto">Esterilización por volumen</field>
+            <field name="tipo_facturacion">metro3</field>
+            <field name="phone">+1-555-0456</field>
+            <field name="email">contacto@clinicanorte.com</field>
+            <field name="address">Calle Norte 456, Ciudad</field>
+        </record>
+        
+        <record id="client_centro_medico" model="hospital.client">
+            <field name="name">Centro Médico Sur</field>
+            <field name="facturacion_concepto">Servicio por carga completa</field>
+            <field name="tipo_facturacion">carga</field>
+            <field name="phone">+1-555-0789</field>
+            <field name="email">info@centromedicosur.com</field>
+            <field name="address">Blvd. Sur 789, Ciudad</field>
+        </record>
+        
+        <!-- Catálogo de Instrumentos de Demostración -->
+        <record id="instrument_bisturi" model="instrument.catalog">
+            <field name="name">Bisturí Desechable</field>
+            <field name="codigo">BIS-001</field>
+            <field name="tipo_material">desechable</field>
+            <field name="equivalente_stu">0.5</field>
+            <field name="cantidad_estandar">10</field>
+            <field name="descripcion">Bisturí desechable estéril para cirugía general</field>
+            <field name="peso_aprox">15</field>
+            <field name="lavado_permitido_ids" eval="[(6, 0, [ref('method_lavado_manual')])]"/>
+            <field name="esterilizacion_permitida_ids" eval="[(6, 0, [ref('method_esteril_peroxido'), ref('method_esteril_plasma')])]"/>
+        </record>
+        
+        <record id="instrument_pinzas" model="instrument.catalog">
+            <field name="name">Pinzas Kelly</field>
+            <field name="codigo">PIN-002</field>
+            <field name="tipo_material">instrumental</field>
+            <field name="equivalente_stu">1.2</field>
+            <field name="cantidad_estandar">2</field>
+            <field name="descripcion">Pinzas hemostáticas Kelly rectas</field>
+            <field name="peso_aprox">85</field>
+            <field name="lavado_permitido_ids" eval="[(6, 0, [ref('method_lavado_manual'), ref('method_lavado_ultrasonico'), ref('method_lavado_automatico')])]"/>
+            <field name="esterilizacion_permitida_ids" eval="[(6, 0, [ref('method_esteril_autoclave_vapor'), ref('method_esteril_calor_seco')])]"/>
+        </record>
+        
+        <record id="instrument_gasas" model="instrument.catalog">
+            <field name="name">Gasas Estériles</field>
+            <field name="codigo">GAS-003</field>
+            <field name="tipo_material">textil</field>
+            <field name="equivalente_stu">0.3</field>
+            <field name="cantidad_estandar">50</field>
+            <field name="descripcion">Gasas de algodón estériles 4x4</field>
+            <field name="peso_aprox">2</field>
+            <field name="requiere_empaque_especial">True</field>
+            <field name="lavado_permitido_ids" eval="[(6, 0, [ref('method_lavado_automatico')])]"/>
+            <field name="esterilizacion_permitida_ids" eval="[(6, 0, [ref('method_esteril_autoclave_vapor'), ref('method_esteril_oxido_etileno')])]"/>
+        </record>
+        
+        <record id="instrument_suero" model="instrument.catalog">
+            <field name="name">Suero Fisiológico</field>
+            <field name="codigo">SER-004</field>
+            <field name="tipo_material">consumible</field>
+            <field name="equivalente_stu">0.1</field>
+            <field name="cantidad_estandar">1</field>
+            <field name="descripcion">Solución salina estéril 500ml</field>
+            <field name="peso_aprox">500</field>
+            <field name="observaciones">No requiere lavado previo. Verificar fecha de caducidad.</field>
+            <field name="esterilizacion_permitida_ids" eval="[(6, 0, [ref('method_esteril_autoclave_vapor')])]"/>
+        </record>
+        
+        <record id="instrument_tijeras" model="instrument.catalog">
+            <field name="name">Tijeras Mayo</field>
+            <field name="codigo">TIJ-005</field>
+            <field name="tipo_material">instrumental</field>
+            <field name="equivalente_stu">1.5</field>
+            <field name="cantidad_estandar">1</field>
+            <field name="descripcion">Tijeras Mayo curvas para cirugía</field>
+            <field name="peso_aprox">120</field>
+            <field name="lavado_permitido_ids" eval="[(6, 0, [ref('method_lavado_manual'), ref('method_lavado_ultrasonico'), ref('method_lavado_automatico')])]"/>
+            <field name="esterilizacion_permitida_ids" eval="[(6, 0, [ref('method_esteril_autoclave_vapor'), ref('method_esteril_plasma'), ref('method_esteril_calor_seco')])]"/>
+        </record>
+        
+    </data>
+</odoo> 

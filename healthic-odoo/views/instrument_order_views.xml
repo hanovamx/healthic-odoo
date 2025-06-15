@@ -1,0 +1,356 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    
+    <!-- Vista Kanban - Dashboard Principal de Órdenes -->
+    <record id="view_instrument_order_kanban" model="ir.ui.view">
+        <field name="name">instrument.order.kanban</field>
+        <field name="model">instrument.order</field>
+        <field name="arch" type="xml">
+            <kanban default_group_by="estado" class="o_kanban_small_column">
+                <field name="estado"/>
+                <field name="name"/>
+                <field name="cliente_id"/>
+                <field name="fecha_recepcion"/>
+                <field name="total_stu"/>
+                <field name="total_instrumentos"/>
+                <field name="puede_iniciar_lavado"/>
+                <field name="puede_iniciar_empaque"/>
+                <field name="puede_esterilizar"/>
+                <field name="puede_entregar"/>
+                <templates>
+                    <t t-name="kanban-box">
+                        <div class="oe_kanban_card oe_kanban_global_click">
+                            <!-- Estado con color -->
+                            <div class="oe_kanban_content">
+                                <div class="o_kanban_record_top">
+                                    <div class="o_kanban_record_headings">
+                                        <strong class="o_kanban_record_title">
+                                            <field name="name"/>
+                                        </strong>
+                                        <small class="o_kanban_record_subtitle text-muted">
+                                            <field name="cliente_id"/>
+                                        </small>
+                                    </div>
+                                    <div class="o_kanban_record_title">
+                                        <span t-attf-class="badge #{record.estado.raw_value === 'pendiente' ? 'badge-secondary' : record.estado.raw_value === 'en_lavado' ? 'badge-warning' : record.estado.raw_value === 'empaque' ? 'badge-info' : record.estado.raw_value === 'esterilizado' ? 'badge-primary' : 'badge-success'}">
+                                            <field name="estado"/>
+                                        </span>
+                                    </div>
+                                </div>
+                                
+                                <div class="o_kanban_record_body">
+                                    <div class="row">
+                                        <div class="col-6">
+                                            <strong>Recepción:</strong><br/>
+                                            <field name="fecha_recepcion" widget="datetime"/>
+                                        </div>
+                                        <div class="col-6">
+                                            <strong>Total STU:</strong><br/>
+                                            <field name="total_stu"/> STU
+                                        </div>
+                                    </div>
+                                    <div class="row mt-2">
+                                        <div class="col-12">
+                                            <strong>Instrumentos:</strong> <field name="total_instrumentos"/>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <!-- Botones de Acción Rápida -->
+                                <div class="o_kanban_record_bottom">
+                                    <div class="oe_kanban_bottom_left">
+                                        <button name="action_iniciar_lavado" 
+                                                type="object" 
+                                                class="btn btn-primary btn-sm"
+                                                t-if="record.puede_iniciar_lavado.raw_value"
+                                                title="Iniciar Lavado">
+                                            <i class="fa fa-tint" title="Iniciar Lavado"/> Iniciar Lavado
+                                        </button>
+                                        <button name="action_iniciar_empaque" 
+                                                type="object" 
+                                                class="btn btn-info btn-sm"
+                                                t-if="record.puede_iniciar_empaque.raw_value"
+                                                title="Iniciar Empaque">
+                                            <i class="fa fa-archive" title="Empaque"/> Empaque
+                                        </button>
+                                        <button name="action_esterilizar" 
+                                                type="object" 
+                                                class="btn btn-warning btn-sm"
+                                                t-if="record.puede_esterilizar.raw_value"
+                                                title="Esterilizar">
+                                            <i class="fa fa-fire" title="Esterilizar"/> Esterilizar
+                                        </button>
+                                        <button name="action_entregar" 
+                                                type="object" 
+                                                class="btn btn-success btn-sm"
+                                                t-if="record.puede_entregar.raw_value"
+                                                title="Entregar">
+                                            <i class="fa fa-check" title="Entregar"/> Entregar
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <!-- Vista Formulario - Orden de Procesamiento con Secciones por Etapa -->
+    <record id="view_instrument_order_form" model="ir.ui.view">
+        <field name="name">instrument.order.form</field>
+        <field name="model">instrument.order</field>
+        <field name="arch" type="xml">
+            <form string="Orden de Procesamiento">
+                <header>
+                    <!-- Botones de Estado en Header -->
+                    <button name="action_iniciar_lavado" 
+                            type="object" 
+                            class="btn-primary"
+                            string="Iniciar Lavado"
+                            icon="fa-tint"
+                            invisible="not puede_iniciar_lavado"/>
+                    <button name="action_iniciar_empaque" 
+                            type="object" 
+                            class="btn-info"
+                            string="Iniciar Empaque"
+                            icon="fa-archive"
+                            invisible="not puede_iniciar_empaque"/>
+                    <button name="action_esterilizar" 
+                            type="object" 
+                            class="btn-warning"
+                            string="Esterilizar"
+                            icon="fa-fire"
+                            invisible="not puede_esterilizar"/>
+                    <button name="action_entregar" 
+                            type="object" 
+                            class="btn-success"
+                            string="Entregar"
+                            icon="fa-check"
+                            invisible="not puede_entregar"/>
+                    
+                    <field name="estado" widget="statusbar" statusbar_visible="pendiente,en_lavado,empaque,esterilizado,entregado"/>
+                </header>
+                
+                <sheet>
+                    <div class="oe_button_box" name="button_box">
+                        <button class="oe_stat_button" icon="fa-calculator">
+                            <field name="total_stu" widget="statinfo" string="Total STU"/>
+                        </button>
+                        <button class="oe_stat_button" icon="fa-clock-o">
+                            <field name="duracion_proceso" widget="statinfo" string="Duración (hrs)"/>
+                        </button>
+                    </div>
+                    
+                    <div class="oe_title">
+                        <h1>
+                            <field name="name" readonly="1"/>
+                        </h1>
+                    </div>
+                    
+                    <!-- Notebook con Secciones por Etapa -->
+                    <notebook>
+                        <!-- 🧾 GENERAL -->
+                        <page string="📋 General" name="general">
+                            <group>
+                                <group name="client_info">
+                                    <field name="cliente_id" required="1"/>
+                                    <field name="numero_cuenta"/>
+                                    <field name="sala"/>
+                                    <field name="tipo_cirugia"/>
+                                </group>
+                                <group name="reception_info">
+                                    <field name="fecha_recepcion" widget="datetime"/>
+                                    <field name="fecha_entrega" widget="datetime" readonly="1"/>
+                                    <field name="instrumental_humedo" widget="boolean_toggle"/>
+                                    <field name="cincho_integro" widget="radio" options="{'horizontal': true}"/>
+                                </group>
+                            </group>
+                            <group string="Observaciones Generales">
+                                <field name="observaciones" nolabel="1" placeholder="Observaciones generales de la orden..."/>
+                            </group>
+                        </page>
+                        
+                        <!-- 🔧 LAVADO -->
+                        <page string="🔧 Lavado" name="lavado" invisible="estado not in ['en_lavado', 'empaque', 'esterilizado', 'entregado']">
+                            <group>
+                                <group>
+                                    <field name="responsable_lavado"/>
+                                </group>
+                                <group>
+                                    <field name="observaciones_lavado" placeholder="Observaciones del proceso de lavado..."/>
+                                </group>
+                            </group>
+                            
+                            <field name="linea_ids" 
+                                   readonly="estado != 'en_lavado'">
+                                <list editable="bottom" create="true" delete="true">
+                                    <field name="instrumento_id" required="1"/>
+                                    <field name="cantidad"/>
+                                    <field name="lavado_aplicado" domain="[('tipo', '=', 'lavado')]"/>
+                                    <field name="estado_entrega"/>
+                                    <field name="fecha_entrada" widget="datetime"/>
+                                    <field name="observaciones"/>
+                                </list>
+                            </field>
+                        </page>
+                        
+                        <!-- 📦 EMPAQUE -->
+                        <page string="📦 Empaque" name="empaque" invisible="estado not in ['empaque', 'esterilizado', 'entregado']">
+                            <field name="linea_ids" 
+                                   readonly="estado != 'empaque'">
+                                <list editable="bottom" create="false" delete="false">
+                                    <field name="instrumento_id" readonly="1"/>
+                                    <field name="cantidad" readonly="1"/>
+                                    <field name="turno"/>
+                                    <field name="procedimiento_realizado"/>
+                                    <field name="medico_responsable"/>
+                                    <field name="observaciones"/>
+                                </list>
+                            </field>
+                        </page>
+                        
+                        <!-- 🔬 ESTERILIZACIÓN -->
+                        <page string="🔬 Esterilización" name="esterilizacion" invisible="estado not in ['esterilizado', 'entregado']">
+                            <group>
+                                <group>
+                                    <field name="responsable_esterilizacion"/>
+                                </group>
+                                <group>
+                                    <field name="observaciones_esterilizacion" placeholder="Observaciones del proceso de esterilización..."/>
+                                </group>
+                            </group>
+                            
+                            <field name="linea_ids" 
+                                   readonly="estado != 'esterilizado'">
+                                <list editable="bottom" create="false" delete="false">
+                                    <field name="instrumento_id" readonly="1"/>
+                                    <field name="cantidad" readonly="1"/>
+                                    <field name="esterilizacion_aplicada" domain="[('tipo', '=', 'esterilizacion')]"/>
+                                    <field name="fecha_salida" widget="datetime"/>
+                                    <field name="cincho_verde" widget="radio" options="{'horizontal': true}"/>
+                                    <field name="observaciones"/>
+                                </list>
+                            </field>
+                        </page>
+                        
+                        <!-- 📤 ENTREGA -->
+                        <page string="📤 Entrega" name="entrega" invisible="estado != 'entregado'">
+                            <group>
+                                <group>
+                                    <field name="fecha_entrega" widget="datetime" readonly="1"/>
+                                    <field name="responsable_descarga" readonly="1"/>
+                                </group>
+                                <group>
+                                    <field name="fallos_proceso" placeholder="Registro de fallos o incidencias..."/>
+                                </group>
+                            </group>
+                            
+                            <group string="Evidencias del Proceso">
+                                <field name="evidencia_ids" widget="many2many_binary" nolabel="1"/>
+                            </group>
+                        </page>
+                    </notebook>
+                    
+                    <!-- Campos Ocultos para Cálculos -->
+                    <field name="puede_iniciar_lavado" invisible="1"/>
+                    <field name="puede_iniciar_empaque" invisible="1"/>
+                    <field name="puede_esterilizar" invisible="1"/>
+                    <field name="puede_entregar" invisible="1"/>
+                </sheet>
+                
+                <!-- Chatter para Seguimiento -->
+            </form>
+        </field>
+    </record>
+
+    <!-- Vista Tree/List - Consulta Masiva -->
+    <record id="view_instrument_order_tree" model="ir.ui.view">
+        <field name="name">instrument.order.tree</field>
+        <field name="model">instrument.order</field>
+        <field name="arch" type="xml">
+            <list string="Órdenes de Procesamiento" sample="1" multi_edit="1">
+                <field name="name"/>
+                <field name="cliente_id"/>
+                <field name="estado" decoration-info="estado == 'en_lavado'" 
+                       decoration-warning="estado == 'empaque'" 
+                       decoration-primary="estado == 'esterilizado'"
+                       decoration-success="estado == 'entregado'"
+                       widget="badge"/>
+                <field name="fecha_recepcion" widget="datetime"/>
+                <field name="fecha_entrega" widget="datetime"/>
+                <field name="total_instrumentos" sum="Total Instrumentos"/>
+                <field name="total_stu" sum="Total STU"/>
+                <field name="sala"/>
+                <field name="tipo_cirugia"/>
+                <field name="responsable_lavado"/>
+                <field name="responsable_esterilizacion"/>
+                <field name="duracion_proceso" avg="Promedio Duración"/>
+            </list>
+        </field>
+    </record>
+
+    <!-- Vista Search -->
+    <record id="view_instrument_order_search" model="ir.ui.view">
+        <field name="name">instrument.order.search</field>
+        <field name="model">instrument.order</field>
+        <field name="arch" type="xml">
+            <search string="Buscar Órdenes">
+                <field name="name" string="Número de Orden"/>
+                <field name="cliente_id" string="Cliente"/>
+                <field name="sala" string="Sala"/>
+                <field name="tipo_cirugia" string="Tipo de Cirugía"/>
+                <field name="responsable_lavado" string="Responsable Lavado"/>
+                <field name="responsable_esterilizacion" string="Responsable Esterilización"/>
+                
+                <separator/>
+                <filter name="filter_pendiente" string="Pendientes" domain="[('estado', '=', 'pendiente')]"/>
+                <filter name="filter_en_proceso" string="En Proceso" domain="[('estado', 'in', ['en_lavado', 'empaque'])]"/>
+                <filter name="filter_listo" string="Listo para Entrega" domain="[('estado', '=', 'esterilizado')]"/>
+                <filter name="filter_entregado" string="Entregados" domain="[('estado', '=', 'entregado')]"/>
+                
+                <separator/>
+                <filter name="filter_hoy" string="Hoy" domain="[('fecha_recepcion', '&gt;=', datetime.datetime.combine(context_today(), datetime.time(0,0,0))), ('fecha_recepcion', '&lt;=', datetime.datetime.combine(context_today(), datetime.time(23,59,59)))]"/>
+                <filter name="filter_esta_semana" string="Esta Semana" domain="[('fecha_recepcion', '&gt;=', (context_today() - datetime.timedelta(days=context_today().weekday())).strftime('%Y-%m-%d')), ('fecha_recepcion', '&lt;=', (context_today() + datetime.timedelta(days=6-context_today().weekday())).strftime('%Y-%m-%d'))]"/>
+                
+                <separator/>
+                <filter name="filter_humedo" string="Instrumental Húmedo" domain="[('instrumental_humedo', '=', True)]"/>
+                <filter name="filter_cincho_malo" string="Cincho No Íntegro" domain="[('cincho_integro', '=', 'no')]"/>
+                
+                <group expand="1" string="Group By">
+                    <filter name="group_estado" string="Estado" context="{'group_by': 'estado'}"/>
+                    <filter name="group_cliente" string="Cliente" context="{'group_by': 'cliente_id'}"/>
+                    <filter name="group_sala" string="Sala" context="{'group_by': 'sala'}"/>
+                    <filter name="group_fecha" string="Fecha Recepción" context="{'group_by': 'fecha_recepcion:day'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <!-- Acción Principal -->
+    <record id="action_instrument_order" model="ir.actions.act_window">
+        <field name="name">Órdenes de Procesamiento</field>
+        <field name="res_model">instrument.order</field>
+        <field name="view_mode">kanban,list,form</field>
+        <field name="view_id" ref="view_instrument_order_kanban"/>
+        <field name="search_view_id" ref="view_instrument_order_search"/>
+        <field name="context">{'search_default_filter_en_proceso': 1}</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Crear una nueva orden de procesamiento
+            </p>
+            <p>
+                Gestiona el procesamiento completo del instrumental médico desde la recepción hasta la entrega.
+            </p>
+        </field>
+    </record>
+
+    <!-- Acción para Líneas de Detalle -->
+    <record id="action_instrument_order_line" model="ir.actions.act_window">
+        <field name="name">Detalle de Instrumentos</field>
+        <field name="res_model">instrument.order.line</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+</odoo> 

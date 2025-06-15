@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+        
+        <!-- Métodos de Lavado -->
+        <record id="method_lavado_manual" model="instrument.method">
+            <field name="name">Lavado Manual</field>
+            <field name="tipo">lavado</field>
+            <field name="descripcion">Lavado manual con detergentes especializados</field>
+            <field name="tiempo_proceso">30</field>
+            <field name="requiere_secado">True</field>
+        </record>
+        
+        <record id="method_lavado_ultrasonico" model="instrument.method">
+            <field name="name">Lavado Ultrasónico</field>
+            <field name="tipo">lavado</field>
+            <field name="descripcion">Lavado con ultrasonido para mejor limpieza</field>
+            <field name="tiempo_proceso">15</field>
+            <field name="requiere_secado">True</field>
+        </record>
+        
+        <record id="method_lavado_automatico" model="instrument.method">
+            <field name="name">Lavadora Automática</field>
+            <field name="tipo">lavado</field>
+            <field name="descripcion">Lavado automático con ciclos programados</field>
+            <field name="temperatura_min">60</field>
+            <field name="temperatura_max">90</field>
+            <field name="tiempo_proceso">45</field>
+            <field name="requiere_secado">False</field>
+        </record>
+        
+        <!-- Métodos de Esterilización -->
+        <record id="method_esteril_autoclave_vapor" model="instrument.method">
+            <field name="name">Autoclave Vapor</field>
+            <field name="tipo">esterilizacion</field>
+            <field name="descripcion">Esterilización por vapor saturado a presión</field>
+            <field name="temperatura_min">121</field>
+            <field name="temperatura_max">134</field>
+            <field name="tiempo_proceso">60</field>
+            <field name="requiere_secado">True</field>
+        </record>
+        
+        <record id="method_esteril_peroxido" model="instrument.method">
+            <field name="name">Peróxido de Hidrógeno</field>
+            <field name="tipo">esterilizacion</field>
+            <field name="descripcion">Esterilización con peróxido de hidrógeno vaporizado</field>
+            <field name="temperatura_min">45</field>
+            <field name="temperatura_max">55</field>
+            <field name="tiempo_proceso">75</field>
+            <field name="requiere_secado">False</field>
+        </record>
+        
+        <record id="method_esteril_plasma" model="instrument.method">
+            <field name="name">Plasma Gas</field>
+            <field name="tipo">esterilizacion</field>
+            <field name="descripcion">Esterilización por plasma de peróxido de hidrógeno</field>
+            <field name="temperatura_min">50</field>
+            <field name="temperatura_max">60</field>
+            <field name="tiempo_proceso">55</field>
+            <field name="requiere_secado">False</field>
+        </record>
+        
+        <record id="method_esteril_oxido_etileno" model="instrument.method">
+            <field name="name">Óxido de Etileno</field>
+            <field name="tipo">esterilizacion</field>
+            <field name="descripcion">Esterilización con gas de óxido de etileno</field>
+            <field name="temperatura_min">37</field>
+            <field name="temperatura_max">63</field>
+            <field name="tiempo_proceso">180</field>
+            <field name="requiere_secado">True</field>
+        </record>
+        
+        <record id="method_esteril_calor_seco" model="instrument.method">
+            <field name="name">Calor Seco</field>
+            <field name="tipo">esterilizacion</field>
+            <field name="descripcion">Esterilización por calor seco (horno)</field>
+            <field name="temperatura_min">160</field>
+            <field name="temperatura_max">180</field>
+            <field name="tiempo_proceso">120</field>
+            <field name="requiere_secado">False</field>
+        </record>
+        
+    </data>
+</odoo> 

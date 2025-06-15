@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    
+    <!-- Vista Formulario para Líneas de Detalle - Etapa Lavado -->
+    <record id="view_instrument_order_line_form_lavado" model="ir.ui.view">
+        <field name="name">instrument.order.line.form.lavado</field>
+        <field name="model">instrument.order.line</field>
+        <field name="arch" type="xml">
+            <form string="Detalle - Lavado">
+                <sheet>
+                    <group>
+                        <group name="instrument_info">
+                            <field name="instrumento_id" required="1"/>
+                            <field name="cantidad"/>
+                            <field name="tipo_material" readonly="1"/>
+                        </group>
+                        <group name="process_info">
+                            <field name="lavado_aplicado" domain="[('tipo', '=', 'lavado')]" required="1"/>
+                            <field name="estado_entrega"/>
+                            <field name="fecha_entrada" widget="datetime"/>
+                        </group>
+                    </group>
+                    <group string="Observaciones">
+                        <field name="observaciones" nolabel="1" placeholder="Observaciones específicas del lavado..."/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Vista Formulario para Líneas de Detalle - Etapa Esterilización -->
+    <record id="view_instrument_order_line_form_esterilizacion" model="ir.ui.view">
+        <field name="name">instrument.order.line.form.esterilizacion</field>
+        <field name="model">instrument.order.line</field>
+        <field name="arch" type="xml">
+            <form string="Detalle - Esterilización">
+                <sheet>
+                    <group>
+                        <group name="instrument_info">
+                            <field name="instrumento_id" readonly="1"/>
+                            <field name="cantidad" readonly="1"/>
+                            <field name="lavado_aplicado" readonly="1"/>
+                        </group>
+                        <group name="sterilization_info">
+                            <field name="esterilizacion_aplicada" domain="[('tipo', '=', 'esterilizacion')]" required="1"/>
+                            <field name="fecha_salida" widget="datetime"/>
+                            <field name="cincho_verde" widget="radio" options="{'horizontal': true}"/>
+                        </group>
+                    </group>
+                    <group>
+                        <group name="procedure_info">
+                            <field name="procedimiento_realizado"/>
+                            <field name="medico_responsable"/>
+                            <field name="turno"/>
+                        </group>
+                        <group name="computed_info">
+                            <field name="stu_calculado" readonly="1"/>
+                            <field name="duracion_individual" readonly="1"/>
+                        </group>
+                    </group>
+                    <group string="Observaciones">
+                        <field name="observaciones" nolabel="1" placeholder="Observaciones específicas de la esterilización..."/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Vista Tree para Líneas de Detalle -->
+    <record id="view_instrument_order_line_tree" model="ir.ui.view">
+        <field name="name">instrument.order.line.tree</field>
+        <field name="model">instrument.order.line</field>
+        <field name="arch" type="xml">
+            <list string="Detalle de Instrumentos" sample="1">
+                <field name="orden_id"/>
+                <field name="instrumento_id"/>
+                <field name="cantidad"/>
+                <field name="tipo_material"/>
+                <field name="estado_entrega" decoration-success="estado_entrega == 'completo'" 
+                       decoration-warning="estado_entrega == 'faltante'"
+                       decoration-danger="estado_entrega == 'deteriorado'"
+                       widget="badge"/>
+                <field name="lavado_aplicado"/>
+                <field name="esterilizacion_aplicada"/>
+                <field name="fecha_entrada" widget="datetime"/>
+                <field name="fecha_salida" widget="datetime"/>
+                <field name="stu_calculado" sum="Total STU"/>
+                <field name="turno"/>
+                <field name="cincho_verde"/>
+                <field name="cliente_id"/>
+                <field name="estado_orden"/>
+            </list>
+        </field>
+    </record>
+
+    <!-- Vista Search para Líneas de Detalle -->
+    <record id="view_instrument_order_line_search" model="ir.ui.view">
+        <field name="name">instrument.order.line.search</field>
+        <field name="model">instrument.order.line</field>
+        <field name="arch" type="xml">
+            <search string="Buscar Detalle de Instrumentos">
+                <field name="instrumento_id" string="Instrumento"/>
+                <field name="orden_id" string="Orden"/>
+                <field name="cliente_id" string="Cliente"/>
+                <field name="procedimiento_realizado" string="Procedimiento"/>
+                <field name="medico_responsable" string="Médico"/>
+                
+                <separator/>
+                <filter name="filter_completo" string="Completos" domain="[('estado_entrega', '=', 'completo')]"/>
+                <filter name="filter_faltante" string="Faltantes" domain="[('estado_entrega', '=', 'faltante')]"/>
+                <filter name="filter_deteriorado" string="Deteriorados" domain="[('estado_entrega', '=', 'deteriorado')]"/>
+                
+                <separator/>
+                <filter name="filter_instrumental" string="Instrumental" domain="[('tipo_material', '=', 'instrumental')]"/>
+                <filter name="filter_desechable" string="Desechables" domain="[('tipo_material', '=', 'desechable')]"/>
+                <filter name="filter_textil" string="Textiles" domain="[('tipo_material', '=', 'textil')]"/>
+                
+                <separator/>
+                <filter name="filter_cincho_si" string="Cincho Verde OK" domain="[('cincho_verde', '=', 'si')]"/>
+                <filter name="filter_cincho_no" string="Cincho Verde NO" domain="[('cincho_verde', '=', 'no')]"/>
+                
+                <group expand="1" string="Group By">
+                    <filter name="group_instrumento" string="Instrumento" context="{'group_by': 'instrumento_id'}"/>
+                    <filter name="group_orden" string="Orden" context="{'group_by': 'orden_id'}"/>
+                    <filter name="group_cliente" string="Cliente" context="{'group_by': 'cliente_id'}"/>
+                    <filter name="group_estado_entrega" string="Estado Entrega" context="{'group_by': 'estado_entrega'}"/>
+                    <filter name="group_tipo_material" string="Tipo Material" context="{'group_by': 'tipo_material'}"/>
+                    <filter name="group_turno" string="Turno" context="{'group_by': 'turno'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <!-- Acción para Líneas de Detalle -->
+    <record id="action_instrument_order_lines" model="ir.actions.act_window">
+        <field name="name">Detalle de Instrumentos</field>
+        <field name="res_model">instrument.order.line</field>
+        <field name="view_mode">list,form</field>
+        <field name="search_view_id" ref="view_instrument_order_line_search"/>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                No hay líneas de detalle registradas
+            </p>
+            <p>
+                Aquí se muestran todos los instrumentos procesados individualmente.
+            </p>
+        </field>
+    </record>
+
+</odoo> 

@@ -1,0 +1,225 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    
+    <!-- Vista Tree/List para Catálogo de Instrumentos -->
+    <record id="view_instrument_catalog_tree" model="ir.ui.view">
+        <field name="name">instrument.catalog.tree</field>
+        <field name="model">instrument.catalog</field>
+        <field name="arch" type="xml">
+            <list string="Catálogo de Instrumentos" sample="1">
+                <field name="codigo"/>
+                <field name="name"/>
+                <field name="tipo_material" decoration-info="tipo_material == 'instrumental'" 
+                       decoration-warning="tipo_material == 'desechable'"
+                       decoration-success="tipo_material == 'textil'"
+                       decoration-muted="tipo_material == 'consumible'"
+                       widget="badge"/>
+                <field name="equivalente_stu"/>
+                <field name="cantidad_estandar"/>
+                <field name="peso_aprox"/>
+                <field name="requiere_empaque_especial" widget="boolean_toggle"/>
+                <field name="uso_count"/>
+                <field name="active" widget="boolean_toggle"/>
+            </list>
+        </field>
+    </record>
+
+    <!-- Vista Formulario para Catálogo de Instrumentos -->
+    <record id="view_instrument_catalog_form" model="ir.ui.view">
+        <field name="name">instrument.catalog.form</field>
+        <field name="model">instrument.catalog</field>
+        <field name="arch" type="xml">
+            <form string="Instrumento/Material">
+                <sheet>
+                    <div class="oe_button_box" name="button_box">
+                        <button class="oe_stat_button" icon="fa-wrench">
+                            <field name="uso_count" widget="statinfo" string="Veces Usado"/>
+                        </button>
+                    </div>
+                    
+                    <widget name="web_ribbon" title="Inactivo" bg_color="bg-danger" invisible="active"/>
+                    
+                    <div class="oe_title">
+                        <div class="o_row">
+                            <field name="codigo" class="oe_inline" placeholder="Código..."/>
+                        </div>
+                        <h1>
+                            <field name="name" placeholder="Nombre del instrumento/material..."/>
+                        </h1>
+                        <div class="o_row">
+                            <field name="tipo_material" widget="badge"/>
+                        </div>
+                    </div>
+                    
+                    <notebook>
+                        <!-- Pestaña: Datos Generales -->
+                        <page string="📋 Datos Generales" name="datos_generales">
+                            <group>
+                                <group name="basic_info">
+                                    <field name="active"/>
+                                    <field name="equivalente_stu"/>
+                                    <field name="cantidad_estandar"/>
+                                    <field name="peso_aprox"/>
+                                </group>
+                                <group name="special_config">
+                                    <field name="requiere_empaque_especial" widget="boolean_toggle"/>
+                                </group>
+                            </group>
+                            <group string="Descripción">
+                                <field name="descripcion" nolabel="1" placeholder="Descripción detallada del instrumento..."/>
+                            </group>
+                        </page>
+                        
+                        <!-- Pestaña: Métodos Permitidos -->
+                        <page string="🔧 Métodos Permitidos" name="metodos_permitidos">
+                            <group>
+                                <group string="Métodos de Lavado">
+                                    <field name="lavado_permitido_ids" nolabel="1" widget="many2many_tags" domain="[('tipo', '=', 'lavado')]"/>
+                                </group>
+                                <group string="Métodos de Esterilización">
+                                    <field name="esterilizacion_permitida_ids" nolabel="1" widget="many2many_tags" domain="[('tipo', '=', 'esterilizacion')]"/>
+                                </group>
+                            </group>
+                            
+                            <group string="Compatibilidad">
+                                <div class="alert alert-info" role="alert">
+                                    <strong>Información:</strong> Los métodos seleccionados serán los únicos disponibles para este instrumento durante el procesamiento.
+                                </div>
+                            </group>
+                        </page>
+                        
+                        <!-- Pestaña: Observaciones y Configuración Especial -->
+                        <page string="📝 Observaciones y Configuración" name="observaciones">
+                            <group string="Observaciones Especiales">
+                                <field name="observaciones" nolabel="1" placeholder="Observaciones especiales para el manejo del instrumento..."/>
+                            </group>
+                            
+                            <group string="Configuración Técnica" invisible="tipo_material not in ['instrumental', 'textil']">
+                                <p class="text-muted">
+                                    Configuración especial para instrumental y textiles reutilizables.
+                                </p>
+                            </group>
+                            
+                            <group string="Información de Consumibles" invisible="tipo_material != 'consumible'">
+                                <p class="text-muted">
+                                    Los consumibles generalmente no requieren lavado previo, solo verificación de integridad.
+                                </p>
+                            </group>
+                        </page>
+                    </notebook>
+                </sheet>
+                
+                <!-- Chatter para Seguimiento -->
+            </form>
+        </field>
+    </record>
+
+    <!-- Vista Search para Catálogo -->
+    <record id="view_instrument_catalog_search" model="ir.ui.view">
+        <field name="name">instrument.catalog.search</field>
+        <field name="model">instrument.catalog</field>
+        <field name="arch" type="xml">
+            <search string="Buscar Instrumentos">
+                <field name="name" string="Nombre"/>
+                <field name="codigo" string="Código"/>
+                <field name="tipo_material" string="Tipo"/>
+                <field name="descripcion" string="Descripción"/>
+                <field name="observaciones" string="Observaciones"/>
+                
+                <separator/>
+                <filter name="filter_active" string="Activos" domain="[('active', '=', True)]"/>
+                <filter name="filter_inactive" string="Inactivos" domain="[('active', '=', False)]"/>
+                
+                <separator/>
+                <filter name="filter_instrumental" string="Instrumental" domain="[('tipo_material', '=', 'instrumental')]"/>
+                <filter name="filter_desechable" string="Desechables" domain="[('tipo_material', '=', 'desechable')]"/>
+                <filter name="filter_textil" string="Textiles" domain="[('tipo_material', '=', 'textil')]"/>
+                <filter name="filter_consumible" string="Consumibles" domain="[('tipo_material', '=', 'consumible')]"/>
+                
+                <separator/>
+                <filter name="filter_empaque_especial" string="Empaque Especial" domain="[('requiere_empaque_especial', '=', True)]"/>
+                
+                <group expand="1" string="Group By">
+                    <filter name="group_tipo_material" string="Tipo de Material" context="{'group_by': 'tipo_material'}"/>
+                    <filter name="group_empaque" string="Empaque Especial" context="{'group_by': 'requiere_empaque_especial'}"/>
+                    <filter name="group_active" string="Estado" context="{'group_by': 'active'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <!-- Vista Kanban para Catálogo -->
+    <record id="view_instrument_catalog_kanban" model="ir.ui.view">
+        <field name="name">instrument.catalog.kanban</field>
+        <field name="model">instrument.catalog</field>
+        <field name="arch" type="xml">
+            <kanban default_group_by="tipo_material" class="o_kanban_small_column">
+                <field name="name"/>
+                <field name="codigo"/>
+                <field name="tipo_material"/>
+                <field name="equivalente_stu"/>
+                <field name="uso_count"/>
+                <field name="active"/>
+                <templates>
+                    <t t-name="kanban-box">
+                        <div class="oe_kanban_card oe_kanban_global_click">
+                            <div class="oe_kanban_content">
+                                <div class="o_kanban_record_top">
+                                    <div class="o_kanban_record_headings">
+                                        <strong class="o_kanban_record_title">
+                                            <span t-if="record.codigo.raw_value">[<t t-esc="record.codigo.value"/>]</span>
+                                            <t t-esc="record.name.value"/>
+                                        </strong>
+                                    </div>
+                                    <div class="o_kanban_record_title">
+                                        <span t-attf-class="badge #{record.tipo_material.raw_value === 'instrumental' ? 'badge-info' : record.tipo_material.raw_value === 'desechable' ? 'badge-warning' : record.tipo_material.raw_value === 'textil' ? 'badge-success' : 'badge-secondary'}">
+                                            <field name="tipo_material"/>
+                                        </span>
+                                    </div>
+                                </div>
+                                
+                                <div class="o_kanban_record_body">
+                                    <div class="row">
+                                        <div class="col-6">
+                                            <strong>STU:</strong><br/>
+                                            <field name="equivalente_stu"/>
+                                        </div>
+                                        <div class="col-6">
+                                            <strong>Uso:</strong><br/>
+                                            <field name="uso_count"/> veces
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="o_kanban_record_bottom">
+                                    <div class="oe_kanban_bottom_left">
+                                        <span t-if="!record.active.raw_value" class="badge badge-danger">Inactivo</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <!-- Acción Principal para Catálogo -->
+    <record id="action_instrument_catalog" model="ir.actions.act_window">
+        <field name="name">Catálogo de Instrumentos</field>
+        <field name="res_model">instrument.catalog</field>
+        <field name="view_mode">list,kanban,form</field>
+        <field name="view_id" ref="view_instrument_catalog_tree"/>
+        <field name="search_view_id" ref="view_instrument_catalog_search"/>
+        <field name="context">{'search_default_filter_active': 1}</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Crear un nuevo instrumento o material
+            </p>
+            <p>
+                Gestiona el catálogo completo de instrumentos médicos, materiales y consumibles.
+            </p>
+        </field>
+    </record>
+
+</odoo> 
