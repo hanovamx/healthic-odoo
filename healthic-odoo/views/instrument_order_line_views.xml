@@ -86,6 +86,7 @@
                 <field name="esterilizacion_aplicada"/>
                 <field name="cincho_verde"/>
                 <field name="observaciones"/>
+                <field name="active" invisible="1"/>
             </list>
         </field>
     </record>
@@ -112,6 +113,10 @@
                 <filter name="filter_completo" string="Completo" domain="[('estado_entrega', '=', 'completo')]"/>
                 <filter name="filter_faltante" string="Faltante" domain="[('estado_entrega', '=', 'faltante')]"/>
                 <filter name="filter_deteriorado" string="Deteriorado" domain="[('estado_entrega', '=', 'deteriorado')]"/>
+                
+                <separator/>
+                <filter name="filter_active" string="Activos" domain="[('active', '=', True)]"/>
+                <filter name="filter_inactive" string="Archivados" domain="[('active', '=', False)]"/>
                 
                 <group expand="1" string="Group By">
                     <filter name="group_orden" string="Orden" context="{'group_by': 'orden_id'}"/>
@@ -194,6 +199,28 @@
             <p>
                 Las líneas de instrumentos se crean automáticamente al agregar instrumentos a una orden.
             </p>
+        </field>
+    </record>
+
+    <!-- Acción para archivar líneas -->
+    <record id="action_archive_instrument_order_lines" model="ir.actions.server">
+        <field name="name">Archivar</field>
+        <field name="model_id" ref="model_instrument_order_line"/>
+        <field name="state">code</field>
+        <field name="code">
+if records:
+    records.action_archive()
+        </field>
+    </record>
+
+    <!-- Acción para desarchivar líneas -->
+    <record id="action_unarchive_instrument_order_lines" model="ir.actions.server">
+        <field name="name">Desarchivar</field>
+        <field name="model_id" ref="model_instrument_order_line"/>
+        <field name="state">code</field>
+        <field name="code">
+if records:
+    records.write({'active': True})
         </field>
     </record>
 

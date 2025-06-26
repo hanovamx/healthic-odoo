@@ -63,6 +63,9 @@ class SurgeryTypeInstrument(models.Model):
     _name = 'surgery.type.instrument'
     _description = 'Instrumentos por Tipo de Cirugía'
     _order = 'surgery_type_id, sequence'
+    _active_name = 'active'
+
+    active = fields.Boolean(string='Activo', default=True, help='Indica si el registro está activo')
 
     surgery_type_id = fields.Many2one(
         'surgery.type',
@@ -112,6 +115,29 @@ class SurgeryTypeInstrument(models.Model):
         string='Cantidad Estándar',
         readonly=True
     )
+    
+    def unlink(self):
+        """Sobrescribir el método unlink para manejar eliminación de manera segura"""
+        for record in self:
+            # Verificar si hay órdenes que usan este tipo de cirugía
+            orders_using_surgery = self.env['instrument.order'].search([
+                ('tipo_cirugia', '=', record.surgery_type_id.id)
+            ], limit=1)
+            
+            if orders_using_surgery:
+                raise exceptions.ValidationError(
+                    f"No se puede eliminar el instrumento '{record.instrumento_id.name}' del tipo de cirugía "
+                    f"'{record.surgery_type_id.name}' porque hay órdenes que lo utilizan. "
+                    "Considere archivar el registro en lugar de eliminarlo."
+                )
+        
+        return super().unlink()
+    
+    def action_archive(self):
+        """Archivar el registro en lugar de eliminarlo"""
+        for record in self:
+            record.active = False
+        return True
 
 
 class InstrumentOrder(models.Model):

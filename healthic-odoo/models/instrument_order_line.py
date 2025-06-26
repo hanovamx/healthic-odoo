@@ -7,6 +7,9 @@ class InstrumentOrderLine(models.Model):
     _name = 'instrument.order.line'
     _description = 'Línea de Detalle de Orden de Instrumental'
     _order = 'orden_id, id'
+    _active_name = 'active'
+
+    active = fields.Boolean(string='Activo', default=True, help='Indica si el registro está activo')
 
     # Relación con la orden principal
     orden_id = fields.Many2one(
@@ -30,7 +33,7 @@ class InstrumentOrderLine(models.Model):
         ('completo', 'Completo'),
         ('faltante', 'Faltante'),
         ('deteriorado', 'Deteriorado')
-    ], string='Estado de Entrega', default='completo', required=True)
+    ], string='Estado de Entrega', default='completo', help='Estado de entrega del instrumento')
     
     # Fechas específicas del elemento
     fecha_entrada = fields.Datetime(
@@ -110,7 +113,7 @@ class InstrumentOrderLine(models.Model):
     entregado_en = fields.Selection([
         ('area_negra', 'Área Negra'),
         ('area_blanca', 'Área Blanca')
-    ], string='Entregado en', required=True, help='Área donde se entrega el instrumental')
+    ], string='Entregado en', default='area_negra', help='Área donde se entrega el instrumental')
     
     # Observaciones específicas
     observaciones = fields.Text(
@@ -264,4 +267,29 @@ class InstrumentOrderLine(models.Model):
             if line.cantidad > 1:
                 name += f" (x{line.cantidad})"
             result.append((line.id, name))
-        return result 
+        return result
+    
+    def unlink(self):
+        """Sobrescribir el método unlink para manejar eliminación de manera segura"""
+        for line in self:
+            # Verificar si la línea tiene datos importantes que no deberían eliminarse
+            if line.estado_orden in ['en_lavado', 'empaque', 'esterilizado', 'entregado']:
+                raise exceptions.ValidationError(
+                    f"No se puede eliminar la línea '{line.name_get()[0][1]}' porque la orden está en estado '{line.estado_orden}'. "
+                    "Considere archivar el registro en lugar de eliminarlo."
+                )
+            
+            # Verificar si hay datos de procesamiento que indican que ya se trabajó en esta línea
+            if line.fecha_entrada or line.fecha_salida or line.lavado_aplicado or line.esterilizacion_aplicada:
+                raise exceptions.ValidationError(
+                    f"No se puede eliminar la línea '{line.name_get()[0][1]}' porque ya tiene datos de procesamiento. "
+                    "Considere archivar el registro en lugar de eliminarlo."
+                )
+        
+        return super().unlink()
+    
+    def action_archive(self):
+        """Archivar la línea en lugar de eliminarla"""
+        for line in self:
+            line.active = False
+        return True 

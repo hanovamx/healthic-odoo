@@ -154,4 +154,85 @@ Para soporte técnico o consultas: info@healthic.com
 
 **Versión:** 1.0.0  
 **Compatible con:** Odoo 18  
-**Licencia:** Propietaria Healthic 
+**Licencia:** Propietaria Healthic
+
+## Características Principales
+
+### Modelos Principales
+- **Hospital Client**: Gestión de clientes hospitalarios
+- **Instrument Catalog**: Catálogo de instrumentos médicos
+- **Instrument Method**: Métodos de lavado y esterilización
+- **Instrument Order**: Órdenes de procesamiento de instrumental
+- **Instrument Order Line**: Líneas de detalle de las órdenes
+- **Surgery Type**: Tipos de cirugía con instrumentos predeterminados
+
+### Funcionalidades de Seguridad y Archivo
+
+#### Sistema de Archivo
+- Todos los modelos principales incluyen funcionalidad de archivo (campo `active`)
+- Los registros se pueden archivar en lugar de eliminar para mantener la integridad de datos
+- Filtros en las vistas para mostrar registros activos/inactivos
+
+#### Protección de Eliminación
+- **Instrument Order Line**: No se puede eliminar si:
+  - La orden está en estado avanzado (en_lavado, empaque, esterilizado, entregado)
+  - Tiene datos de procesamiento (fechas, métodos aplicados)
+- **Surgery Type Instrument**: No se puede eliminar si hay órdenes que usan ese tipo de cirugía
+
+#### Valores por Defecto
+- Campo `entregado_en` en `instrument.order.line` tiene valor por defecto 'area_negra' (opcional)
+- Campo `estado_entrega` tiene valor por defecto 'completo' (opcional)
+- Todos los campos requeridos tienen valores por defecto apropiados
+
+### Permisos de Acceso
+- **Usuarios**: Pueden leer, crear y modificar registros, pero no eliminar
+- **Administradores**: Acceso completo incluyendo eliminación
+- Permisos específicos para cada modelo
+
+## Instalación
+
+1. Copiar el módulo al directorio `addons` de Odoo
+2. Actualizar la lista de aplicaciones
+3. Instalar el módulo "Healthic Odoo"
+4. Configurar los permisos de acceso según sea necesario
+
+## Uso
+
+### Crear una Orden
+1. Ir a "Órdenes de Instrumental" > "Crear"
+2. Seleccionar el cliente hospitalario
+3. Agregar instrumentos desde el catálogo o tipos de cirugía predeterminados
+4. Cada línea de instrumento se crea automáticamente con valores por defecto
+
+### Procesar una Orden
+1. Cambiar el estado de la orden según el proceso
+2. Completar los datos específicos en cada línea de instrumento
+3. Los campos requeridos se completan automáticamente con valores por defecto
+
+### Archivar Registros
+- Usar la funcionalidad de archivo en lugar de eliminar
+- Los registros archivados se pueden restaurar si es necesario
+- Mantiene la integridad referencial de los datos
+
+## Solución de Problemas
+
+### Error: "No se pudo completar la operación"
+- **Crear/Actualizar**: Verificar que todos los campos requeridos tengan valores
+- **Eliminar**: Usar la funcionalidad de archivo en lugar de eliminar
+
+### Error: "Campo obligatorio no configurado"
+- Los campos requeridos ahora tienen valores por defecto
+- Si persiste el error, verificar que el módulo se haya actualizado correctamente
+
+## Actualizaciones Recientes
+
+### v1.1 - Correcciones de Acceso
+- ✅ Agregado valor por defecto al campo `entregado_en` (ahora opcional)
+- ✅ Campo `estado_entrega` ahora es opcional con valor por defecto
+- ✅ Implementado sistema de archivo para todos los modelos
+- ✅ Protección de eliminación para registros con dependencias
+- ✅ Mejorados los permisos de acceso
+- ✅ Agregados filtros para registros activos/inactivos
+
+## Soporte
+Para soporte técnico o reportar problemas, contactar al equipo de desarrollo. 
