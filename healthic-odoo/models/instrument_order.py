@@ -78,9 +78,9 @@ class SurgeryTypeInstrument(models.Model):
         help='Instrumento predeterminado para esta cirugía'
     )
     
-    cantidad_predeterminada = fields.Integer(
+    cantidad_predeterminada = fields.Char(
         string='Cantidad Predeterminada',
-        default=1,
+        default='1',
         help='Cantidad predeterminada de este instrumento'
     )
     
