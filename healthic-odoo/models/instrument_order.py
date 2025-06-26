@@ -4,6 +4,116 @@ from odoo import models, fields, api, exceptions
 from datetime import datetime
 
 
+class SurgeryType(models.Model):
+    _name = 'surgery.type'
+    _description = 'Tipos de Cirugía'
+    _order = 'name'
+
+    name = fields.Char(
+        string='Nombre de la Cirugía',
+        required=True,
+        help='Nombre del tipo de cirugía'
+    )
+    
+    codigo = fields.Char(
+        string='Código',
+        help='Código interno de la cirugía'
+    )
+    
+    descripcion = fields.Text(
+        string='Descripción',
+        help='Descripción detallada de la cirugía'
+    )
+    
+    # Relación con instrumentos predeterminados
+    instrumentos_predeterminados_ids = fields.One2many(
+        'surgery.type.instrument',
+        'surgery_type_id',
+        string='Instrumentos Predeterminados',
+        help='Instrumentos que típicamente se necesitan para esta cirugía'
+    )
+    
+    active = fields.Boolean(string='Activo', default=True)
+    
+    # Campos computados
+    total_instrumentos = fields.Integer(
+        string='Total de Instrumentos',
+        compute='_compute_total_instrumentos',
+        store=True
+    )
+    
+    @api.depends('instrumentos_predeterminados_ids')
+    def _compute_total_instrumentos(self):
+        """Calcular el total de instrumentos predeterminados"""
+        for surgery in self:
+            surgery.total_instrumentos = len(surgery.instrumentos_predeterminados_ids)
+    
+    def name_get(self):
+        """Personalizar el nombre mostrado"""
+        result = []
+        for record in self:
+            name = record.name
+            if record.codigo:
+                name = f"[{record.codigo}] {name}"
+            result.append((record.id, name))
+        return result
+
+
+class SurgeryTypeInstrument(models.Model):
+    _name = 'surgery.type.instrument'
+    _description = 'Instrumentos por Tipo de Cirugía'
+    _order = 'surgery_type_id, sequence'
+
+    surgery_type_id = fields.Many2one(
+        'surgery.type',
+        string='Tipo de Cirugía',
+        required=True,
+        ondelete='cascade'
+    )
+    
+    instrumento_id = fields.Many2one(
+        'instrument.catalog',
+        string='Instrumento',
+        required=True,
+        help='Instrumento predeterminado para esta cirugía'
+    )
+    
+    cantidad_predeterminada = fields.Integer(
+        string='Cantidad Predeterminada',
+        default=1,
+        help='Cantidad predeterminada de este instrumento'
+    )
+    
+    entregado_en = fields.Selection([
+        ('area_negra', 'Área Negra'),
+        ('area_blanca', 'Área Blanca')
+    ], string='Entregado en', help='Área donde se entrega este instrumento')
+    
+    sequence = fields.Integer(
+        string='Secuencia',
+        default=10,
+        help='Orden de aparición en la lista'
+    )
+    
+    observaciones = fields.Text(
+        string='Observaciones',
+        help='Observaciones específicas para este instrumento en esta cirugía'
+    )
+    
+    # Campos relacionados para facilitar la gestión
+    tipo_material = fields.Selection(
+        related='instrumento_id.tipo_material',
+        string='Tipo de Material',
+        readonly=True
+    )
+    
+    cantidad_estandar = fields.Integer(
+        related='instrumento_id.cantidad_estandar',
+        string='Cantidad Estándar',
+        readonly=True
+    )
+
+
 class InstrumentOrder(models.Model):
     _name = 'instrument.order'
     _description = 'Orden de Procesamiento de Instrumental'
@@ -36,9 +146,15 @@ class InstrumentOrder(models.Model):
         help='Sala donde se realizará el procedimiento'
     )
     
-    tipo_cirugia = fields.Char(
+    tipo_cirugia = fields.Many2one(
+        'surgery.type',
         string='Tipo de Cirugía',
-        help='Nombre o tipo de cirugía a realizar'
+        help='Tipo de cirugía a realizar'
+    )
+    
+    medico_responsable = fields.Char(
+        string='Médico Responsable',
+        help='Nombre del médico responsable del procedimiento'
     )
     
     # Fechas del proceso
@@ -134,6 +250,17 @@ class InstrumentOrder(models.Model):
         help='Registro de fallos o incidencias durante el proceso'
     )
     
+    # Campos de firma
+    firma_entrega = fields.Binary(
+        string='Firma de Quien Entrega',
+        help='Firma de la persona que entrega el instrumental'
+    )
+    
+    firma_recibe = fields.Binary(
+        string='Firma de Quien Recibe',
+        help='Firma de la persona que recibe el instrumental'
+    )
+    
     # Campos computados
     total_instrumentos = fields.Integer(
         string='Total de Instrumentos',
@@ -186,6 +313,22 @@ class InstrumentOrder(models.Model):
             except (ValueError, IndexError):
                 pass
         return "MS2-001"
+    
+    @api.onchange('tipo_cirugia')
+    def _onchange_tipo_cirugia(self):
+        """Precargar instrumentos predeterminados cuando se selecciona un tipo de cirugía"""
+        if self.tipo_cirugia and self.tipo_cirugia.instrumentos_predeterminados_ids:
+            # Limpiar líneas existentes si es una nueva orden
+            if not self.linea_ids:
+                new_lines = []
+                for pred_instrument in self.tipo_cirugia.instrumentos_predeterminados_ids:
+                    new_lines.append((0, 0, {
+                        'instrumento_id': pred_instrument.instrumento_id.id,
+                        'cantidad': pred_instrument.cantidad_predeterminada,
+                        'entregado_en': pred_instrument.entregado_en,
+                        'observaciones': pred_instrument.observaciones or '',
+                    }))
+                self.linea_ids = new_lines
     
     @api.depends('linea_ids', 'linea_ids.instrumento_id')
     def _compute_totales(self):

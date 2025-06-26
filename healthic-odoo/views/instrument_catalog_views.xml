@@ -8,6 +8,7 @@
         <field name="arch" type="xml">
             <list string="Catálogo de Instrumentos" sample="1">
                 <field name="codigo"/>
+                <field name="numero_dispositivo"/>
                 <field name="name"/>
                 <field name="tipo_material" decoration-info="tipo_material == 'instrumental'" 
                        decoration-warning="tipo_material == 'desechable'"
@@ -43,12 +44,12 @@
                         <div class="o_row">
                             <field name="codigo" class="oe_inline" placeholder="Código..."/>
                         </div>
+                        <div class="o_row">
+                            <field name="numero_dispositivo" class="oe_inline" placeholder="No. de Dispositivo..."/>
+                        </div>
                         <h1>
                             <field name="name" placeholder="Nombre del instrumento/material..."/>
                         </h1>
-                        <div class="o_row">
-                            <field name="tipo_material" widget="badge"/>
-                        </div>
                     </div>
                     
                     <notebook>
@@ -57,6 +58,7 @@
                             <group>
                                 <group name="basic_info">
                                     <field name="active"/>
+                                    <field name="tipo_material"/>
                                     <field name="equivalente_stu"/>
                                     <field name="cantidad_estandar"/>
                                     <field name="peso_aprox"/>
@@ -122,6 +124,7 @@
             <search string="Buscar Instrumentos">
                 <field name="name" string="Nombre"/>
                 <field name="codigo" string="Código"/>
+                <field name="numero_dispositivo" string="No. de Dispositivo"/>
                 <field name="tipo_material" string="Tipo"/>
                 <field name="descripcion" string="Descripción"/>
                 <field name="observaciones" string="Observaciones"/>
@@ -167,7 +170,8 @@
                                 <div class="o_kanban_record_top">
                                     <div class="o_kanban_record_headings">
                                         <strong class="o_kanban_record_title">
-                                            <span t-if="record.codigo.raw_value">[<t t-esc="record.codigo.value"/>]</span>
+                                            <span t-if="record.numero_dispositivo.raw_value">[<t t-esc="record.numero_dispositivo.value"/>]</span>
+                                            <span t-elif="record.codigo.raw_value">[<t t-esc="record.codigo.value"/>]</span>
                                             <t t-esc="record.name.value"/>
                                         </strong>
                                     </div>

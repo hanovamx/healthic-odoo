@@ -50,8 +50,6 @@
                     <group>
                         <group name="procedure_info">
                             <field name="procedimiento_realizado"/>
-                            <field name="medico_responsable"/>
-                            <field name="turno"/>
                         </group>
                         <group name="computed_info">
                             <field name="stu_calculado" readonly="1"/>
@@ -66,7 +64,7 @@
         </field>
     </record>
 
-    <!-- Vista Tree para Líneas de Detalle -->
+    <!-- Vista Tree/List para Líneas de Orden -->
     <record id="view_instrument_order_line_tree" model="ir.ui.view">
         <field name="name">instrument.order.line.tree</field>
         <field name="model">instrument.order.line</field>
@@ -75,59 +73,110 @@
                 <field name="orden_id"/>
                 <field name="instrumento_id"/>
                 <field name="cantidad"/>
-                <field name="tipo_material"/>
-                <field name="estado_entrega" decoration-success="estado_entrega == 'completo'" 
-                       decoration-warning="estado_entrega == 'faltante'"
-                       decoration-danger="estado_entrega == 'deteriorado'"
-                       widget="badge"/>
-                <field name="lavado_aplicado"/>
-                <field name="esterilizacion_aplicada"/>
+                <field name="entregado_en"/>
+                <field name="responsable_empaquetado"/>
+                <field name="tipo_empaquetado"/>
+                <field name="responsable_revision"/>
+                <field name="numero_autoclave"/>
+                <field name="numero_carga"/>
+                <field name="estado_entrega"/>
                 <field name="fecha_entrada" widget="datetime"/>
                 <field name="fecha_salida" widget="datetime"/>
-                <field name="stu_calculado" sum="Total STU"/>
-                <field name="turno"/>
+                <field name="lavado_aplicado"/>
+                <field name="esterilizacion_aplicada"/>
                 <field name="cincho_verde"/>
-                <field name="cliente_id"/>
-                <field name="estado_orden"/>
+                <field name="observaciones"/>
             </list>
         </field>
     </record>
 
-    <!-- Vista Search para Líneas de Detalle -->
+    <!-- Vista Search para Líneas de Orden -->
     <record id="view_instrument_order_line_search" model="ir.ui.view">
         <field name="name">instrument.order.line.search</field>
         <field name="model">instrument.order.line</field>
         <field name="arch" type="xml">
-            <search string="Buscar Detalle de Instrumentos">
-                <field name="instrumento_id" string="Instrumento"/>
+            <search string="Buscar Líneas de Instrumentos">
                 <field name="orden_id" string="Orden"/>
-                <field name="cliente_id" string="Cliente"/>
-                <field name="procedimiento_realizado" string="Procedimiento"/>
-                <field name="medico_responsable" string="Médico"/>
+                <field name="instrumento_id" string="Instrumento"/>
+                <field name="responsable_empaquetado" string="Responsable Empaquetado"/>
+                <field name="responsable_revision" string="Responsable Revisión"/>
+                <field name="numero_autoclave" string="Autoclave"/>
+                <field name="numero_carga" string="Carga"/>
+                <field name="observaciones" string="Observaciones"/>
                 
                 <separator/>
-                <filter name="filter_completo" string="Completos" domain="[('estado_entrega', '=', 'completo')]"/>
-                <filter name="filter_faltante" string="Faltantes" domain="[('estado_entrega', '=', 'faltante')]"/>
-                <filter name="filter_deteriorado" string="Deteriorados" domain="[('estado_entrega', '=', 'deteriorado')]"/>
+                <filter name="filter_area_negra" string="Área Negra" domain="[('entregado_en', '=', 'area_negra')]"/>
+                <filter name="filter_area_blanca" string="Área Blanca" domain="[('entregado_en', '=', 'area_blanca')]"/>
                 
                 <separator/>
-                <filter name="filter_instrumental" string="Instrumental" domain="[('tipo_material', '=', 'instrumental')]"/>
-                <filter name="filter_desechable" string="Desechables" domain="[('tipo_material', '=', 'desechable')]"/>
-                <filter name="filter_textil" string="Textiles" domain="[('tipo_material', '=', 'textil')]"/>
-                
-                <separator/>
-                <filter name="filter_cincho_si" string="Cincho Verde OK" domain="[('cincho_verde', '=', 'si')]"/>
-                <filter name="filter_cincho_no" string="Cincho Verde NO" domain="[('cincho_verde', '=', 'no')]"/>
+                <filter name="filter_completo" string="Completo" domain="[('estado_entrega', '=', 'completo')]"/>
+                <filter name="filter_faltante" string="Faltante" domain="[('estado_entrega', '=', 'faltante')]"/>
+                <filter name="filter_deteriorado" string="Deteriorado" domain="[('estado_entrega', '=', 'deteriorado')]"/>
                 
                 <group expand="1" string="Group By">
-                    <filter name="group_instrumento" string="Instrumento" context="{'group_by': 'instrumento_id'}"/>
                     <filter name="group_orden" string="Orden" context="{'group_by': 'orden_id'}"/>
-                    <filter name="group_cliente" string="Cliente" context="{'group_by': 'cliente_id'}"/>
-                    <filter name="group_estado_entrega" string="Estado Entrega" context="{'group_by': 'estado_entrega'}"/>
-                    <filter name="group_tipo_material" string="Tipo Material" context="{'group_by': 'tipo_material'}"/>
-                    <filter name="group_turno" string="Turno" context="{'group_by': 'turno'}"/>
+                    <filter name="group_instrumento" string="Instrumento" context="{'group_by': 'instrumento_id'}"/>
+                    <filter name="group_entregado_en" string="Área de Entrega" context="{'group_by': 'entregado_en'}"/>
+                    <filter name="group_tipo_empaquetado" string="Tipo de Empaquetado" context="{'group_by': 'tipo_empaquetado'}"/>
+                    <filter name="group_responsable_empaquetado" string="Responsable Empaquetado" context="{'group_by': 'responsable_empaquetado'}"/>
                 </group>
             </search>
+        </field>
+    </record>
+
+    <!-- Vista Formulario para Líneas de Orden -->
+    <record id="view_instrument_order_line_form" model="ir.ui.view">
+        <field name="name">instrument.order.line.form</field>
+        <field name="model">instrument.order.line</field>
+        <field name="arch" type="xml">
+            <form string="Línea de Instrumento">
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="orden_id"/>
+                            <field name="instrumento_id"/>
+                            <field name="cantidad"/>
+                            <field name="entregado_en"/>
+                        </group>
+                        <group>
+                            <field name="estado_entrega"/>
+                            <field name="fecha_entrada" widget="datetime"/>
+                            <field name="fecha_salida" widget="datetime"/>
+                        </group>
+                    </group>
+                    
+                    <notebook>
+                        <page string="🔧 Lavado" name="lavado">
+                            <group>
+                                <field name="lavado_aplicado"/>
+                                <field name="observaciones"/>
+                            </group>
+                        </page>
+                        
+                        <page string="📦 Empaquetado" name="empaquetado">
+                            <group>
+                                <group>
+                                    <field name="responsable_empaquetado"/>
+                                    <field name="tipo_empaquetado" widget="radio" options="{'horizontal': true}"/>
+                                    <field name="responsable_revision"/>
+                                </group>
+                                <group>
+                                    <field name="numero_autoclave"/>
+                                    <field name="numero_carga"/>
+                                    <field name="procedimiento_realizado"/>
+                                </group>
+                            </group>
+                        </page>
+                        
+                        <page string="🔬 Esterilización" name="esterilizacion">
+                            <group>
+                                <field name="esterilizacion_aplicada"/>
+                                <field name="cincho_verde" widget="radio" options="{'horizontal': true}"/>
+                            </group>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
         </field>
     </record>
 
@@ -136,13 +185,14 @@
         <field name="name">Detalle de Instrumentos</field>
         <field name="res_model">instrument.order.line</field>
         <field name="view_mode">list,form</field>
+        <field name="view_id" ref="view_instrument_order_line_tree"/>
         <field name="search_view_id" ref="view_instrument_order_line_search"/>
         <field name="help" type="html">
             <p class="o_view_nocontent_smiling_face">
-                No hay líneas de detalle registradas
+                No hay líneas de instrumentos registradas
             </p>
             <p>
-                Aquí se muestran todos los instrumentos procesados individualmente.
+                Las líneas de instrumentos se crean automáticamente al agregar instrumentos a una orden.
             </p>
         </field>
     </record>

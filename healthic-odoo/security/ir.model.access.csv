@@ -9,3 +9,7 @@ access_instrument_order_user,instrument.order.user,model_instrument_order,base.g
 access_instrument_order_manager,instrument.order.manager,model_instrument_order,base.group_system,1,1,1,1
 access_instrument_order_line_user,instrument.order.line.user,model_instrument_order_line,base.group_user,1,1,1,0
 access_instrument_order_line_manager,instrument.order.line.manager,model_instrument_order_line,base.group_system,1,1,1,1
+access_surgery_type_user,surgery.type.user,model_surgery_type,base.group_user,1,1,1,0
+access_surgery_type_manager,surgery.type.manager,model_surgery_type,base.group_system,1,1,1,1
+access_surgery_type_instrument_user,surgery.type.instrument.user,model_surgery_type_instrument,base.group_user,1,1,1,0
+access_surgery_type_instrument_manager,surgery.type.instrument.manager,model_surgery_type_instrument,base.group_system,1,1,1,1

@@ -63,6 +63,11 @@ class InstrumentCatalog(models.Model):
         help='Código interno del instrumento'
     )
     
+    numero_dispositivo = fields.Char(
+        string='No. de Dispositivo',
+        help='Número único de dispositivo asignado por Healthic'
+    )
+    
     descripcion = fields.Text(
         string='Descripción',
         help='Descripción detallada del instrumento'
@@ -104,7 +109,9 @@ class InstrumentCatalog(models.Model):
         result = []
         for record in self:
             name = record.name
-            if record.codigo:
+            if record.numero_dispositivo:
+                name = f"[{record.numero_dispositivo}] {name}"
+            elif record.codigo:
                 name = f"[{record.codigo}] {name}"
             if record.tipo_material:
                 tipo_dict = dict(record._fields['tipo_material'].selection)

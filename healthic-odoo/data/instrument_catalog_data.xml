@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+        
+        <!-- Instrumentos de Demostración -->
+        <record id="instrument_catalog_1" model="instrument.catalog">
+            <field name="name">Bisturí #10</field>
+            <field name="codigo">BIS001</field>
+            <field name="numero_dispositivo">HC-BIS-001</field>
+            <field name="tipo_material">instrumental</field>
+            <field name="equivalente_stu">1.0</field>
+            <field name="cantidad_estandar">1</field>
+            <field name="peso_aprox">15.0</field>
+            <field name="descripcion">Bisturí quirúrgico estándar #10</field>
+        </record>
+        
+        <record id="instrument_catalog_2" model="instrument.catalog">
+            <field name="name">Tijeras Metzenbaum</field>
+            <field name="codigo">TIJ001</field>
+            <field name="numero_dispositivo">HC-TIJ-001</field>
+            <field name="tipo_material">instrumental</field>
+            <field name="equivalente_stu">1.5</field>
+            <field name="cantidad_estandar">1</field>
+            <field name="peso_aprox">25.0</field>
+            <field name="descripcion">Tijeras quirúrgicas Metzenbaum</field>
+        </record>
+        
+        <record id="instrument_catalog_3" model="instrument.catalog">
+            <field name="name">Pinzas Kelly</field>
+            <field name="codigo">PIN001</field>
+            <field name="numero_dispositivo">HC-PIN-001</field>
+            <field name="tipo_material">instrumental</field>
+            <field name="equivalente_stu">1.2</field>
+            <field name="cantidad_estandar">1</field>
+            <field name="peso_aprox">20.0</field>
+            <field name="descripcion">Pinzas hemostáticas Kelly</field>
+        </record>
+        
+        <record id="instrument_catalog_4" model="instrument.catalog">
+            <field name="name">Compresas Estériles</field>
+            <field name="codigo">COM001</field>
+            <field name="numero_dispositivo">HC-COM-001</field>
+            <field name="tipo_material">textil</field>
+            <field name="equivalente_stu">0.5</field>
+            <field name="cantidad_estandar">10</field>
+            <field name="peso_aprox">50.0</field>
+            <field name="descripcion">Compresas estériles 10x10 cm</field>
+        </record>
+        
+        <record id="instrument_catalog_5" model="instrument.catalog">
+            <field name="name">Suturas Vicryl 3-0</field>
+            <field name="codigo">SUT001</field>
+            <field name="numero_dispositivo">HC-SUT-001</field>
+            <field name="tipo_material">consumible</field>
+            <field name="equivalente_stu">0.3</field>
+            <field name="cantidad_estandar">5</field>
+            <field name="peso_aprox">5.0</field>
+            <field name="descripcion">Suturas absorbibles Vicryl 3-0</field>
+        </record>
+        
+        <record id="instrument_catalog_6" model="instrument.catalog">
+            <field name="name">Guantes Estériles</field>
+            <field name="codigo">GUA001</field>
+            <field name="numero_dispositivo">HC-GUA-001</field>
+            <field name="tipo_material">desechable</field>
+            <field name="equivalente_stu">0.2</field>
+            <field name="cantidad_estandar">2</field>
+            <field name="peso_aprox">10.0</field>
+            <field name="descripcion">Par de guantes estériles talla 7.5</field>
+        </record>
+        
+    </data>
+</odoo> 

@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    
+    <!-- Vista Tree/List para Tipos de Cirugía -->
+    <record id="view_surgery_type_tree" model="ir.ui.view">
+        <field name="name">surgery.type.tree</field>
+        <field name="model">surgery.type</field>
+        <field name="arch" type="xml">
+            <list string="Tipos de Cirugía" sample="1">
+                <field name="codigo"/>
+                <field name="name"/>
+                <field name="total_instrumentos"/>
+                <field name="active" widget="boolean_toggle"/>
+            </list>
+        </field>
+    </record>
+
+    <!-- Vista Formulario para Tipos de Cirugía -->
+    <record id="view_surgery_type_form" model="ir.ui.view">
+        <field name="name">surgery.type.form</field>
+        <field name="model">surgery.type</field>
+        <field name="arch" type="xml">
+            <form string="Tipo de Cirugía">
+                <sheet>
+                    <div class="oe_button_box" name="button_box">
+                        <button class="oe_stat_button" icon="fa-wrench">
+                            <field name="total_instrumentos" widget="statinfo" string="Instrumentos"/>
+                        </button>
+                    </div>
+                    
+                    <widget name="web_ribbon" title="Inactivo" bg_color="bg-danger" invisible="active"/>
+                    
+                    <div class="oe_title">
+                        <div class="o_row">
+                            <field name="codigo" class="oe_inline" placeholder="Código..."/>
+                        </div>
+                        <h1>
+                            <field name="name" placeholder="Nombre de la cirugía..."/>
+                        </h1>
+                    </div>
+                    
+                    <notebook>
+                        <page string="📋 Información General" name="general">
+                            <group>
+                                <group>
+                                    <field name="active"/>
+                                </group>
+                            </group>
+                            <group string="Descripción">
+                                <field name="descripcion" nolabel="1" placeholder="Descripción detallada de la cirugía..."/>
+                            </group>
+                        </page>
+                        
+                        <page string="🔧 Instrumentos Predeterminados" name="instrumentos">
+                            <field name="instrumentos_predeterminados_ids">
+                                <list editable="bottom" create="true" delete="true">
+                                    <field name="sequence" widget="handle"/>
+                                    <field name="instrumento_id" required="1"/>
+                                    <field name="tipo_material" readonly="1"/>
+                                    <field name="cantidad_predeterminada"/>
+                                    <field name="cantidad_estandar" readonly="1"/>
+                                    <field name="entregado_en" widget="radio" options="{'horizontal': true}"/>
+                                    <field name="observaciones"/>
+                                </list>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Vista Search para Tipos de Cirugía -->
+    <record id="view_surgery_type_search" model="ir.ui.view">
+        <field name="name">surgery.type.search</field>
+        <field name="model">surgery.type</field>
+        <field name="arch" type="xml">
+            <search string="Buscar Tipos de Cirugía">
+                <field name="name" string="Nombre"/>
+                <field name="codigo" string="Código"/>
+                <field name="descripcion" string="Descripción"/>
+                
+                <separator/>
+                <filter name="filter_active" string="Activos" domain="[('active', '=', True)]"/>
+                <filter name="filter_inactive" string="Inactivos" domain="[('active', '=', False)]"/>
+                
+                <group expand="1" string="Group By">
+                    <filter name="group_active" string="Estado" context="{'group_by': 'active'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <!-- Acción Principal para Tipos de Cirugía -->
+    <record id="action_surgery_type" model="ir.actions.act_window">
+        <field name="name">Tipos de Cirugía</field>
+        <field name="res_model">surgery.type</field>
+        <field name="view_mode">list,form</field>
+        <field name="view_id" ref="view_surgery_type_tree"/>
+        <field name="search_view_id" ref="view_surgery_type_search"/>
+        <field name="context">{'search_default_filter_active': 1}</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Crear un nuevo tipo de cirugía
+            </p>
+            <p>
+                Gestiona los tipos de cirugía y sus instrumentos predeterminados para facilitar la creación de órdenes.
+            </p>
+        </field>
+    </record>
+
+</odoo> 

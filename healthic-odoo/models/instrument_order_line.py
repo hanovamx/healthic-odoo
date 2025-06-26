@@ -49,11 +49,6 @@ class InstrumentOrderLine(models.Model):
         help='Detalle específico del procedimiento o cirugía'
     )
     
-    medico_responsable = fields.Char(
-        string='Médico Responsable',
-        help='Nombre del médico responsable del procedimiento'
-    )
-    
     # Métodos aplicados
     lavado_aplicado = fields.Many2one(
         'instrument.method',
@@ -70,11 +65,33 @@ class InstrumentOrderLine(models.Model):
     )
     
     # Información del turno
-    turno = fields.Selection([
-        ('matutino', 'Matutino'),
-        ('vespertino', 'Vespertino'),
-        ('nocturno', 'Nocturno')
-    ], string='Turno', help='Turno en el que se procesó el instrumento')
+    responsable_empaquetado = fields.Many2one(
+        'res.users',
+        string='Responsable de Empaquetado',
+        help='Usuario responsable del empaquetado'
+    )
+    
+    tipo_empaquetado = fields.Selection([
+        ('grado_medico', 'Grado Médico (Tyvek/GMM)'),
+        ('sms', 'SMS (Polipropileno)'),
+        ('textil', 'Textil')
+    ], string='Tipo de Empaquetado', help='Tipo de material de empaquetado utilizado')
+    
+    responsable_revision = fields.Many2one(
+        'res.users',
+        string='Responsable de Revisión de Paquetes Estériles',
+        help='Usuario responsable de revisar los paquetes estériles'
+    )
+    
+    numero_autoclave = fields.Char(
+        string='# de Autoclave',
+        help='Número del autoclave utilizado'
+    )
+    
+    numero_carga = fields.Char(
+        string='# de Carga',
+        help='Número de carga del autoclave'
+    )
     
     # Estado del cincho verde (indicador de esterilización)
     cincho_verde = fields.Selection([
@@ -89,6 +106,11 @@ class InstrumentOrderLine(models.Model):
         default=1,
         help='Cantidad de unidades procesadas'
     )
+    
+    entregado_en = fields.Selection([
+        ('area_negra', 'Área Negra'),
+        ('area_blanca', 'Área Blanca')
+    ], string='Entregado en', required=True, help='Área donde se entrega el instrumental')
     
     # Observaciones específicas
     observaciones = fields.Text(
@@ -132,6 +154,13 @@ class InstrumentOrderLine(models.Model):
         string='Tipo de Material',
         store=True,
         readonly=True
+    )
+    
+    cantidad_estandar = fields.Integer(
+        related='instrumento_id.cantidad_estandar',
+        string='Cantidad Estándar',
+        readonly=True,
+        help='Cantidad estándar del instrumento'
     )
     
     # Validaciones de métodos permitidos

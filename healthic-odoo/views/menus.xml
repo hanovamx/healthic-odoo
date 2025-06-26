@@ -69,6 +69,13 @@
               action="action_instrument_method"
               sequence="30"/>
     
+    <!-- Tipos de Cirugía -->
+    <menuitem id="menu_surgery_types" 
+              name="🏥 Tipos de Cirugía" 
+              parent="menu_configuracion"
+              action="action_surgery_type"
+              sequence="40"/>
+    
     <!-- Submenu: Reportes -->
     <menuitem id="menu_reportes" 
               name="📈 Reportes" 

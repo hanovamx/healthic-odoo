@@ -1,0 +1,233 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+        <record id="surgery_type_parto" model="surgery.type">
+            <field name="name">Parto</field>
+            <field name="codigo">AUTO-SUR-001</field>
+        </record>
+        <record id="surgery_type_apendisectomia" model="surgery.type">
+            <field name="name">Apendisectomia</field>
+            <field name="codigo">AUTO-SUR-002</field>
+        </record>
+        <record id="surgery_type_orquidectomia" model="surgery.type">
+            <field name="name">Orquidectomia</field>
+            <field name="codigo">AUTO-SUR-003</field>
+        </record>
+        <record id="surgery_type_cesarea" model="surgery.type">
+            <field name="name">Cesarea</field>
+            <field name="codigo">AUTO-SUR-004</field>
+        </record>
+        <record id="surgery_type_quistectomia" model="surgery.type">
+            <field name="name">Quistectomia</field>
+            <field name="codigo">AUTO-SUR-005</field>
+        </record>
+        <record id="surgery_type_hernia_inguinal" model="surgery.type">
+            <field name="name">Hernia inguinal</field>
+            <field name="codigo">AUTO-SUR-006</field>
+        </record>
+        <record id="surgery_type_histerectomia_abdominal" model="surgery.type">
+            <field name="name">Histerectomia abdominal</field>
+            <field name="codigo">AUTO-SUR-007</field>
+        </record>
+        <record id="surgery_type_rafi_de_tobillo" model="surgery.type">
+            <field name="name">RAFI de tobillo</field>
+            <field name="codigo">AUTO-SUR-008</field>
+        </record>
+        <record id="surgery_type_rafi" model="surgery.type">
+            <field name="name">RAFI</field>
+            <field name="codigo">AUTO-SUR-009</field>
+        </record>
+        <record id="surgery_type_puncion_lumbar" model="surgery.type">
+            <field name="name">Puncion lumbar</field>
+            <field name="codigo">AUTO-SUR-010</field>
+        </record>
+        <record id="surgery_type_fx_mandibula" model="surgery.type">
+            <field name="name">Fx mandibula</field>
+            <field name="codigo">AUTO-SUR-011</field>
+        </record>
+        <record id="surgery_type_cerclaje" model="surgery.type">
+            <field name="name">Cerclaje</field>
+            <field name="codigo">AUTO-SUR-012</field>
+        </record>
+        <record id="surgery_type_manga_gastrica_1" model="surgery.type">
+            <field name="name">Manga Gastrica 1</field>
+            <field name="codigo">AUTO-SUR-013</field>
+        </record>
+        <record id="surgery_type_manga_gastrica_2" model="surgery.type">
+            <field name="name">Manga Gastrica 2</field>
+            <field name="codigo">AUTO-SUR-014</field>
+        </record>
+        <record id="surgery_type_septumplastia_reseccion_de_cornetes_endoscopia_nasal" model="surgery.type">
+            <field name="name">Septumplastia+reseccion de cornetes + endoscopia nasal</field>
+            <field name="codigo">AUTO-SUR-015</field>
+        </record>
+        <record id="surgery_type_retiro_de_jj_colocacion_de_jj" model="surgery.type">
+            <field name="name">Retiro de jj + colocacion de jj</field>
+            <field name="codigo">AUTO-SUR-016</field>
+        </record>
+        <record id="surgery_type_reduccionn_abierta_de_ostesintesis" model="surgery.type">
+            <field name="name">Reduccionn abierta de ostesintesis</field>
+            <field name="codigo">AUTO-SUR-017</field>
+        </record>
+        <record id="surgery_type_histerecromia_abdominal" model="surgery.type">
+            <field name="name">Histerecromia abdominal</field>
+            <field name="codigo">AUTO-SUR-018</field>
+        </record>
+        <record id="surgery_type_rtup" model="surgery.type">
+            <field name="name">RTUP</field>
+            <field name="codigo">AUTO-SUR-019</field>
+        </record>
+        <record id="surgery_type_lape" model="surgery.type">
+            <field name="name">LAPE</field>
+            <field name="codigo">AUTO-SUR-020</field>
+        </record>
+        <record id="surgery_type_legrado" model="surgery.type">
+            <field name="name">Legrado</field>
+            <field name="codigo">AUTO-SUR-021</field>
+        </record>
+        <record id="surgery_type_fluro_en_vena" model="surgery.type">
+            <field name="name">FLuro en vena</field>
+            <field name="codigo">AUTO-SUR-022</field>
+        </record>
+        <record id="surgery_type_parto_cesarea" model="surgery.type">
+            <field name="name">Parto/Cesarea</field>
+            <field name="codigo">AUTO-SUR-023</field>
+        </record>
+        <record id="surgery_type_fractura_nasal" model="surgery.type">
+            <field name="name">Fractura nasal</field>
+            <field name="codigo">AUTO-SUR-024</field>
+        </record>
+        <record id="surgery_type_manga_gastrica" model="surgery.type">
+            <field name="name">Manga Gastrica</field>
+            <field name="codigo">AUTO-SUR-025</field>
+        </record>
+        <record id="surgery_type_artroscopia_de_rodilla" model="surgery.type">
+            <field name="name">Artroscopia de rodilla</field>
+            <field name="codigo">AUTO-SUR-026</field>
+        </record>
+        <record id="surgery_type_sinustomia" model="surgery.type">
+            <field name="name">Sinustomia</field>
+            <field name="codigo">AUTO-SUR-027</field>
+        </record>
+        <record id="surgery_type_colocacion_de_cateter_jj" model="surgery.type">
+            <field name="name">colocacion de cateter jj</field>
+            <field name="codigo">AUTO-SUR-028</field>
+        </record>
+        <record id="surgery_type_nefropieloscopia" model="surgery.type">
+            <field name="name">Nefropieloscopia</field>
+            <field name="codigo">AUTO-SUR-029</field>
+        </record>
+        <record id="surgery_type_histerectomia" model="surgery.type">
+            <field name="name">Histerectomia</field>
+            <field name="codigo">AUTO-SUR-030</field>
+        </record>
+        <record id="surgery_type_colesistectonmia_por_laparoscopia" model="surgery.type">
+            <field name="name">Colesistectonmia por laparoscopia</field>
+            <field name="codigo">AUTO-SUR-031</field>
+        </record>
+        <record id="surgery_type_colocacion_cateter_jj" model="surgery.type">
+            <field name="name">Colocacion cateter jj</field>
+            <field name="codigo">AUTO-SUR-032</field>
+        </record>
+        <record id="surgery_type_laparoscopia_diagnostica" model="surgery.type">
+            <field name="name">Laparoscopia diagnostica</field>
+            <field name="codigo">AUTO-SUR-033</field>
+        </record>
+        <record id="surgery_type_colesietctomia_por_laparoscopia" model="surgery.type">
+            <field name="name">Colesietctomia por laparoscopia</field>
+            <field name="codigo">AUTO-SUR-034</field>
+        </record>
+        <record id="surgery_type_by_pass_gastrico" model="surgery.type">
+            <field name="name">By pass gastrico</field>
+            <field name="codigo">AUTO-SUR-035</field>
+        </record>
+        <record id="surgery_type_drenaje_abceso" model="surgery.type">
+            <field name="name">Drenaje abceso</field>
+            <field name="codigo">AUTO-SUR-036</field>
+        </record>
+        <record id="surgery_type_artroscopia" model="surgery.type">
+            <field name="name">Artroscopia</field>
+            <field name="codigo">AUTO-SUR-037</field>
+        </record>
+        <record id="surgery_type_laparoscopia_exploratoria" model="surgery.type">
+            <field name="name">Laparoscopia exploratoria</field>
+            <field name="codigo">AUTO-SUR-038</field>
+        </record>
+        <record id="surgery_type_ameu" model="surgery.type">
+            <field name="name">AMEU</field>
+            <field name="codigo">AUTO-SUR-039</field>
+        </record>
+        <record id="surgery_type_apendisectomia_por_laaproscopia" model="surgery.type">
+            <field name="name">Apendisectomia por laaproscopia</field>
+            <field name="codigo">AUTO-SUR-040</field>
+        </record>
+        <record id="surgery_type_safenoablacion" model="surgery.type">
+            <field name="name">Safenoablacion</field>
+            <field name="codigo">AUTO-SUR-041</field>
+        </record>
+        <record id="surgery_type_vambio_de_vac" model="surgery.type">
+            <field name="name">Vambio de vac</field>
+            <field name="codigo">AUTO-SUR-042</field>
+        </record>
+        <record id="surgery_type_cistoscopia" model="surgery.type">
+            <field name="name">Cistoscopia</field>
+            <field name="codigo">AUTO-SUR-043</field>
+        </record>
+        <record id="surgery_type_rtu_colocacion_cateter_doble_nefrocopia_percutanea" model="surgery.type">
+            <field name="name">RTU + colocacion cateter doble+nefrocopia percutanea</field>
+            <field name="codigo">AUTO-SUR-044</field>
+        </record>
+        <record id="surgery_type_retiro_de_implante" model="surgery.type">
+            <field name="name">Retiro de implante </field>
+            <field name="codigo">AUTO-SUR-045</field>
+        </record>
+        <record id="surgery_type_hemitireidectomia" model="surgery.type">
+            <field name="name">Hemitireidectomia</field>
+            <field name="codigo">AUTO-SUR-046</field>
+        </record>
+        <record id="surgery_type_discoidectomia_por_endoscopia" model="surgery.type">
+            <field name="name">Discoidectomia por endoscopia</field>
+            <field name="codigo">AUTO-SUR-047</field>
+        </record>
+        <record id="surgery_type_cateter_lip" model="surgery.type">
+            <field name="name">Cateter + LIP</field>
+            <field name="codigo">AUTO-SUR-048</field>
+        </record>
+        <record id="surgery_type_manga_gastrica_3" model="surgery.type">
+            <field name="name">Manga Gastrica 3</field>
+            <field name="codigo">AUTO-SUR-049</field>
+        </record>
+        <record id="surgery_type_manga_gastrica_4" model="surgery.type">
+            <field name="name">Manga Gastrica 4</field>
+            <field name="codigo">AUTO-SUR-050</field>
+        </record>
+        <record id="surgery_type_extraccion" model="surgery.type">
+            <field name="name">Extraccion</field>
+            <field name="codigo">AUTO-SUR-051</field>
+        </record>
+        <record id="surgery_type_abdominoplastia_liposuccion" model="surgery.type">
+            <field name="name">Abdominoplastia + liposuccion</field>
+            <field name="codigo">AUTO-SUR-052</field>
+        </record>
+        <record id="surgery_type_cateter" model="surgery.type">
+            <field name="name">Cateter </field>
+            <field name="codigo">AUTO-SUR-053</field>
+        </record>
+        <record id="surgery_type_miomectomia_por_laparoscopia" model="surgery.type">
+            <field name="name">Miomectomia por laparoscopia</field>
+            <field name="codigo">AUTO-SUR-054</field>
+        </record>
+        <record id="surgery_type_colonoscopia" model="surgery.type">
+            <field name="name">Colonoscopia</field>
+            <field name="codigo">AUTO-SUR-055</field>
+        </record>
+        <record id="surgery_type_retiro_de_cateter_jj" model="surgery.type">
+            <field name="name">Retiro de cateter jj</field>
+            <field name="codigo">AUTO-SUR-056</field>
+        </record>
+        <record id="surgery_type_laparatomia_exploratoria" model="surgery.type">
+            <field name="name">Laparatomia exploratoria</field>
+            <field name="codigo">AUTO-SUR-057</field>
+        </record>
+    </data>
+</odoo>

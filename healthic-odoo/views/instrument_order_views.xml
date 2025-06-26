@@ -159,6 +159,7 @@
                                     <field name="numero_cuenta"/>
                                     <field name="sala"/>
                                     <field name="tipo_cirugia"/>
+                                    <field name="medico_responsable"/>
                                 </group>
                                 <group name="reception_info">
                                     <field name="fecha_recepcion" widget="datetime"/>
@@ -167,9 +168,29 @@
                                     <field name="cincho_integro" widget="radio" options="{'horizontal': true}"/>
                                 </group>
                             </group>
+                            <group string="Instrumentos a Procesar">
+                                <field name="linea_ids" nolabel="1">
+                                    <list editable="bottom" create="true" delete="true">
+                                        <field name="instrumento_id" required="1"/>
+                                        <field name="cantidad"/>
+                                        <field name="cantidad_estandar" readonly="1"/>
+                                        <field name="entregado_en" widget="radio" options="{'horizontal': true}"/>
+                                        <field name="observaciones"/>
+                                    </list>
+                                </field>
+                            </group>
+                            <group string="Firmas">
+                                <group string="Firma de Entrega">
+                                    <field name="firma_entrega" widget="signature" nolabel="1"/>
+                                </group>
+                                <group string="Firma de Recepción">
+                                    <field name="firma_recibe" widget="signature" nolabel="1"/>
+                                </group>
+                            </group>
                             <group string="Observaciones Generales">
                                 <field name="observaciones" nolabel="1" placeholder="Observaciones generales de la orden..."/>
                             </group>
+
                         </page>
                         
                         <!-- 🔧 LAVADO -->
@@ -185,10 +206,12 @@
                             
                             <field name="linea_ids" 
                                    readonly="estado != 'en_lavado'">
-                                <list editable="bottom" create="true" delete="true">
-                                    <field name="instrumento_id" required="1"/>
-                                    <field name="cantidad"/>
+                                <list editable="bottom" create="false" delete="false">
+                                    <field name="instrumento_id" readonly="1"/>
+                                    <field name="cantidad" readonly="1"/>
+                                    <field name="entregado_en" readonly="1"/>
                                     <field name="lavado_aplicado" domain="[('tipo', '=', 'lavado')]"/>
+                                    <field name="esterilizacion_aplicada" domain="[('tipo', '=', 'esterilizacion')]"/>
                                     <field name="estado_entrega"/>
                                     <field name="fecha_entrada" widget="datetime"/>
                                     <field name="observaciones"/>
@@ -199,13 +222,18 @@
                         <!-- 📦 EMPAQUE -->
                         <page string="📦 Empaque" name="empaque" invisible="estado not in ['empaque', 'esterilizado', 'entregado']">
                             <field name="linea_ids" 
-                                   readonly="estado != 'empaque'">
+                                   readonly="estado != 'empaque'"
+                                   domain="[('entregado_en', '=', 'area_negra')]">
                                 <list editable="bottom" create="false" delete="false">
                                     <field name="instrumento_id" readonly="1"/>
                                     <field name="cantidad" readonly="1"/>
-                                    <field name="turno"/>
+                                    <field name="entregado_en" readonly="1"/>
+                                    <field name="responsable_empaquetado"/>
+                                    <field name="tipo_empaquetado" widget="radio" options="{'horizontal': true}"/>
+                                    <field name="responsable_revision"/>
+                                    <field name="numero_autoclave"/>
+                                    <field name="numero_carga"/>
                                     <field name="procedimiento_realizado"/>
-                                    <field name="medico_responsable"/>
                                     <field name="observaciones"/>
                                 </list>
                             </field>
@@ -227,7 +255,9 @@
                                 <list editable="bottom" create="false" delete="false">
                                     <field name="instrumento_id" readonly="1"/>
                                     <field name="cantidad" readonly="1"/>
-                                    <field name="esterilizacion_aplicada" domain="[('tipo', '=', 'esterilizacion')]"/>
+                                    <field name="entregado_en" readonly="1"/>
+                                    <field name="numero_autoclave" readonly="1"/>
+                                    <field name="numero_carga" readonly="1"/>
                                     <field name="fecha_salida" widget="datetime"/>
                                     <field name="cincho_verde" widget="radio" options="{'horizontal': true}"/>
                                     <field name="observaciones"/>
@@ -250,6 +280,7 @@
                             <group string="Evidencias del Proceso">
                                 <field name="evidencia_ids" widget="many2many_binary" nolabel="1"/>
                             </group>
+                        
                         </page>
                     </notebook>
                     
