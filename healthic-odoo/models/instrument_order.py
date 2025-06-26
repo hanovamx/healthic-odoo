@@ -322,9 +322,16 @@ class InstrumentOrder(models.Model):
             if not self.linea_ids:
                 new_lines = []
                 for pred_instrument in self.tipo_cirugia.instrumentos_predeterminados_ids:
+                    # Convertir cantidad_predeterminada de string a integer
+                    cantidad = 1
+                    try:
+                        cantidad = int(pred_instrument.cantidad_predeterminada or '1')
+                    except (ValueError, TypeError):
+                        cantidad = 1
+                    
                     new_lines.append((0, 0, {
                         'instrumento_id': pred_instrument.instrumento_id.id,
-                        'cantidad': pred_instrument.cantidad_predeterminada,
+                        'cantidad': cantidad,
                         'entregado_en': pred_instrument.entregado_en,
                         'observaciones': pred_instrument.observaciones or '',
                     }))
