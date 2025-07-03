@@ -68,6 +68,12 @@ class InstrumentCatalog(models.Model):
         help='Número único de dispositivo asignado por Healthic'
     )
     
+    id_healthic = fields.Char(
+        string='ID Healthic',
+        help='Identificador único de Healthic para trazabilidad individual',
+        copy=False
+    )
+    
     descripcion = fields.Text(
         string='Descripción',
         help='Descripción detallada del instrumento'

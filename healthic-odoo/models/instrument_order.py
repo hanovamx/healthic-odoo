@@ -179,8 +179,14 @@ class InstrumentOrder(models.Model):
     )
     
     medico_responsable = fields.Char(
+        string='Médico Responsable (Texto)',
+        help='Nombre del médico responsable del procedimiento (campo de texto libre)'
+    )
+    
+    medico_id = fields.Many2one(
+        'medical.doctor',
         string='Médico Responsable',
-        help='Nombre del médico responsable del procedimiento'
+        help='Médico responsable del procedimiento'
     )
     
     # Fechas del proceso
@@ -225,10 +231,78 @@ class InstrumentOrder(models.Model):
         help='Usuario responsable del proceso de lavado'
     )
     
+    quien_realiza_lavado = fields.Char(
+        string='Quien Realiza Lavado',
+        help='Nombre de la persona que realizó el lavado'
+    )
+    
+    metodo_lavado_id = fields.Many2one(
+        'instrument.method',
+        string='Método de Lavado',
+        domain=[('tipo', '=', 'lavado')],
+        help='Método de lavado utilizado'
+    )
+    
+    # Métodos de esterilización planificados
+    usar_autoclave = fields.Boolean(
+        string='Autoclave',
+        help='Se utilizará autoclave para esterilización'
+    )
+    
+    usar_peroxido = fields.Boolean(
+        string='Peróxido',
+        help='Se utilizará peróxido para esterilización'
+    )
+    
+    usar_oxido_etileno = fields.Boolean(
+        string='Óxido de Etileno',
+        help='Se utilizará óxido de etileno para esterilización'
+    )
+    
+    usar_plasma = fields.Boolean(
+        string='Plasma',
+        help='Se utilizará plasma para esterilización'
+    )
+    
     responsable_esterilizacion = fields.Many2one(
         'res.users', 
         string='Responsable de Esterilización',
         help='Usuario responsable del proceso de esterilización'
+    )
+    
+    # Información de equipo y carga para esterilización
+    equipo_esterilizacion = fields.Char(
+        string='Equipo de Esterilización',
+        help='Identificación del equipo utilizado para esterilización'
+    )
+    
+    numero_carga_esterilizacion = fields.Char(
+        string='Número de Carga',
+        help='Número de carga del proceso de esterilización'
+    )
+    
+    # Indicador biológico
+    tiene_indicador_biologico = fields.Boolean(
+        string='Indicador Biológico en Carga',
+        help='Indica si la carga incluye un indicador biológico'
+    )
+    
+    resultado_indicador_biologico = fields.Selection([
+        ('positivo', 'Positivo'),
+        ('negativo', 'Negativo'),
+        ('pendiente', 'Pendiente')
+    ], string='Resultado del Indicador Biológico', 
+       help='Resultado del indicador biológico')
+    
+    fecha_lectura_biologico = fields.Datetime(
+        string='Fecha de Lectura',
+        help='Fecha y hora de lectura del indicador biológico'
+    )
+    
+    responsable_lectura_biologico = fields.Many2one(
+        'res.users',
+        string='Responsable de Lectura',
+        help='Usuario que realizó la lectura del indicador biológico'
     )
     
     responsable_descarga = fields.Many2one(
@@ -276,14 +350,62 @@ class InstrumentOrder(models.Model):
         help='Registro de fallos o incidencias durante el proceso'
     )
     
-    # Campos de firma
+    # Campos para devolución a proveedor
+    requiere_devolucion = fields.Boolean(
+        string='Requiere Devolución a Proveedor',
+        help='Indica si algún instrumento requiere devolución al proveedor'
+    )
+    
+    motivo_devolucion = fields.Text(
+        string='Motivo de Devolución',
+        help='Razón por la cual se requiere la devolución'
+    )
+    
+    proveedor_devolucion = fields.Char(
+        string='Proveedor',
+        help='Nombre del proveedor al que se devolverá el instrumental'
+    )
+    
+    fecha_devolucion = fields.Date(
+        string='Fecha de Devolución',
+        help='Fecha en que se realizó o realizará la devolución'
+    )
+    
+    numero_guia_devolucion = fields.Char(
+        string='Número de Guía',
+        help='Número de guía o referencia de la devolución'
+    )
+    
+    # Campos de firma - Recepción
+    firma_entrega_hospitalaria = fields.Binary(
+        string='Firma Hospitalaria - Entrega',
+        help='Firma del personal del hospital que entrega el instrumental'
+    )
+    
+    firma_recibe_healthic = fields.Binary(
+        string='Firma Healthic - Recibe',
+        help='Firma del personal de Healthic que recibe el instrumental'
+    )
+    
+    # Campos de firma - Devolución
+    firma_entrega_healthic = fields.Binary(
+        string='Firma Healthic - Entrega',
+        help='Firma del personal de Healthic que entrega el instrumental procesado'
+    )
+    
+    firma_recibe_hospitalaria = fields.Binary(
+        string='Firma Hospitalaria - Recibe',
+        help='Firma del personal del hospital que recibe el instrumental procesado'
+    )
+    
+    # Campos antiguos para compatibilidad
     firma_entrega = fields.Binary(
-        string='Firma de Quien Entrega',
+        string='Firma de Quien Entrega (Deprecated)',
         help='Firma de la persona que entrega el instrumental'
     )
     
     firma_recibe = fields.Binary(
-        string='Firma de Quien Recibe',
+        string='Firma de Quien Recibe (Deprecated)',
         help='Firma de la persona que recibe el instrumental'
     )
     
@@ -398,6 +520,41 @@ class InstrumentOrder(models.Model):
         self.ensure_one()
         if not self.puede_iniciar_lavado:
             raise exceptions.UserError("No se puede iniciar el lavado en el estado actual")
+        
+        # TODO: REACTIVAR VALIDACIONES DESPUÉS DE FASE DE PRUEBAS
+        # Validar campos obligatorios
+        # campos_faltantes = []
+        # 
+        # if not self.cliente_id:
+        #     campos_faltantes.append('Cliente Hospitalario')
+        # if not self.fecha_recepcion:
+        #     campos_faltantes.append('Fecha de Recepción')
+        # if not self.linea_ids:
+        #     campos_faltantes.append('Instrumentos a Procesar')
+        # if not self.medico_id:
+        #     campos_faltantes.append('Médico Responsable')
+        # if not self.tipo_cirugia:
+        #     campos_faltantes.append('Tipo de Cirugía')
+        # if not self.sala:
+        #     campos_faltantes.append('Sala Quirúrgica')
+        # if not self.numero_cuenta:
+        #     campos_faltantes.append('Número de Cuenta')
+        # 
+        # # Verificar que se haya seleccionado al menos un método de esterilización
+        # if not any([self.usar_autoclave, self.usar_peroxido, self.usar_oxido_etileno, self.usar_plasma]):
+        #     campos_faltantes.append('Al menos un Método de Esterilización')
+        # 
+        # # Verificar firmas de recepción
+        # if not self.firma_entrega_hospitalaria:
+        #     campos_faltantes.append('Firma Hospitalaria de Entrega')
+        # if not self.firma_recibe_healthic:
+        #     campos_faltantes.append('Firma Healthic de Recepción')
+        # 
+        # if campos_faltantes:
+        #     raise exceptions.UserError(
+        #         f"No se puede iniciar el lavado. Los siguientes campos son obligatorios:\n" +
+        #         "\n".join(f"• {campo}" for campo in campos_faltantes)
+        #     )
         
         self.write({
             'estado': 'en_lavado',

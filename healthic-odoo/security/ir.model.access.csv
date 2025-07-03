@@ -13,3 +13,5 @@ access_surgery_type_user,surgery.type.user,model_surgery_type,base.group_user,1,
 access_surgery_type_manager,surgery.type.manager,model_surgery_type,base.group_system,1,1,1,1
 access_surgery_type_instrument_user,surgery.type.instrument.user,model_surgery_type_instrument,base.group_user,1,1,1,0
 access_surgery_type_instrument_manager,surgery.type.instrument.manager,model_surgery_type_instrument,base.group_system,1,1,1,1
+access_medical_doctor_user,medical.doctor.user,model_medical_doctor,base.group_user,1,1,1,0
+access_medical_doctor_manager,medical.doctor.manager,model_medical_doctor,base.group_system,1,1,1,1

@@ -5,3 +5,4 @@ from . import instrument_method
 from . import instrument_catalog
 from . import instrument_order
 from . import instrument_order_line
+from . import medical_doctor

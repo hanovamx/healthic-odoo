@@ -35,6 +35,18 @@ class InstrumentOrderLine(models.Model):
         ('deteriorado', 'Deteriorado')
     ], string='Estado de Entrega', default='completo', help='Estado de entrega del instrumento')
     
+    estado_entrega_area_negra = fields.Selection([
+        ('completo', 'Completo'),
+        ('faltante', 'Faltante'),
+        ('deteriorado', 'Deteriorado')
+    ], string='Estado en Área Negra', help='Estado del instrumental en área negra')
+    
+    estado_entrega_area_blanca = fields.Selection([
+        ('completo', 'Completo'),
+        ('faltante', 'Faltante'),
+        ('deteriorado', 'Deteriorado')
+    ], string='Estado en Área Blanca', help='Estado del instrumental en área blanca')
+    
     # Fechas específicas del elemento
     fecha_entrada = fields.Datetime(
         string='Fecha de Entrada',
@@ -60,6 +72,11 @@ class InstrumentOrderLine(models.Model):
         help='Método de lavado utilizado para este instrumento'
     )
     
+    tipo_esterilizacion_previo = fields.Char(
+        string='Tipo de Esterilización Previo',
+        help='Tipo de esterilización que tenía el instrumento antes del lavado'
+    )
+    
     esterilizacion_aplicada = fields.Many2one(
         'instrument.method',
         string='Método de Esterilización Aplicado',
@@ -73,6 +90,12 @@ class InstrumentOrderLine(models.Model):
         string='Responsable de Empaquetado',
         help='Usuario responsable del empaquetado'
     )
+    
+    turno_empaquetado = fields.Selection([
+        ('matutino', 'Matutino'),
+        ('vespertino', 'Vespertino'),
+        ('nocturno', 'Nocturno')
+    ], string='Turno de Empaquetado', help='Turno en que se realizó el empaquetado')
     
     tipo_empaquetado = fields.Selection([
         ('grado_medico', 'Grado Médico (Tyvek/GMM)'),
@@ -96,12 +119,7 @@ class InstrumentOrderLine(models.Model):
         help='Número de carga del autoclave'
     )
     
-    # Estado del cincho verde (indicador de esterilización)
-    cincho_verde = fields.Selection([
-        ('si', 'Sí'),
-        ('no', 'No'),
-        ('na', 'No Aplica')
-    ], string='Cincho Verde', default='na', help='Indicador de esterilización válida')
+
     
     # Cantidad procesada
     cantidad = fields.Integer(
@@ -113,7 +131,7 @@ class InstrumentOrderLine(models.Model):
     entregado_en = fields.Selection([
         ('area_negra', 'Área Negra'),
         ('area_blanca', 'Área Blanca')
-    ], string='Entregado en', default='area_negra', help='Área donde se entrega el instrumental')
+    ], string='Entregado en', help='Área donde se entrega el instrumental')
     
     # Observaciones específicas
     observaciones = fields.Text(
@@ -271,20 +289,21 @@ class InstrumentOrderLine(models.Model):
     
     def unlink(self):
         """Sobrescribir el método unlink para manejar eliminación de manera segura"""
-        for line in self:
-            # Verificar si la línea tiene datos importantes que no deberían eliminarse
-            if line.estado_orden in ['en_lavado', 'empaque', 'esterilizado', 'entregado']:
-                raise exceptions.ValidationError(
-                    f"No se puede eliminar la línea '{line.name_get()[0][1]}' porque la orden está en estado '{line.estado_orden}'. "
-                    "Considere archivar el registro en lugar de eliminarlo."
-                )
-            
-            # Verificar si hay datos de procesamiento que indican que ya se trabajó en esta línea
-            if line.fecha_entrada or line.fecha_salida or line.lavado_aplicado or line.esterilizacion_aplicada:
-                raise exceptions.ValidationError(
-                    f"No se puede eliminar la línea '{line.name_get()[0][1]}' porque ya tiene datos de procesamiento. "
-                    "Considere archivar el registro en lugar de eliminarlo."
-                )
+        # TODO: REACTIVAR VALIDACIONES DESPUÉS DE FASE DE PRUEBAS
+        # for line in self:
+        #     # Verificar si la línea tiene datos importantes que no deberían eliminarse
+        #     if line.estado_orden in ['en_lavado', 'empaque', 'esterilizado', 'entregado']:
+        #         raise exceptions.ValidationError(
+        #             f"No se puede eliminar la línea '{line.name_get()[0][1]}' porque la orden está en estado '{line.estado_orden}'. "
+        #             "Considere archivar el registro en lugar de eliminarlo."
+        #         )
+        #     
+        #     # Verificar si hay datos de procesamiento que indican que ya se trabajó en esta línea
+        #     if line.fecha_entrada or line.fecha_salida or line.lavado_aplicado or line.esterilizacion_aplicada:
+        #         raise exceptions.ValidationError(
+        #             f"No se puede eliminar la línea '{line.name_get()[0][1]}' porque ya tiene datos de procesamiento. "
+        #             "Considere archivar el registro en lugar de eliminarlo."
+        #         )
         
         return super().unlink()
     

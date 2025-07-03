@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+        <!-- Médicos Pre-cargados -->
+        <record id="doctor_martinez_garcia" model="medical.doctor">
+            <field name="name">Dr. Carlos Martínez García</field>
+            <field name="cedula_profesional">1234567</field>
+            <field name="especialidad">Cirugía General</field>
+            <field name="telefono">+52 555 123 4567</field>
+            <field name="email">carlos.martinez@hospital.com</field>
+        </record>
+        
+        <record id="doctor_rodriguez_lopez" model="medical.doctor">
+            <field name="name">Dra. María Rodríguez López</field>
+            <field name="cedula_profesional">2345678</field>
+            <field name="especialidad">Ginecología y Obstetricia</field>
+            <field name="telefono">+52 555 234 5678</field>
+            <field name="email">maria.rodriguez@hospital.com</field>
+        </record>
+        
+        <record id="doctor_hernandez_sanchez" model="medical.doctor">
+            <field name="name">Dr. Juan Hernández Sánchez</field>
+            <field name="cedula_profesional">3456789</field>
+            <field name="especialidad">Traumatología y Ortopedia</field>
+            <field name="telefono">+52 555 345 6789</field>
+            <field name="email">juan.hernandez@hospital.com</field>
+        </record>
+        
+        <record id="doctor_gonzalez_perez" model="medical.doctor">
+            <field name="name">Dra. Ana González Pérez</field>
+            <field name="cedula_profesional">4567890</field>
+            <field name="especialidad">Anestesiología</field>
+            <field name="telefono">+52 555 456 7890</field>
+            <field name="email">ana.gonzalez@hospital.com</field>
+        </record>
+        
+        <record id="doctor_lopez_fernandez" model="medical.doctor">
+            <field name="name">Dr. Roberto López Fernández</field>
+            <field name="cedula_profesional">5678901</field>
+            <field name="especialidad">Neurocirugía</field>
+            <field name="telefono">+52 555 567 8901</field>
+            <field name="email">roberto.lopez@hospital.com</field>
+        </record>
+        
+        <record id="doctor_diaz_morales" model="medical.doctor">
+            <field name="name">Dra. Laura Díaz Morales</field>
+            <field name="cedula_profesional">6789012</field>
+            <field name="especialidad">Cardiología</field>
+            <field name="telefono">+52 555 678 9012</field>
+            <field name="email">laura.diaz@hospital.com</field>
+        </record>
+        
+        <record id="doctor_ramirez_torres" model="medical.doctor">
+            <field name="name">Dr. Miguel Ramírez Torres</field>
+            <field name="cedula_profesional">7890123</field>
+            <field name="especialidad">Urología</field>
+            <field name="telefono">+52 555 789 0123</field>
+            <field name="email">miguel.ramirez@hospital.com</field>
+        </record>
+        
+        <record id="doctor_flores_castro" model="medical.doctor">
+            <field name="name">Dra. Patricia Flores Castro</field>
+            <field name="cedula_profesional">8901234</field>
+            <field name="especialidad">Oftalmología</field>
+            <field name="telefono">+52 555 890 1234</field>
+            <field name="email">patricia.flores@hospital.com</field>
+        </record>
+        
+        <record id="doctor_morales_jimenez" model="medical.doctor">
+            <field name="name">Dr. Fernando Morales Jiménez</field>
+            <field name="cedula_profesional">9012345</field>
+            <field name="especialidad">Gastroenterología</field>
+            <field name="telefono">+52 555 901 2345</field>
+            <field name="email">fernando.morales@hospital.com</field>
+        </record>
+        
+        <record id="doctor_torres_ruiz" model="medical.doctor">
+            <field name="name">Dra. Sofía Torres Ruiz</field>
+            <field name="cedula_profesional">0123456</field>
+            <field name="especialidad">Pediatría</field>
+            <field name="telefono">+52 555 012 3456</field>
+            <field name="email">sofia.torres@hospital.com</field>
+        </record>
+    </data>
+</odoo> 

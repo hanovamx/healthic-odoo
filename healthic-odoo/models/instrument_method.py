@@ -48,6 +48,23 @@ class InstrumentMethod(models.Model):
         help='Indica si este método requiere un proceso de secado adicional'
     )
     
+    # Tipos de ciclo para esterilización
+    tipo_ciclo = fields.Selection([
+        ('rapido', 'Ciclo Rápido'),
+        ('estandar', 'Ciclo Estándar'),
+        ('textil', 'Ciclo Textil'),
+        ('instrumental', 'Ciclo Instrumental'),
+        ('contenedores', 'Ciclo Contenedores'),
+        ('implantes', 'Ciclo Implantes')
+    ], string='Tipo de Ciclo', help='Tipo de ciclo de esterilización')
+    
+    tipo_carga = fields.Selection([
+        ('solida', 'Carga Sólida'),
+        ('porosa', 'Carga Porosa'),
+        ('liquida', 'Carga Líquida'),
+        ('mixta', 'Carga Mixta')
+    ], string='Tipo de Carga', help='Tipo de carga para la que está diseñado este ciclo')
+    
     # Estadísticas
     uso_count = fields.Integer(
         string='Veces Utilizado',

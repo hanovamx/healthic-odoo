@@ -155,17 +155,29 @@
                         <page string="📋 General" name="general">
                             <group>
                                 <group name="client_info">
-                                    <field name="cliente_id" required="1"/>
+                                    <!-- TO-DO: Reactivar required="1" después de fase de pruebas -->
+                                    <field name="cliente_id"/>
                                     <field name="numero_cuenta"/>
                                     <field name="sala"/>
                                     <field name="tipo_cirugia"/>
-                                    <field name="medico_responsable"/>
+                                    <field name="medico_id" options="{'no_quick_create': False, 'no_create_edit': False}"/>
+                                    <field name="medico_responsable" invisible="1"/>
                                 </group>
                                 <group name="reception_info">
                                     <field name="fecha_recepcion" widget="datetime"/>
                                     <field name="fecha_entrega" widget="datetime" readonly="1"/>
                                     <field name="instrumental_humedo" widget="boolean_toggle"/>
                                     <field name="cincho_integro" widget="radio" options="{'horizontal': true}"/>
+                                </group>
+                            </group>
+                            <group string="Métodos de Esterilización Planificados">
+                                <group>
+                                    <field name="usar_autoclave" widget="boolean_toggle"/>
+                                    <field name="usar_peroxido" widget="boolean_toggle"/>
+                                </group>
+                                <group>
+                                    <field name="usar_oxido_etileno" widget="boolean_toggle"/>
+                                    <field name="usar_plasma" widget="boolean_toggle"/>
                                 </group>
                             </group>
                             <group string="Instrumentos a Procesar">
@@ -179,16 +191,19 @@
                                     </list>
                                 </field>
                             </group>
-                            <group string="Firmas">
-                                <group string="Firma de Entrega">
-                                    <field name="firma_entrega" widget="signature" nolabel="1"/>
+                            <group string="Firmas de Recepción">
+                                <group string="Hospital Entrega">
+                                    <field name="firma_entrega_hospitalaria" widget="signature" nolabel="1"/>
                                 </group>
-                                <group string="Firma de Recepción">
-                                    <field name="firma_recibe" widget="signature" nolabel="1"/>
+                                <group string="Healthic Recibe">
+                                    <field name="firma_recibe_healthic" widget="signature" nolabel="1"/>
                                 </group>
                             </group>
                             <group string="Observaciones Generales">
                                 <field name="observaciones" nolabel="1" placeholder="Observaciones generales de la orden..."/>
+                            </group>
+                            <group>
+                                <field name="requiere_devolucion" widget="boolean_toggle"/>
                             </group>
 
                         </page>
@@ -198,6 +213,8 @@
                             <group>
                                 <group>
                                     <field name="responsable_lavado"/>
+                                    <field name="quien_realiza_lavado"/>
+                                    <field name="metodo_lavado_id"/>
                                 </group>
                                 <group>
                                     <field name="observaciones_lavado" placeholder="Observaciones del proceso de lavado..."/>
@@ -210,9 +227,11 @@
                                     <field name="instrumento_id" readonly="1"/>
                                     <field name="cantidad" readonly="1"/>
                                     <field name="entregado_en" readonly="1"/>
+                                    <field name="tipo_esterilizacion_previo"/>
                                     <field name="lavado_aplicado" domain="[('tipo', '=', 'lavado')]"/>
                                     <field name="esterilizacion_aplicada" domain="[('tipo', '=', 'esterilizacion')]"/>
-                                    <field name="estado_entrega"/>
+                                    <field name="estado_entrega_area_negra" invisible="entregado_en != 'area_negra'"/>
+                                    <field name="estado_entrega_area_blanca" invisible="entregado_en != 'area_blanca'"/>
                                     <field name="fecha_entrada" widget="datetime"/>
                                     <field name="observaciones"/>
                                 </list>
@@ -229,6 +248,7 @@
                                     <field name="cantidad" readonly="1"/>
                                     <field name="entregado_en" readonly="1"/>
                                     <field name="responsable_empaquetado"/>
+                                    <field name="turno_empaquetado" widget="radio" options="{'horizontal': true}"/>
                                     <field name="tipo_empaquetado" widget="radio" options="{'horizontal': true}"/>
                                     <field name="responsable_revision"/>
                                     <field name="numero_autoclave"/>
@@ -244,9 +264,23 @@
                             <group>
                                 <group>
                                     <field name="responsable_esterilizacion"/>
+                                    <field name="equipo_esterilizacion"/>
+                                    <field name="numero_carga_esterilizacion"/>
                                 </group>
                                 <group>
+                                    <field name="tiene_indicador_biologico" widget="boolean_toggle"/>
                                     <field name="observaciones_esterilizacion" placeholder="Observaciones del proceso de esterilización..."/>
+                                </group>
+                            </group>
+                            
+                            <group string="Indicador Biológico" invisible="not tiene_indicador_biologico">
+                                <group>
+                                    <!-- TODO: Reactivar required="tiene_indicador_biologico" después de fase de pruebas -->
+                                    <field name="resultado_indicador_biologico" widget="radio" options="{'horizontal': true}"/>
+                                    <field name="fecha_lectura_biologico"/>
+                                </group>
+                                <group>
+                                    <field name="responsable_lectura_biologico"/>
                                 </group>
                             </group>
                             
@@ -259,7 +293,6 @@
                                     <field name="numero_autoclave" readonly="1"/>
                                     <field name="numero_carga" readonly="1"/>
                                     <field name="fecha_salida" widget="datetime"/>
-                                    <field name="cincho_verde" widget="radio" options="{'horizontal': true}"/>
                                     <field name="observaciones"/>
                                 </list>
                             </field>
@@ -280,7 +313,33 @@
                             <group string="Evidencias del Proceso">
                                 <field name="evidencia_ids" widget="many2many_binary" nolabel="1"/>
                             </group>
+                            
+                            <group string="Firmas de Entrega">
+                                <group string="Healthic Entrega">
+                                    <field name="firma_entrega_healthic" widget="signature" nolabel="1"/>
+                                </group>
+                                <group string="Hospital Recibe">
+                                    <field name="firma_recibe_hospitalaria" widget="signature" nolabel="1"/>
+                                </group>
+                            </group>
                         
+                        </page>
+                        
+                        <!-- 🔄 DEVOLUCIÓN A PROVEEDOR -->
+                        <page string="🔄 Devolución" name="devolucion" invisible="not requiere_devolucion">
+                            <group>
+                                <group>
+                                    <field name="requiere_devolucion" invisible="1"/>
+                                    <!-- TODO: Reactivar required="requiere_devolucion" después de fase de pruebas -->
+                                    <field name="proveedor_devolucion"/>
+                                    <field name="fecha_devolucion"/>
+                                    <field name="numero_guia_devolucion"/>
+                                </group>
+                            </group>
+                            <group string="Motivo de Devolución">
+                                <!-- TODO: Reactivar required="requiere_devolucion" después de fase de pruebas -->
+                                <field name="motivo_devolucion" nolabel="1"/>
+                            </group>
                         </page>
                     </notebook>
                     
@@ -289,6 +348,8 @@
                     <field name="puede_iniciar_empaque" invisible="1"/>
                     <field name="puede_esterilizar" invisible="1"/>
                     <field name="puede_entregar" invisible="1"/>
+                    <field name="firma_entrega" invisible="1"/>
+                    <field name="firma_recibe" invisible="1"/>
                 </sheet>
                 
                 <!-- Chatter para Seguimiento -->
@@ -315,6 +376,7 @@
                 <field name="total_stu" sum="Total STU"/>
                 <field name="sala"/>
                 <field name="tipo_cirugia"/>
+                <field name="medico_id"/>
                 <field name="responsable_lavado"/>
                 <field name="responsable_esterilizacion"/>
                 <field name="duracion_proceso" avg="Promedio Duración"/>

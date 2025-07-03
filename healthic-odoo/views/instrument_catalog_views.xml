@@ -9,6 +9,7 @@
             <list string="Catálogo de Instrumentos" sample="1">
                 <field name="codigo"/>
                 <field name="numero_dispositivo"/>
+                <field name="id_healthic"/>
                 <field name="name"/>
                 <field name="tipo_material" decoration-info="tipo_material == 'instrumental'" 
                        decoration-warning="tipo_material == 'desechable'"
@@ -46,6 +47,9 @@
                         </div>
                         <div class="o_row">
                             <field name="numero_dispositivo" class="oe_inline" placeholder="No. de Dispositivo..."/>
+                        </div>
+                        <div class="o_row">
+                            <field name="id_healthic" class="oe_inline" placeholder="ID Healthic..."/>
                         </div>
                         <h1>
                             <field name="name" placeholder="Nombre del instrumento/material..."/>

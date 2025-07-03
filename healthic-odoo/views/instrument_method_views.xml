@@ -15,6 +15,8 @@
                 <field name="temperatura_max"/>
                 <field name="tiempo_proceso"/>
                 <field name="requiere_secado" widget="boolean_toggle"/>
+                <field name="tipo_ciclo" invisible="tipo != 'esterilizacion'"/>
+                <field name="tipo_carga" invisible="tipo != 'esterilizacion'"/>
                 <field name="active" widget="boolean_toggle"/>
             </list>
         </field>
@@ -27,40 +29,36 @@
         <field name="arch" type="xml">
             <form string="Método de Proceso">
                 <sheet>
-                    
-                    <widget name="web_ribbon" title="Inactivo" bg_color="bg-danger" invisible="active"/>
-                    
+                    <widget name="web_ribbon" title="Archivado" bg_color="bg-danger" invisible="active"/>
                     <div class="oe_title">
                         <h1>
                             <field name="name" placeholder="Nombre del método..."/>
                         </h1>
-                        <div class="o_row">
-                            <field name="tipo" widget="badge"/>
-                        </div>
                     </div>
-                    
                     <group>
-                        <group name="basic_info">
-                            <field name="active"/>
-                            <field name="tiempo_proceso" widget="integer"/>
+                        <group>
+                            <field name="tipo" required="1"/>
+                            <field name="active" invisible="1"/>
                             <field name="requiere_secado" widget="boolean_toggle"/>
                         </group>
-                        <group name="temperature_config">
+                        <group>
                             <field name="temperatura_min"/>
                             <field name="temperatura_max"/>
+                            <field name="tiempo_proceso"/>
                         </group>
                     </group>
-                    
-                    <group string="Descripción">
-                        <field name="descripcion" nolabel="1" placeholder="Descripción detallada del método y sus características..."/>
+                    <group invisible="tipo != 'esterilizacion'">
+                        <group>
+                            <field name="tipo_ciclo"/>
+                        </group>
+                        <group>
+                            <field name="tipo_carga"/>
+                        </group>
                     </group>
-                    
-                    <div class="alert alert-info" role="alert" invisible="tipo != 'esterilizacion'">
-                        <strong>Importante:</strong> Los métodos de esterilización requieren validación y certificación antes de su uso.
-                    </div>
+                    <group string="Descripción">
+                        <field name="descripcion" nolabel="1" placeholder="Descripción detallada del método..."/>
+                    </group>
                 </sheet>
-                
-                <!-- Chatter para Seguimiento -->
             </form>
         </field>
     </record>
@@ -100,51 +98,42 @@
         <field name="name">instrument.method.kanban</field>
         <field name="model">instrument.method</field>
         <field name="arch" type="xml">
-            <kanban default_group_by="tipo" class="o_kanban_small_column">
+            <kanban class="o_kanban_mobile" sample="1">
                 <field name="name"/>
                 <field name="tipo"/>
-                <field name="tiempo_proceso"/>
                 <field name="temperatura_min"/>
                 <field name="temperatura_max"/>
+                <field name="tiempo_proceso"/>
+                <field name="requiere_secado"/>
                 <field name="uso_count"/>
-                <field name="active"/>
                 <templates>
                     <t t-name="kanban-box">
-                        <div class="oe_kanban_card oe_kanban_global_click">
-                            <div class="oe_kanban_content">
-                                <div class="o_kanban_record_top">
-                                    <div class="o_kanban_record_headings">
-                                        <strong class="o_kanban_record_title">
-                                            <t t-esc="record.name.value"/>
-                                        </strong>
-                                    </div>
+                        <div t-attf-class="oe_kanban_global_click">
+                            <div class="o_kanban_record_top">
+                                <div class="o_kanban_record_headings">
+                                    <strong class="o_kanban_record_title">
+                                        <field name="name"/>
+                                    </strong>
                                 </div>
-                                
-                                <div class="o_kanban_record_body">
-                                    <div class="row">
-                                        <div class="col-6">
-                                            <strong>Tiempo:</strong><br/>
-                                            <t t-esc="record.tiempo_proceso.value"/> min
-                                        </div>
-                                        <div class="col-6">
-                                            <strong>Temp:</strong><br/>
-                                            <span t-if="record.temperatura_min.raw_value and record.temperatura_max.raw_value">
-                                                <t t-esc="record.temperatura_min.value"/>-<t t-esc="record.temperatura_max.value"/>°C
-                                            </span>
-                                            <span t-else="">N/A</span>
-                                        </div>
-                                    </div>
-                                    <div class="row mt-2">
-                                        <div class="col-12">
-                                            <strong>Uso:</strong> <t t-esc="record.uso_count.value"/> veces
-                                        </div>
-                                    </div>
+                                <field name="tipo" widget="label_selection" options="{'classes': {'lavado': 'info', 'esterilizacion': 'warning'}}"/>
+                            </div>
+                            <div class="o_kanban_record_body">
+                                <div t-if="record.temperatura_min.raw_value or record.temperatura_max.raw_value">
+                                    <i class="fa fa-thermometer-half" title="Temperatura"/> 
+                                    <span t-if="record.temperatura_min.raw_value"><field name="temperatura_min"/>°C</span>
+                                    <span t-if="record.temperatura_min.raw_value and record.temperatura_max.raw_value"> - </span>
+                                    <span t-if="record.temperatura_max.raw_value"><field name="temperatura_max"/>°C</span>
                                 </div>
-                                
-                                <div class="o_kanban_record_bottom">
-                                    <div class="oe_kanban_bottom_right">
-                                        <span t-if="!record.active.raw_value" class="badge badge-danger">Inactivo</span>
-                                    </div>
+                                <div t-if="record.tiempo_proceso.raw_value">
+                                    <i class="fa fa-clock-o" title="Tiempo"/> <field name="tiempo_proceso"/> min
+                                </div>
+                                <div t-if="record.requiere_secado.raw_value">
+                                    <i class="fa fa-wind" title="Requiere Secado"/> Requiere Secado
+                                </div>
+                            </div>
+                            <div class="o_kanban_record_bottom">
+                                <div class="oe_kanban_bottom_left">
+                                    <span><field name="uso_count"/> usos</span>
                                 </div>
                             </div>
                         </div>
@@ -154,20 +143,18 @@
         </field>
     </record>
 
-    <!-- Acción Principal para Métodos -->
+    <!-- Acción para Métodos -->
     <record id="action_instrument_method" model="ir.actions.act_window">
         <field name="name">Métodos de Proceso</field>
         <field name="res_model">instrument.method</field>
         <field name="view_mode">list,kanban,form</field>
-        <field name="view_id" ref="view_instrument_method_tree"/>
         <field name="search_view_id" ref="view_instrument_method_search"/>
-        <field name="context">{'search_default_filter_active': 1}</field>
         <field name="help" type="html">
             <p class="o_view_nocontent_smiling_face">
                 Crear un nuevo método de proceso
             </p>
             <p>
-                Configura los métodos de lavado y esterilización disponibles para el procesamiento de instrumental.
+                Configure los métodos de lavado y esterilización disponibles.
             </p>
         </field>
     </record>

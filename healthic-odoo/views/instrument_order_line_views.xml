@@ -44,7 +44,6 @@
                         <group name="sterilization_info">
                             <field name="esterilizacion_aplicada" domain="[('tipo', '=', 'esterilizacion')]" required="1"/>
                             <field name="fecha_salida" widget="datetime"/>
-                            <field name="cincho_verde" widget="radio" options="{'horizontal': true}"/>
                         </group>
                     </group>
                     <group>
@@ -84,7 +83,6 @@
                 <field name="fecha_salida" widget="datetime"/>
                 <field name="lavado_aplicado"/>
                 <field name="esterilizacion_aplicada"/>
-                <field name="cincho_verde"/>
                 <field name="observaciones"/>
                 <field name="active" invisible="1"/>
             </list>
@@ -176,7 +174,6 @@
                         <page string="🔬 Esterilización" name="esterilizacion">
                             <group>
                                 <field name="esterilizacion_aplicada"/>
-                                <field name="cincho_verde" widget="radio" options="{'horizontal': true}"/>
                             </group>
                         </page>
                     </notebook>
