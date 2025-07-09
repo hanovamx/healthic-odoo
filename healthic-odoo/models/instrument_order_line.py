@@ -111,6 +111,53 @@ class InstrumentOrderLine(models.Model):
         help='Método de esterilización utilizado para este instrumento'
     )
     
+    # ============================================================================
+    # NUEVOS CAMPOS PARA BACKLOG - MÉTODOS DE ESTERILIZACIÓN PLANIFICADOS
+    # ============================================================================
+    # Campos para heredar y mostrar los métodos seleccionados desde Lavado
+    # según requerimientos del backlog Julio 2025
+    # ============================================================================
+    
+    # Métodos de esterilización planificados (heredados de la orden)
+    metodo_esterilizacion_planificado_ids = fields.Many2many(
+        'instrument.method',
+        'line_planned_sterilization_rel',
+        'line_id',
+        'method_id',
+        string='Métodos de Esterilización Planificados',
+        domain=[('tipo', '=', 'esterilizacion')],
+        help='Métodos de esterilización que fueron seleccionados durante el lavado'
+    )
+    
+    # Campos relacionados para mostrar los métodos planificados desde la orden
+    usar_autoclave_planificado = fields.Boolean(
+        related='orden_id.usar_autoclave',
+        string='Autoclave (Planificado)',
+        readonly=True,
+        help='Indica si se planificó usar autoclave para este instrumento'
+    )
+    
+    usar_peroxido_planificado = fields.Boolean(
+        related='orden_id.usar_peroxido',
+        string='Peróxido (Planificado)',
+        readonly=True,
+        help='Indica si se planificó usar peróxido para este instrumento'
+    )
+    
+    usar_oxido_etileno_planificado = fields.Boolean(
+        related='orden_id.usar_oxido_etileno',
+        string='Óxido de Etileno (Planificado)',
+        readonly=True,
+        help='Indica si se planificó usar óxido de etileno para este instrumento'
+    )
+    
+    usar_plasma_planificado = fields.Boolean(
+        related='orden_id.usar_plasma',
+        string='Plasma (Planificado)',
+        readonly=True,
+        help='Indica si se planificó usar plasma para este instrumento'
+    )
+    
     # Información del turno
     responsable_empaquetado = fields.Many2one(
         'res.users',

@@ -170,7 +170,14 @@
                                     <field name="cincho_integro" widget="radio" options="{'horizontal': true}"/>
                                 </group>
                             </group>
+                            <!-- ============================================================================ -->
+                            <!-- MEJORA BACKLOG: Checkboxes para métodos de esterilización -->
+                            <!-- ============================================================================ -->
                             <group string="Métodos de Esterilización Planificados">
+                                <div class="alert alert-info" role="alert">
+                                    <strong>Información:</strong> Seleccione los métodos que se planifica usar. 
+                                    Estos se mostrarán automáticamente en la pestaña de Esterilización.
+                                </div>
                                 <group>
                                     <field name="usar_autoclave" widget="boolean_toggle"/>
                                     <field name="usar_peroxido" widget="boolean_toggle"/>
@@ -180,6 +187,7 @@
                                     <field name="usar_plasma" widget="boolean_toggle"/>
                                 </group>
                             </group>
+                            
                             <group string="Instrumentos a Procesar">
                                 <field name="linea_ids" nolabel="1">
                                     <list editable="bottom" create="true" delete="true">
@@ -191,7 +199,40 @@
                                     </list>
                                 </field>
                             </group>
-                            <group string="Firmas de Recepción">
+                            
+                            <!-- ============================================================================ -->
+                            <!-- MEJORA BACKLOG: Evidencias fotográficas en área de recepción -->
+                            <!-- ============================================================================ -->
+                            <group string="📸 Evidencias de Recepción">
+                                <div class="alert alert-success" role="alert">
+                                    <i class="fa fa-camera"></i> <strong>Evidencias Fotográficas:</strong> 
+                                    Cargue imágenes del instrumental al momento de la recepción (opcional pero recomendado).
+                                </div>
+                                <field name="evidencia_recepcion_ids" widget="many2many_binary" nolabel="1" 
+                                       options="{'accepted_file_extensions': '.jpg,.jpeg,.png,.pdf'}"/>
+                            </group>
+                            
+                            <!-- ============================================================================ -->
+                            <!-- MEJORA BACKLOG: Firmas separadas y etiquetadas claramente -->
+                            <!-- ============================================================================ -->
+                            <group string="✍️ Firmas de Salida de Instrumental" 
+                                   attrs="{'invisible': [('estado', 'not in', ['pendiente', 'en_lavado', 'empaque', 'esterilizado', 'entregado'])]}">
+                                <div class="alert alert-warning" role="alert">
+                                    <i class="fa fa-exclamation-triangle"></i> <strong>Obligatorio:</strong> 
+                                    Ambas firmas son requeridas antes de iniciar el lavado.
+                                </div>
+                                <group string="🏥 Firma Hospitalaria" name="firma_hospital_salida">
+                                    <label for="firma_salida_instrumental_hospitalaria" string="Personal del Hospital"/>
+                                    <field name="firma_salida_instrumental_hospitalaria" widget="signature" nolabel="1"/>
+                                </group>
+                                <group string="🏢 Firma Healthic" name="firma_healthic_salida">
+                                    <label for="firma_salida_instrumental_healthic" string="Personal de Healthic"/>
+                                    <field name="firma_salida_instrumental_healthic" widget="signature" nolabel="1"/>
+                                </group>
+                            </group>
+                            
+                            <!-- Mantener firmas originales ocultas para compatibilidad -->
+                            <group string="Firmas de Recepción (Compatibilidad)" invisible="1">
                                 <group string="Hospital Entrega">
                                     <field name="firma_entrega_hospitalaria" widget="signature" nolabel="1"/>
                                 </group>
@@ -199,6 +240,7 @@
                                     <field name="firma_recibe_healthic" widget="signature" nolabel="1"/>
                                 </group>
                             </group>
+                            
                             <group string="Observaciones Generales">
                                 <field name="observaciones" nolabel="1" placeholder="Observaciones generales de la orden..."/>
                             </group>
@@ -218,6 +260,29 @@
                                 </group>
                                 <group>
                                     <field name="observaciones_lavado" placeholder="Observaciones del proceso de lavado..."/>
+                                </group>
+                            </group>
+                            
+                            <!-- ============================================================================ -->
+                            <!-- MEJORA BACKLOG: Mostrar métodos de esterilización planificados en Lavado -->
+                            <!-- ============================================================================ -->
+                            <group string="🔬 Métodos de Esterilización Seleccionados (Desde General)" 
+                                   attrs="{'invisible': [('usar_autoclave', '=', False), ('usar_peroxido', '=', False), ('usar_oxido_etileno', '=', False), ('usar_plasma', '=', False)]}">
+                                <div class="alert alert-info" role="alert">
+                                    <i class="fa fa-info-circle"></i> <strong>Información:</strong> 
+                                    Los siguientes métodos fueron seleccionados en la pestaña General y se aplicarán en Esterilización.
+                                </div>
+                                <group>
+                                    <field name="usar_autoclave" widget="boolean_button" readonly="1" 
+                                           attrs="{'invisible': [('usar_autoclave', '=', False)]}"/>
+                                    <field name="usar_peroxido" widget="boolean_button" readonly="1"
+                                           attrs="{'invisible': [('usar_peroxido', '=', False)]}"/>
+                                </group>
+                                <group>
+                                    <field name="usar_oxido_etileno" widget="boolean_button" readonly="1"
+                                           attrs="{'invisible': [('usar_oxido_etileno', '=', False)]}"/>
+                                    <field name="usar_plasma" widget="boolean_button" readonly="1"
+                                           attrs="{'invisible': [('usar_plasma', '=', False)]}"/>
                                 </group>
                             </group>
                             
@@ -261,6 +326,28 @@
                         
                         <!-- 🔬 ESTERILIZACIÓN -->
                         <page string="🔬 Esterilización" name="esterilizacion" invisible="estado not in ['esterilizado', 'entregado']">
+                            <!-- ============================================================================ -->
+                            <!-- MEJORA BACKLOG: Mostrar métodos precargados desde Lavado -->
+                            <!-- ============================================================================ -->
+                            <group string="🔬 Métodos de Esterilización Planificados (Desde General)">
+                                <div class="alert alert-success" role="alert">
+                                    <i class="fa fa-check-circle"></i> <strong>Métodos Heredados:</strong> 
+                                    Los siguientes métodos fueron seleccionados previamente y están listos para aplicar.
+                                </div>
+                                <group>
+                                    <field name="usar_autoclave" widget="boolean_button" readonly="1" 
+                                           attrs="{'invisible': [('usar_autoclave', '=', False)]}"/>
+                                    <field name="usar_peroxido" widget="boolean_button" readonly="1"
+                                           attrs="{'invisible': [('usar_peroxido', '=', False)]}"/>
+                                </group>
+                                <group>
+                                    <field name="usar_oxido_etileno" widget="boolean_button" readonly="1"
+                                           attrs="{'invisible': [('usar_oxido_etileno', '=', False)]}"/>
+                                    <field name="usar_plasma" widget="boolean_button" readonly="1"
+                                           attrs="{'invisible': [('usar_plasma', '=', False)]}"/>
+                                </group>
+                            </group>
+                            
                             <group>
                                 <group>
                                     <field name="responsable_esterilizacion"/>
@@ -273,14 +360,81 @@
                                 </group>
                             </group>
                             
-                            <group string="Indicador Biológico" invisible="not tiene_indicador_biologico">
-                                <group>
-                                    <!-- TODO: Reactivar required="tiene_indicador_biologico" después de fase de pruebas -->
-                                    <field name="resultado_indicador_biologico" widget="radio" options="{'horizontal': true}"/>
-                                    <field name="fecha_lectura_biologico"/>
+                            <!-- ============================================================================ -->
+                            <!-- MEJORA BACKLOG: Configuración de biológicos según tecnología -->
+                            <!-- ============================================================================ -->
+                            <group string="🧪 Indicadores Biológicos por Tecnología" invisible="not tiene_indicador_biologico">
+                                <div class="alert alert-warning" role="alert">
+                                    <i class="fa fa-flask"></i> <strong>Indicadores Biológicos:</strong> 
+                                    Configure según el tipo de tecnología de esterilización utilizada.
+                                </div>
+                                
+                                <!-- Biológico para Vapor/Autoclave -->
+                                <group string="🔥 Vapor (Autoclave)" 
+                                       attrs="{'invisible': [('usar_autoclave', '=', False)]}">
+                                    <group>
+                                        <label for="resultado_indicador_biologico" string="Resultado Biológico Vapor"/>
+                                        <field name="resultado_indicador_biologico" widget="radio" options="{'horizontal': true}" nolabel="1"/>
+                                        <field name="fecha_lectura_biologico"/>
+                                    </group>
+                                    <group>
+                                        <field name="responsable_lectura_biologico"/>
+                                        <div class="text-muted">
+                                            <small>Incubación: 56°C por 24-48h<br/>
+                                            Microorganismo: Geobacillus stearothermophilus</small>
+                                        </div>
+                                    </group>
                                 </group>
-                                <group>
-                                    <field name="responsable_lectura_biologico"/>
+                                
+                                <!-- Biológico para Peróxido -->
+                                <group string="🧪 Peróxido de Hidrógeno" 
+                                       attrs="{'invisible': [('usar_peroxido', '=', False)]}">
+                                    <group>
+                                        <label for="resultado_indicador_biologico" string="Resultado Biológico Peróxido"/>
+                                        <field name="resultado_indicador_biologico" widget="radio" options="{'horizontal': true}" nolabel="1"/>
+                                        <field name="fecha_lectura_biologico"/>
+                                    </group>
+                                    <group>
+                                        <field name="responsable_lectura_biologico"/>
+                                        <div class="text-muted">
+                                            <small>Incubación: 56°C por 24h<br/>
+                                            Microorganismo: Geobacillus stearothermophilus</small>
+                                        </div>
+                                    </group>
+                                </group>
+                                
+                                <!-- Biológico para Óxido de Etileno -->
+                                <group string="🌬️ Óxido de Etileno (ETO)" 
+                                       attrs="{'invisible': [('usar_oxido_etileno', '=', False)]}">
+                                    <group>
+                                        <label for="resultado_indicador_biologico" string="Resultado Biológico ETO"/>
+                                        <field name="resultado_indicador_biologico" widget="radio" options="{'horizontal': true}" nolabel="1"/>
+                                        <field name="fecha_lectura_biologico"/>
+                                    </group>
+                                    <group>
+                                        <field name="responsable_lectura_biologico"/>
+                                        <div class="text-muted">
+                                            <small>Incubación: 35-37°C por 48h<br/>
+                                            Microorganismo: Bacillus atrophaeus</small>
+                                        </div>
+                                    </group>
+                                </group>
+                                
+                                <!-- Biológico para Plasma -->
+                                <group string="⚡ Plasma Gas" 
+                                       attrs="{'invisible': [('usar_plasma', '=', False)]}">
+                                    <group>
+                                        <label for="resultado_indicador_biologico" string="Resultado Biológico Plasma"/>
+                                        <field name="resultado_indicador_biologico" widget="radio" options="{'horizontal': true}" nolabel="1"/>
+                                        <field name="fecha_lectura_biologico"/>
+                                    </group>
+                                    <group>
+                                        <field name="responsable_lectura_biologico"/>
+                                        <div class="text-muted">
+                                            <small>Incubación: 56°C por 24h<br/>
+                                            Microorganismo: Geobacillus stearothermophilus</small>
+                                        </div>
+                                    </group>
                                 </group>
                             </group>
                             
@@ -292,6 +446,11 @@
                                     <field name="entregado_en" readonly="1"/>
                                     <field name="numero_autoclave" readonly="1"/>
                                     <field name="numero_carga" readonly="1"/>
+                                    <!-- MEJORA BACKLOG: Mostrar métodos planificados heredados -->
+                                    <field name="usar_autoclave_planificado" readonly="1"/>
+                                    <field name="usar_peroxido_planificado" readonly="1"/>
+                                    <field name="usar_oxido_etileno_planificado" readonly="1"/>
+                                    <field name="usar_plasma_planificado" readonly="1"/>
                                     <field name="fecha_salida" widget="datetime"/>
                                     <field name="observaciones"/>
                                 </list>
@@ -314,7 +473,26 @@
                                 <field name="evidencia_ids" widget="many2many_binary" nolabel="1"/>
                             </group>
                             
-                            <group string="Firmas de Entrega">
+                            <!-- ============================================================================ -->
+                            <!-- MEJORA BACKLOG: Firmas de Recepción/Recolección claramente etiquetadas -->
+                            <!-- ============================================================================ -->
+                            <group string="✍️ Firmas de Recepción/Recolección">
+                                <div class="alert alert-warning" role="alert">
+                                    <i class="fa fa-exclamation-triangle"></i> <strong>Obligatorio:</strong> 
+                                    Ambas firmas son requeridas antes de completar la entrega.
+                                </div>
+                                <group string="🏢 Firma Healthic" name="firma_healthic_recepcion">
+                                    <label for="firma_recepcion_recoleccion_healthic" string="Personal de Healthic"/>
+                                    <field name="firma_recepcion_recoleccion_healthic" widget="signature" nolabel="1"/>
+                                </group>
+                                <group string="🏥 Firma Hospitalaria" name="firma_hospital_recepcion">
+                                    <label for="firma_recepcion_recoleccion_hospitalaria" string="Personal del Hospital"/>
+                                    <field name="firma_recepcion_recoleccion_hospitalaria" widget="signature" nolabel="1"/>
+                                </group>
+                            </group>
+                            
+                            <!-- Mantener firmas originales ocultas para compatibilidad -->
+                            <group string="Firmas de Entrega (Compatibilidad)" invisible="1">
                                 <group string="Healthic Entrega">
                                     <field name="firma_entrega_healthic" widget="signature" nolabel="1"/>
                                 </group>

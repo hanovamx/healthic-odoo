@@ -17,6 +17,10 @@
                 <field name="requiere_secado" widget="boolean_toggle"/>
                 <field name="tipo_ciclo" invisible="tipo != 'esterilizacion'"/>
                 <field name="tipo_carga" invisible="tipo != 'esterilizacion'"/>
+                <!-- MEJORA BACKLOG: Mostrar configuración de biológicos -->
+                <field name="requiere_biologico" widget="boolean_toggle" invisible="tipo != 'esterilizacion'"/>
+                <field name="tipo_biologico" invisible="tipo != 'esterilizacion'"/>
+                <field name="frecuencia_biologico" invisible="tipo != 'esterilizacion'"/>
                 <field name="active" widget="boolean_toggle"/>
             </list>
         </field>
@@ -55,6 +59,25 @@
                             <field name="tipo_carga"/>
                         </group>
                     </group>
+                    
+                    <!-- ============================================================================ -->
+                    <!-- MEJORA BACKLOG: Configuración de biológicos por tecnología -->
+                    <!-- ============================================================================ -->
+                    <group string="🧪 Configuración de Indicadores Biológicos" invisible="tipo != 'esterilizacion'">
+                        <group>
+                            <field name="requiere_biologico" widget="boolean_toggle"/>
+                            <field name="tipo_biologico" attrs="{'invisible': [('requiere_biologico', '=', False)]}"/>
+                            <field name="frecuencia_biologico" attrs="{'invisible': [('requiere_biologico', '=', False)]}"/>
+                        </group>
+                        <group>
+                            <field name="tiempo_incubacion_biologico" attrs="{'invisible': [('requiere_biologico', '=', False)]}"/>
+                            <field name="temperatura_incubacion_biologico" attrs="{'invisible': [('requiere_biologico', '=', False)]}"/>
+                        </group>
+                        <group string="Observaciones del Biológico" attrs="{'invisible': [('requiere_biologico', '=', False)]}">
+                            <field name="observaciones_biologico" nolabel="1" placeholder="Instrucciones específicas para el manejo del indicador biológico..."/>
+                        </group>
+                    </group>
+                    
                     <group string="Descripción">
                         <field name="descripcion" nolabel="1" placeholder="Descripción detallada del método..."/>
                     </group>

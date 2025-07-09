@@ -226,6 +226,16 @@ Para soporte técnico o consultas: info@healthic.com
 
 ## Actualizaciones Recientes
 
+### v1.2 - Mejoras Post-Piloto (Julio 2025) ✨
+- ✅ **Firmas Separadas**: Campos de firma divididos en "Salida de Instrumental" y "Recepción/Recolección" con etiquetas claras "Hospitalaria" y "Healthic"
+- ✅ **Validaciones Obligatorias**: Firmas requeridas antes de avanzar al siguiente estado del flujo
+- ✅ **Checkboxes Esterilización**: Selección múltiple de métodos de esterilización en pestaña Lavado
+- ✅ **Herencia de Métodos**: Métodos seleccionados en Lavado se muestran automáticamente en Esterilización
+- ✅ **Biológicos Configurables**: Indicadores biológicos específicos por tecnología (Vapor, Peróxido, ETO, Plasma)
+- ✅ **Evidencias Fotográficas**: Campo para subir imágenes en área de recepción con vista de miniaturas
+- ✅ **UX Mejorada**: Alertas informativas, iconos descriptivos y mejor organización visual
+- ✅ **Etiquetas Biológicos**: Secciones separadas por tipo de tecnología con especificaciones técnicas
+
 ### v1.1 - Correcciones de Acceso
 - ✅ Agregado valor por defecto al campo `entregado_en` (ahora opcional)
 - ✅ Campo `estado_entrega` ahora es opcional con valor por defecto

@@ -65,6 +65,51 @@ class InstrumentMethod(models.Model):
         ('mixta', 'Carga Mixta')
     ], string='Tipo de Carga', help='Tipo de carga para la que está diseñado este ciclo')
     
+    # ============================================================================
+    # NUEVOS CAMPOS PARA BACKLOG - CONFIGURACIÓN DE BIOLÓGICOS
+    # ============================================================================
+    # Campos para configurar indicadores biológicos según tipo de tecnología
+    # según requerimientos del backlog Julio 2025
+    # ============================================================================
+    
+    # Configuración específica para indicadores biológicos
+    requiere_biologico = fields.Boolean(
+        string='Requiere Indicador Biológico',
+        default=False,
+        help='Indica si este método requiere indicador biológico'
+    )
+    
+    tipo_biologico = fields.Selection([
+        ('vapor', 'Vapor - Geobacillus stearothermophilus'),
+        ('peroxido', 'Peróxido - Geobacillus stearothermophilus'),
+        ('eto', 'ETO - Bacillus atrophaeus'),
+        ('plasma', 'Plasma - Geobacillus stearothermophilus')
+    ], string='Tipo de Biológico', 
+       help='Tipo de indicador biológico específico para esta tecnología')
+    
+    tiempo_incubacion_biologico = fields.Integer(
+        string='Tiempo de Incubación (horas)',
+        help='Tiempo de incubación requerido para el indicador biológico'
+    )
+    
+    temperatura_incubacion_biologico = fields.Float(
+        string='Temperatura de Incubación (°C)',
+        help='Temperatura de incubación para el indicador biológico'
+    )
+    
+    frecuencia_biologico = fields.Selection([
+        ('cada_carga', 'Cada Carga'),
+        ('diario', 'Diario'),
+        ('semanal', 'Semanal'),
+        ('mensual', 'Mensual')
+    ], string='Frecuencia de Uso',
+       help='Frecuencia recomendada para el uso del indicador biológico')
+    
+    observaciones_biologico = fields.Text(
+        string='Observaciones del Biológico',
+        help='Instrucciones específicas para el manejo del indicador biológico'
+    )
+    
     # Estadísticas
     uso_count = fields.Integer(
         string='Veces Utilizado',
