@@ -3,29 +3,56 @@
 from odoo import models, fields, api, exceptions
 
 
+# ============================================================================
+# LÍNEA DE DETALLE DE ORDEN DE INSTRUMENTAL
+# ============================================================================
+# Este modelo representa cada instrumento individual dentro de una orden.
+# Es el "puente" que conecta una orden con un instrumento específico del catálogo.
+#
+# ESTRUCTURA DE LA RELACIÓN:
+# - InstrumentOrder (1) ←→ (N) InstrumentOrderLine (N) ←→ (1) InstrumentCatalog
+# - Cada línea representa un instrumento específico que será procesado
+# - Una orden puede tener múltiples líneas (múltiples instrumentos)
+# - Un instrumento puede aparecer en múltiples órdenes (múltiples líneas)
+#
+# FUNCIONES PRINCIPALES:
+# - Almacenar información específica del procesamiento de cada instrumento
+# - Mantener el estado individual de cada instrumento en la orden
+# - Permitir diferentes métodos de lavado/esterilización por instrumento
+# - Calcular STU individual para facturación
+# ============================================================================
 class InstrumentOrderLine(models.Model):
     _name = 'instrument.order.line'
     _description = 'Línea de Detalle de Orden de Instrumental'
-    _order = 'orden_id, id'
-    _active_name = 'active'
+    _order = 'orden_id, id'  # Ordenar por orden y luego por ID
+    _active_name = 'active'  # Campo para archivar en lugar de eliminar
 
     active = fields.Boolean(string='Activo', default=True, help='Indica si el registro está activo')
 
-    # Relación con la orden principal
+    # ============================================================================
+    # RELACIONES PRINCIPALES
+    # ============================================================================
+    # Estas son las dos relaciones más importantes que definen la estructura
+    # de datos del módulo.
+    # ============================================================================
+    
+    # Relación con la orden principal (Many2one)
+    # Cada línea pertenece a una orden específica
     orden_id = fields.Many2one(
-        'instrument.order',
+        'instrument.order',  # Modelo de la orden
         string='Orden',
-        required=True,
-        ondelete='cascade',
+        required=True,       # Campo obligatorio
+        ondelete='cascade',  # Si se elimina la orden, se eliminan todas sus líneas
         help='Orden a la que pertenece esta línea'
     )
     
-    # Instrumento utilizado
+    # Relación con el instrumento del catálogo (Many2one)
+    # Cada línea representa un instrumento específico del catálogo
     instrumento_id = fields.Many2one(
-        'instrument.catalog',
+        'instrument.catalog',  # Modelo del catálogo de instrumentos
         string='Instrumento/Material',
-        required=True,
-        help='Instrumento o material procesado'
+        required=True,         # Campo obligatorio
+        help='Instrumento o material procesado. Viene del catálogo de instrumentos.'
     )
     
     # Estado de entrega
@@ -155,55 +182,95 @@ class InstrumentOrderLine(models.Model):
         help='Duración del procesamiento individual'
     )
     
-    # Campos relacionados para facilitar búsquedas
+    # ============================================================================
+    # CAMPOS RELACIONADOS - INFORMACIÓN DE CONTEXTO
+    # ============================================================================
+    # Estos campos muestran información relacionada que viene de otros modelos.
+    # Son útiles para búsquedas, filtros y mostrar contexto sin necesidad de
+    # hacer consultas adicionales.
+    #
+    # IMPORTANTE: Los campos con store=True se guardan en la base de datos
+    # para mejorar el rendimiento en búsquedas y reportes.
+    # ============================================================================
+    
+    # Información de la orden padre
     cliente_id = fields.Many2one(
-        related='orden_id.cliente_id',
+        related='orden_id.cliente_id',  # Viene de la orden
         string='Cliente',
-        store=True,
-        readonly=True
+        store=True,                     # Se guarda en BD para mejor rendimiento
+        readonly=True                   # No se puede editar directamente
     )
     
     estado_orden = fields.Selection(
-        related='orden_id.estado',
+        related='orden_id.estado',      # Viene de la orden
         string='Estado de la Orden',
-        store=True,
-        readonly=True
+        store=True,                     # Se guarda en BD para mejor rendimiento
+        readonly=True                   # No se puede editar directamente
     )
     
+    # Información del instrumento del catálogo
     tipo_material = fields.Selection(
-        related='instrumento_id.tipo_material',
+        related='instrumento_id.tipo_material',  # Viene del catálogo
         string='Tipo de Material',
-        store=True,
-        readonly=True
+        store=True,                              # Se guarda en BD para mejor rendimiento
+        readonly=True                            # No se puede editar directamente
     )
     
     cantidad_estandar = fields.Integer(
-        related='instrumento_id.cantidad_estandar',
+        related='instrumento_id.cantidad_estandar',  # Viene del catálogo
         string='Cantidad Estándar',
-        readonly=True,
-        help='Cantidad estándar del instrumento'
+        readonly=True,                               # No se puede editar directamente
+        help='Cantidad estándar del instrumento según el catálogo'
     )
     
-    # Validaciones de métodos permitidos
+    # ============================================================================
+    # MÉTODOS PERMITIDOS - VALIDACIONES DE SEGURIDAD
+    # ============================================================================
+    # Estos campos muestran qué métodos de lavado y esterilización están
+    # permitidos para este instrumento específico. Se usan para validar
+    # que no se apliquen métodos incompatibles o dañinos al instrumento.
+    #
+    # IMPORTANTE: Estos campos vienen del catálogo de instrumentos donde
+    # se configuran los métodos permitidos para cada tipo de instrumento.
+    # ============================================================================
+    
+    # Métodos de lavado permitidos para este instrumento
     lavado_permitido_ids = fields.Many2many(
-        related='instrumento_id.lavado_permitido_ids',
+        related='instrumento_id.lavado_permitido_ids',  # Viene del catálogo
         string='Métodos de Lavado Permitidos',
-        readonly=True
+        readonly=True,                                  # No se puede editar directamente
+        help='Métodos de lavado que se pueden aplicar a este instrumento'
     )
     
+    # Métodos de esterilización permitidos para este instrumento
     esterilizacion_permitida_ids = fields.Many2many(
-        related='instrumento_id.esterilizacion_permitida_ids',
+        related='instrumento_id.esterilizacion_permitida_ids',  # Viene del catálogo
         string='Métodos de Esterilización Permitidos',
-        readonly=True
+        readonly=True,                                          # No se puede editar directamente
+        help='Métodos de esterilización que se pueden aplicar a este instrumento'
     )
     
+    # ============================================================================
+    # CÁLCULO DE STU INDIVIDUAL
+    # ============================================================================
+    # Este método calcula las unidades de esterilización (STU) para esta
+    # línea específica. El STU se usa para facturación y control de costos.
+    #
+    # FÓRMULA: STU = Equivalencia del instrumento × Cantidad procesada
+    #
+    # IMPORTANTE: La equivalencia viene del catálogo de instrumentos
+    # y representa el valor en unidades de esterilización estándar.
+    # ============================================================================
     @api.depends('instrumento_id', 'cantidad')
     def _compute_stu_calculado(self):
         """Calcular STU basado en la cantidad y equivalencia del instrumento"""
         for line in self:
+            # Verificar que el instrumento tenga una equivalencia STU definida
             if line.instrumento_id and line.instrumento_id.equivalente_stu:
+                # Calcular STU: equivalencia × cantidad procesada
                 line.stu_calculado = line.cantidad * line.instrumento_id.equivalente_stu
             else:
+                # Si no hay equivalencia definida, el STU es 0
                 line.stu_calculado = 0
     
     @api.depends('fecha_entrada', 'fecha_salida')

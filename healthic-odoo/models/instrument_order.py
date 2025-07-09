@@ -4,33 +4,66 @@ from odoo import models, fields, api, exceptions
 from datetime import datetime
 
 
+# ============================================================================
+# TIPOS DE CIRUGÍA
+# ============================================================================
+# Este modelo define los diferentes tipos de procedimientos quirúrgicos
+# y los instrumentos que típicamente se necesitan para cada uno.
+#
+# FUNCIONES PRINCIPALES:
+# - Definir tipos de cirugía disponibles en el sistema
+# - Configurar instrumentos predeterminados por tipo de cirugía
+# - Facilitar la carga automática de instrumentos en órdenes
+# - Mantener estándares de instrumentación por procedimiento
+#
+# RELACIÓN CON INSTRUMENTOS:
+# - SurgeryType (1) ←→ (N) SurgeryTypeInstrument (N) ←→ (1) InstrumentCatalog
+# - Cada tipo de cirugía puede tener múltiples instrumentos predeterminados
+# - Los instrumentos predeterminados se cargan automáticamente al crear órdenes
+# ============================================================================
 class SurgeryType(models.Model):
     _name = 'surgery.type'
     _description = 'Tipos de Cirugía'
-    _order = 'name'
+    _order = 'name'  # Ordenar alfabéticamente por nombre
 
+    # ============================================================================
+    # INFORMACIÓN BÁSICA DEL TIPO DE CIRUGÍA
+    # ============================================================================
+    
     name = fields.Char(
         string='Nombre de la Cirugía',
-        required=True,
+        required=True,  # Campo obligatorio
         help='Nombre del tipo de cirugía'
     )
     
     codigo = fields.Char(
         string='Código',
-        help='Código interno de la cirugía'
+        help='Código interno de la cirugía para identificación rápida'
     )
     
     descripcion = fields.Text(
         string='Descripción',
-        help='Descripción detallada de la cirugía'
+        help='Descripción detallada de la cirugía y sus características'
     )
     
-    # Relación con instrumentos predeterminados
+    # ============================================================================
+    # RELACIÓN CON INSTRUMENTOS PREDETERMINADOS
+    # ============================================================================
+    # Esta es la relación más importante: define qué instrumentos se cargan
+    # automáticamente cuando se selecciona este tipo de cirugía en una orden.
+    #
+    # FLUJO DE TRABAJO:
+    # 1. Se configura un tipo de cirugía con sus instrumentos predeterminados
+    # 2. Al crear una orden, se selecciona el tipo de cirugía
+    # 3. Se ejecuta automáticamente el método _onchange_tipo_cirugia
+    # 4. Se cargan los instrumentos predeterminados como líneas de la orden
+    # ============================================================================
     instrumentos_predeterminados_ids = fields.One2many(
-        'surgery.type.instrument',
-        'surgery_type_id',
+        'surgery.type.instrument',  # Modelo intermedio que conecta cirugía con instrumentos
+        'surgery_type_id',          # Campo Many2one en el modelo intermedio
         string='Instrumentos Predeterminados',
-        help='Instrumentos que típicamente se necesitan para esta cirugía'
+        help='Instrumentos que típicamente se necesitan para esta cirugía. '
+             'Se cargan automáticamente al seleccionar este tipo de cirugía en una orden.'
     )
     
     active = fields.Boolean(string='Activo', default=True)
@@ -311,12 +344,30 @@ class InstrumentOrder(models.Model):
         help='Usuario responsable de la descarga/entrega'
     )
     
-    # Relaciones con líneas de detalle
+    # ============================================================================
+    # RELACIÓN PRINCIPAL CON INSTRUMENTOS
+    # ============================================================================
+    # Esta es la relación más importante del módulo: conecta una orden con sus
+    # instrumentos individuales. Cada línea representa un instrumento específico
+    # que será procesado en esta orden.
+    #
+    # ESTRUCTURA DE LA RELACIÓN:
+    # - InstrumentOrder (1) ←→ (N) InstrumentOrderLine (N) ←→ (1) InstrumentCatalog
+    # - Una orden puede tener múltiples instrumentos
+    # - Cada instrumento puede aparecer en múltiples órdenes
+    # - La eliminación de una orden elimina automáticamente todas sus líneas (cascade)
+    #
+    # FLUJO DE TRABAJO:
+    # 1. Se crea una orden vacía
+    # 2. Se selecciona un tipo de cirugía → se cargan automáticamente los instrumentos predeterminados
+    # 3. Se pueden agregar/quitar instrumentos manualmente
+    # 4. Cada línea mantiene el estado individual del procesamiento
+    # ============================================================================
     linea_ids = fields.One2many(
-        'instrument.order.line',
-        'orden_id',
+        'instrument.order.line',  # Modelo de las líneas de detalle
+        'orden_id',              # Campo Many2one en la línea que apunta a esta orden
         string='Líneas de Instrumental',
-        help='Detalle de instrumentos en esta orden'
+        help='Detalle de instrumentos en esta orden. Cada línea representa un instrumento específico que será procesado.'
     )
     
     # Evidencias y archivos adjuntos
@@ -409,18 +460,28 @@ class InstrumentOrder(models.Model):
         help='Firma de la persona que recibe el instrumental'
     )
     
-    # Campos computados
+    # ============================================================================
+    # CAMPOS COMPUTADOS - TOTALES DE LA ORDEN
+    # ============================================================================
+    # Estos campos calculan automáticamente los totales basándose en las líneas
+    # de instrumentos. Se actualizan cada vez que se modifica una línea.
+    #
+    # IMPORTANTE: Los campos computados con store=True se guardan en la base de datos
+    # para mejorar el rendimiento en búsquedas y reportes.
+    # ============================================================================
     total_instrumentos = fields.Integer(
         string='Total de Instrumentos',
-        compute='_compute_totales',
-        store=True
+        compute='_compute_totales',  # Método que calcula el valor
+        store=True,                  # Se guarda en BD para mejor rendimiento
+        help='Número total de instrumentos en esta orden (calculado automáticamente)'
     )
     
     total_stu = fields.Float(
         string='Total STU',
-        compute='_compute_totales',
-        store=True,
-        digits=(10, 4)
+        compute='_compute_totales',  # Mismo método que calcula ambos totales
+        store=True,                  # Se guarda en BD para mejor rendimiento
+        digits=(10, 4),              # Precisión decimal para cálculos de facturación
+        help='Total de unidades de esterilización (STU) para facturación'
     )
     
     duracion_proceso = fields.Float(
@@ -462,34 +523,72 @@ class InstrumentOrder(models.Model):
                 pass
         return "MS2-001"
     
+    # ============================================================================
+    # CARGA AUTOMÁTICA DE INSTRUMENTOS POR TIPO DE CIRUGÍA
+    # ============================================================================
+    # Este método se ejecuta automáticamente cuando el usuario selecciona un
+    # tipo de cirugía en la orden. Carga los instrumentos predeterminados que
+    # típicamente se necesitan para ese tipo de procedimiento.
+    #
+    # FLUJO:
+    # 1. Usuario selecciona tipo de cirugía
+    # 2. Se ejecuta este método automáticamente (@api.onchange)
+    # 3. Se obtienen los instrumentos predeterminados del tipo de cirugía
+    # 4. Se crean las líneas de detalle automáticamente
+    # 5. El usuario puede modificar/agregar/quitar instrumentos después
+    #
+    # NOTA: Los instrumentos predeterminados se configuran en el modelo
+    # SurgeryTypeInstrument y se pueden editar desde la vista del tipo de cirugía.
+    # ============================================================================
     @api.onchange('tipo_cirugia')
     def _onchange_tipo_cirugia(self):
         """Precargar instrumentos predeterminados cuando se selecciona un tipo de cirugía"""
         if self.tipo_cirugia and self.tipo_cirugia.instrumentos_predeterminados_ids:
-            # Limpiar líneas existentes si es una nueva orden
+            # Solo cargar si no hay líneas existentes (evitar sobrescribir datos)
             if not self.linea_ids:
                 new_lines = []
                 for pred_instrument in self.tipo_cirugia.instrumentos_predeterminados_ids:
-                    # Convertir cantidad_predeterminada de string a integer
+                    # Convertir cantidad_predeterminada de string a integer de forma segura
                     cantidad = 1
                     try:
                         cantidad = int(pred_instrument.cantidad_predeterminada or '1')
                     except (ValueError, TypeError):
-                        cantidad = 1
+                        cantidad = 1  # Valor por defecto si hay error en la conversión
                     
+                    # Crear nueva línea usando la sintaxis de Odoo para One2many
+                    # (0, 0, {...}) = crear nueva línea
                     new_lines.append((0, 0, {
-                        'instrumento_id': pred_instrument.instrumento_id.id,
-                        'cantidad': cantidad,
-                        'entregado_en': pred_instrument.entregado_en,
-                        'observaciones': pred_instrument.observaciones or '',
+                        'instrumento_id': pred_instrument.instrumento_id.id,  # Instrumento del catálogo
+                        'cantidad': cantidad,  # Cantidad predeterminada convertida
+                        'entregado_en': pred_instrument.entregado_en,  # Área de entrega (negra/blanca)
+                        'observaciones': pred_instrument.observaciones or '',  # Observaciones específicas
                     }))
+                # Asignar las líneas creadas al campo One2many
                 self.linea_ids = new_lines
     
+    # ============================================================================
+    # CÁLCULO AUTOMÁTICO DE TOTALES
+    # ============================================================================
+    # Este método calcula automáticamente los totales de la orden basándose
+    # en las líneas de instrumentos. Se ejecuta cada vez que se modifica
+    # una línea o se cambia un instrumento.
+    #
+    # CAMPOS CALCULADOS:
+    # - total_instrumentos: Número de líneas (instrumentos) en la orden
+    # - total_stu: Suma de las unidades de esterilización (STU) de todos los instrumentos
+    #
+    # IMPORTANTE: El decorador @api.depends especifica qué campos activan
+    # el recálculo automático.
+    # ============================================================================
     @api.depends('linea_ids', 'linea_ids.instrumento_id')
     def _compute_totales(self):
         """Calcular totales de instrumentos y STU"""
         for order in self:
+            # Contar el número total de instrumentos (líneas)
             order.total_instrumentos = len(order.linea_ids)
+            
+            # Calcular el total STU sumando la equivalencia de cada instrumento
+            # equivalente_stu viene del catálogo de instrumentos (InstrumentCatalog)
             order.total_stu = sum(
                 line.instrumento_id.equivalente_stu or 0 
                 for line in order.linea_ids
