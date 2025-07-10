@@ -345,7 +345,7 @@
                             <!-- MEJORA BACKLOG: Firmas de Recepción/Recolección claramente etiquetadas -->
                             <!-- ============================================================================ -->
                             <group string="✍️ Firmas de Recepción/Recolección">
-                                <div class="alert alert-warning" role="alert">
+                                <div class="alert alert-warning" role="alert" colspan="4">
                                     <i class="fa fa-exclamation-triangle"></i> <strong>Obligatorio:</strong> 
                                     Ambas firmas son requeridas antes de completar la entrega.
                                 </div>
