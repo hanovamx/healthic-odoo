@@ -74,23 +74,15 @@
                             <group string="Descripción">
                                 <field name="descripcion" nolabel="1" placeholder="Descripción detallada del instrumento..."/>
                             </group>
-                        </page>
-                        
-                        <!-- Pestaña: Métodos Permitidos -->
-                        <page string="🔧 Métodos Permitidos" name="metodos_permitidos">
-                            <group>
-                                <group string="Métodos de Lavado">
-                                    <field name="lavado_permitido_ids" nolabel="1" widget="many2many_tags" domain="[('tipo', '=', 'lavado')]"/>
-                                </group>
-                                <group string="Métodos de Esterilización">
-                                    <field name="esterilizacion_permitida_ids" nolabel="1" widget="many2many_tags" domain="[('tipo', '=', 'esterilizacion')]"/>
-                                </group>
-                            </group>
                             
-                            <group string="Compatibilidad">
-                                <div class="alert alert-info" role="alert">
-                                    <strong>Información:</strong> Los métodos seleccionados serán los únicos disponibles para este instrumento durante el procesamiento.
-                                </div>
+                            <group string="Métodos Predeterminados" invisible="tipo_material not in ['instrumental', 'textil']">
+                                <p class="text-muted">
+                                    Configuración de métodos por defecto para este instrumento. Estos valores se usarán automáticamente al crear líneas de orden.
+                                </p>
+                                <group>
+                                    <field name="lavado_metodo_default" widget="radio" options="{'horizontal': true}"/>
+                                    <field name="esterilizacion_metodo_default" widget="radio" options="{'horizontal': true}"/>
+                                </group>
                             </group>
                         </page>
                         
@@ -98,12 +90,6 @@
                         <page string="📝 Observaciones y Configuración" name="observaciones">
                             <group string="Observaciones Especiales">
                                 <field name="observaciones" nolabel="1" placeholder="Observaciones especiales para el manejo del instrumento..."/>
-                            </group>
-                            
-                            <group string="Configuración Técnica" invisible="tipo_material not in ['instrumental', 'textil']">
-                                <p class="text-muted">
-                                    Configuración especial para instrumental y textiles reutilizables.
-                                </p>
                             </group>
                             
                             <group string="Información de Consumibles" invisible="tipo_material != 'consumible'">
@@ -168,7 +154,7 @@
                 <field name="uso_count"/>
                 <field name="active"/>
                 <templates>
-                    <t t-name="kanban-box">
+                    <t t-name="card">
                         <div class="oe_kanban_card oe_kanban_global_click">
                             <div class="oe_kanban_content">
                                 <div class="o_kanban_record_top">

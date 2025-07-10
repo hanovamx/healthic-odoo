@@ -91,72 +91,20 @@ class InstrumentOrderLine(models.Model):
         help='Detalle específico del procedimiento o cirugía'
     )
     
-    # Métodos aplicados
-    lavado_aplicado = fields.Many2one(
-        'instrument.method',
-        string='Método de Lavado Aplicado',
-        domain=[('tipo', '=', 'lavado')],
-        help='Método de lavado utilizado para este instrumento'
-    )
+    # Cambiar de Many2many a Selection
+    lavado_metodo = fields.Selection([
+        ('manual', 'Manual'),
+        ('ultrasonico', 'Ultrasónico'),
+        ('termodinamico', 'Termodinámico')
+    ], string='Método de Lavado')
     
-    tipo_esterilizacion_previo = fields.Char(
-        string='Tipo de Esterilización Previo',
-        help='Tipo de esterilización que tenía el instrumento antes del lavado'
-    )
+    esterilizacion_metodo = fields.Selection([
+        ('alta_vapor', 'Alta Vapor'),
+        ('baja_peroxido', 'Baja Peróxido'),
+        ('baja_peroxido_eto', 'Baja Peróxido ETO')
+    ], string='Método de Esterilización')
     
-    esterilizacion_aplicada = fields.Many2one(
-        'instrument.method',
-        string='Método de Esterilización Aplicado',
-        domain=[('tipo', '=', 'esterilizacion')],
-        help='Método de esterilización utilizado para este instrumento'
-    )
-    
-    # ============================================================================
-    # NUEVOS CAMPOS PARA BACKLOG - MÉTODOS DE ESTERILIZACIÓN PLANIFICADOS
-    # ============================================================================
-    # Campos para heredar y mostrar los métodos seleccionados desde Lavado
-    # según requerimientos del backlog Julio 2025
-    # ============================================================================
-    
-    # Métodos de esterilización planificados (heredados de la orden)
-    metodo_esterilizacion_planificado_ids = fields.Many2many(
-        'instrument.method',
-        'line_planned_sterilization_rel',
-        'line_id',
-        'method_id',
-        string='Métodos de Esterilización Planificados',
-        domain=[('tipo', '=', 'esterilizacion')],
-        help='Métodos de esterilización que fueron seleccionados durante el lavado'
-    )
-    
-    # Campos relacionados para mostrar los métodos planificados desde la orden
-    usar_autoclave_planificado = fields.Boolean(
-        related='orden_id.usar_autoclave',
-        string='Autoclave (Planificado)',
-        readonly=True,
-        help='Indica si se planificó usar autoclave para este instrumento'
-    )
-    
-    usar_peroxido_planificado = fields.Boolean(
-        related='orden_id.usar_peroxido',
-        string='Peróxido (Planificado)',
-        readonly=True,
-        help='Indica si se planificó usar peróxido para este instrumento'
-    )
-    
-    usar_oxido_etileno_planificado = fields.Boolean(
-        related='orden_id.usar_oxido_etileno',
-        string='Óxido de Etileno (Planificado)',
-        readonly=True,
-        help='Indica si se planificó usar óxido de etileno para este instrumento'
-    )
-    
-    usar_plasma_planificado = fields.Boolean(
-        related='orden_id.usar_plasma',
-        string='Plasma (Planificado)',
-        readonly=True,
-        help='Indica si se planificó usar plasma para este instrumento'
-    )
+    # Eliminar referencias y lógica de métodos antiguos y relaciones Many2many
     
     # Información del turno
     responsable_empaquetado = fields.Many2one(
@@ -270,32 +218,8 @@ class InstrumentOrderLine(models.Model):
         help='Cantidad estándar del instrumento según el catálogo'
     )
     
-    # ============================================================================
-    # MÉTODOS PERMITIDOS - VALIDACIONES DE SEGURIDAD
-    # ============================================================================
-    # Estos campos muestran qué métodos de lavado y esterilización están
-    # permitidos para este instrumento específico. Se usan para validar
-    # que no se apliquen métodos incompatibles o dañinos al instrumento.
-    #
-    # IMPORTANTE: Estos campos vienen del catálogo de instrumentos donde
-    # se configuran los métodos permitidos para cada tipo de instrumento.
-    # ============================================================================
-    
-    # Métodos de lavado permitidos para este instrumento
-    lavado_permitido_ids = fields.Many2many(
-        related='instrumento_id.lavado_permitido_ids',  # Viene del catálogo
-        string='Métodos de Lavado Permitidos',
-        readonly=True,                                  # No se puede editar directamente
-        help='Métodos de lavado que se pueden aplicar a este instrumento'
-    )
-    
-    # Métodos de esterilización permitidos para este instrumento
-    esterilizacion_permitida_ids = fields.Many2many(
-        related='instrumento_id.esterilizacion_permitida_ids',  # Viene del catálogo
-        string='Métodos de Esterilización Permitidos',
-        readonly=True,                                          # No se puede editar directamente
-        help='Métodos de esterilización que se pueden aplicar a este instrumento'
-    )
+    # Todos los campos related a lavado_permitido_ids y esterilizacion_permitida_ids han sido eliminados.
+    # También se eliminan las validaciones y métodos asociados a esos campos.
     
     # ============================================================================
     # CÁLCULO DE STU INDIVIDUAL
@@ -329,48 +253,6 @@ class InstrumentOrderLine(models.Model):
                 line.duracion_individual = delta.total_seconds() / 3600
             else:
                 line.duracion_individual = 0
-    
-    @api.onchange('instrumento_id')
-    def _onchange_instrumento_id(self):
-        """Limpiar métodos si no son compatibles con el nuevo instrumento"""
-        if self.instrumento_id:
-            # Limpiar método de lavado si no es compatible
-            if (self.lavado_aplicado and 
-                self.instrumento_id.lavado_permitido_ids and 
-                self.lavado_aplicado not in self.instrumento_id.lavado_permitido_ids):
-                self.lavado_aplicado = False
-            
-            # Limpiar método de esterilización si no es compatible  
-            if (self.esterilizacion_aplicada and
-                self.instrumento_id.esterilizacion_permitida_ids and
-                self.esterilizacion_aplicada not in self.instrumento_id.esterilizacion_permitida_ids):
-                self.esterilizacion_aplicada = False
-    
-    @api.constrains('lavado_aplicado', 'instrumento_id')
-    def _check_lavado_permitido(self):
-        """Validar que el método de lavado sea compatible con el instrumento"""
-        for line in self:
-            if (line.lavado_aplicado and 
-                line.instrumento_id and 
-                line.instrumento_id.lavado_permitido_ids and
-                line.lavado_aplicado not in line.instrumento_id.lavado_permitido_ids):
-                raise exceptions.ValidationError(
-                    f"El método de lavado '{line.lavado_aplicado.name}' no es compatible "
-                    f"con el instrumento '{line.instrumento_id.name}'"
-                )
-    
-    @api.constrains('esterilizacion_aplicada', 'instrumento_id')
-    def _check_esterilizacion_permitida(self):
-        """Validar que el método de esterilización sea compatible con el instrumento"""
-        for line in self:
-            if (line.esterilizacion_aplicada and
-                line.instrumento_id and
-                line.instrumento_id.esterilizacion_permitida_ids and
-                line.esterilizacion_aplicada not in line.instrumento_id.esterilizacion_permitida_ids):
-                raise exceptions.ValidationError(
-                    f"El método de esterilización '{line.esterilizacion_aplicada.name}' no es compatible "
-                    f"con el instrumento '{line.instrumento_id.name}'"
-                )
     
     @api.constrains('fecha_entrada', 'fecha_salida')
     def _check_fechas_individuales(self):
@@ -425,4 +307,36 @@ class InstrumentOrderLine(models.Model):
         """Archivar la línea en lugar de eliminarla"""
         for line in self:
             line.active = False
-        return True 
+        return True
+
+    @api.onchange('instrumento_id')
+    def _onchange_instrumento_id(self):
+        """Actualizar valores por defecto cuando se selecciona un instrumento"""
+        if self.instrumento_id:
+            # Actualizar método de lavado por defecto
+            if not self.lavado_metodo and self.instrumento_id.lavado_metodo_default:
+                self.lavado_metodo = self.instrumento_id.lavado_metodo_default
+            
+            # Actualizar método de esterilización por defecto
+            if not self.esterilizacion_metodo and self.instrumento_id.esterilizacion_metodo_default:
+                self.esterilizacion_metodo = self.instrumento_id.esterilizacion_metodo_default
+            
+            # Actualizar cantidad por defecto
+            if not self.cantidad and self.instrumento_id.cantidad_estandar:
+                self.cantidad = self.instrumento_id.cantidad_estandar 
+
+    @api.model
+    def create(self, vals):
+        """Crear línea de orden con valores por defecto del catálogo"""
+        if 'instrumento_id' in vals:
+            instrumento = self.env['instrument.catalog'].browse(vals['instrumento_id'])
+            # Asignar método de lavado por defecto si no se especifica
+            if 'lavado_metodo' not in vals and instrumento.lavado_metodo_default:
+                vals['lavado_metodo'] = instrumento.lavado_metodo_default
+            # Asignar método de esterilización por defecto si no se especifica
+            if 'esterilizacion_metodo' not in vals and instrumento.esterilizacion_metodo_default:
+                vals['esterilizacion_metodo'] = instrumento.esterilizacion_metodo_default
+            # Asignar cantidad estándar si no se especifica
+            if 'cantidad' not in vals and instrumento.cantidad_estandar:
+                vals['cantidad'] = instrumento.cantidad_estandar
+        return super().create(vals) 

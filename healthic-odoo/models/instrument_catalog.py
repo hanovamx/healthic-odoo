@@ -46,39 +46,6 @@ class InstrumentCatalog(models.Model):
     ], string='Tipo de Material', required=True)
     
     # ============================================================================
-    # MÉTODOS PERMITIDOS - CONFIGURACIÓN DE SEGURIDAD
-    # ============================================================================
-    # Estos campos definen qué métodos de lavado y esterilización se pueden
-    # aplicar a cada instrumento. Son fundamentales para la seguridad y
-    # el correcto procesamiento del instrumental médico.
-    #
-    # IMPORTANTE: Estos campos se usan para validar que no se apliquen
-    # métodos incompatibles o dañinos al instrumento durante el procesamiento.
-    # ============================================================================
-    
-    # Métodos de lavado permitidos para este instrumento
-    lavado_permitido_ids = fields.Many2many(
-        'instrument.method',           # Modelo de métodos
-        'catalog_lavado_method_rel',   # Tabla intermedia para la relación
-        'catalog_id',                  # Campo en la tabla intermedia que apunta al catálogo
-        'method_id',                   # Campo en la tabla intermedia que apunta al método
-        string='Métodos de Lavado Permitidos',
-        domain=[('tipo', '=', 'lavado')],  # Solo mostrar métodos de tipo 'lavado'
-        help='Métodos de lavado que se pueden aplicar a este instrumento de forma segura'
-    )
-    
-    # Métodos de esterilización permitidos para este instrumento
-    esterilizacion_permitida_ids = fields.Many2many(
-        'instrument.method',                    # Modelo de métodos
-        'catalog_esterilizacion_method_rel',    # Tabla intermedia para la relación
-        'catalog_id',                           # Campo en la tabla intermedia que apunta al catálogo
-        'method_id',                            # Campo en la tabla intermedia que apunta al método
-        string='Métodos de Esterilización Permitidos',
-        domain=[('tipo', '=', 'esterilizacion')],  # Solo mostrar métodos de tipo 'esterilización'
-        help='Métodos de esterilización que se pueden aplicar a este instrumento de forma segura'
-    )
-    
-    # ============================================================================
     # CAMPOS PARA FACTURACIÓN Y CONTROL DE COSTOS
     # ============================================================================
     # Estos campos son fundamentales para el cálculo de costos y la facturación
@@ -142,6 +109,18 @@ class InstrumentCatalog(models.Model):
         string='Observaciones',
         help='Observaciones especiales para el manejo del instrumento'
     )
+    
+    lavado_metodo_default = fields.Selection([
+        ('manual', 'Manual'),
+        ('ultrasonico', 'Ultrasónico'),
+        ('termodinamico', 'Termodinámico')
+    ], string='Método de Lavado Predeterminado', help='Método de lavado sugerido para este instrumento. Se usará como valor por defecto al crear líneas de orden.')
+
+    esterilizacion_metodo_default = fields.Selection([
+        ('alta_vapor', 'Alta Vapor'),
+        ('baja_peroxido', 'Baja Peróxido'),
+        ('baja_peroxido_eto', 'Baja Peróxido ETO')
+    ], string='Método de Esterilización Predeterminado', help='Método de esterilización sugerido para este instrumento. Se usará como valor por defecto al crear líneas de orden.')
     
     # ============================================================================
     # CAMPOS COMPUTADOS - ESTADÍSTICAS DE USO

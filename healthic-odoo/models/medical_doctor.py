@@ -67,11 +67,21 @@ class MedicalDoctor(models.Model):
     def _compute_display_name(self):
         """Calcular el nombre a mostrar del médico"""
         for doctor in self:
-            parts = [doctor.name]
-            if doctor.especialidad:
-                parts.append(f"({doctor.especialidad})")
-            if doctor.cedula_profesional:
-                parts.append(f"- Céd: {doctor.cedula_profesional}")
+            parts = []
+            # Ensure name is a string and not empty
+            if doctor.name and str(doctor.name).strip():
+                parts.append(str(doctor.name))
+            else:
+                parts.append("Sin Nombre")
+            
+            # Add especialidad if it exists and is not empty
+            if doctor.especialidad and str(doctor.especialidad).strip():
+                parts.append(f"({str(doctor.especialidad)})")
+            
+            # Add cedula if it exists and is not empty
+            if doctor.cedula_profesional and str(doctor.cedula_profesional).strip():
+                parts.append(f"- Céd: {str(doctor.cedula_profesional)}")
+            
             doctor.display_name = ' '.join(parts)
     
     @api.depends('name')

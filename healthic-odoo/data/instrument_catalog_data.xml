@@ -12,6 +12,8 @@
             <field name="cantidad_estandar">1</field>
             <field name="peso_aprox">15.0</field>
             <field name="descripcion">Bisturí quirúrgico estándar #10</field>
+            <field name="lavado_metodo_default">manual</field>
+            <field name="esterilizacion_metodo_default">alta_vapor</field>
         </record>
         
         <record id="instrument_catalog_2" model="instrument.catalog">
@@ -23,6 +25,8 @@
             <field name="cantidad_estandar">1</field>
             <field name="peso_aprox">25.0</field>
             <field name="descripcion">Tijeras quirúrgicas Metzenbaum</field>
+            <field name="lavado_metodo_default">ultrasonico</field>
+            <field name="esterilizacion_metodo_default">alta_vapor</field>
         </record>
         
         <record id="instrument_catalog_3" model="instrument.catalog">
@@ -45,6 +49,8 @@
             <field name="cantidad_estandar">10</field>
             <field name="peso_aprox">50.0</field>
             <field name="descripcion">Compresas estériles 10x10 cm</field>
+            <field name="lavado_metodo_default">termodinamico</field>
+            <field name="esterilizacion_metodo_default">alta_vapor</field>
         </record>
         
         <record id="instrument_catalog_5" model="instrument.catalog">

@@ -29,6 +29,8 @@ Sistema completo para la digitalización del proceso de recepción, seguimiento,
 - Validación de métodos compatibles
 - Registro de responsables por proceso
 - Cálculos automáticos de STU y duración
+- Evidencias fotográficas en recepción
+- Firmas separadas y etiquetadas por proceso
 
 ### 📱 Optimización para Operadores
 - Interfaces tablet-friendly (10" pantallas)
@@ -225,16 +227,6 @@ Para soporte técnico o consultas: info@healthic.com
 - Si persiste el error, verificar que el módulo se haya actualizado correctamente
 
 ## Actualizaciones Recientes
-
-### v1.2 - Mejoras Post-Piloto (Julio 2025) ✨
-- ✅ **Firmas Separadas**: Campos de firma divididos en "Salida de Instrumental" y "Recepción/Recolección" con etiquetas claras "Hospitalaria" y "Healthic"
-- ✅ **Validaciones Obligatorias**: Firmas requeridas antes de avanzar al siguiente estado del flujo
-- ✅ **Checkboxes Esterilización**: Selección múltiple de métodos de esterilización en pestaña Lavado
-- ✅ **Herencia de Métodos**: Métodos seleccionados en Lavado se muestran automáticamente en Esterilización
-- ✅ **Biológicos Configurables**: Indicadores biológicos específicos por tecnología (Vapor, Peróxido, ETO, Plasma)
-- ✅ **Evidencias Fotográficas**: Campo para subir imágenes en área de recepción con vista de miniaturas
-- ✅ **UX Mejorada**: Alertas informativas, iconos descriptivos y mejor organización visual
-- ✅ **Etiquetas Biológicos**: Secciones separadas por tipo de tecnología con especificaciones técnicas
 
 ### v1.1 - Correcciones de Acceso
 - ✅ Agregado valor por defecto al campo `entregado_en` (ahora opcional)

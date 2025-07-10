@@ -15,6 +15,10 @@
         - Gestión de órdenes de procesamiento
         - Trazabilidad completa del proceso
         - Soporte para múltiples métodos de lavado y esterilización
+        - Sistema de firmas separadas y etiquetadas
+        - Evidencias fotográficas en recepción
+        - Configuración de indicadores biológicos por tecnología
+        - Métodos de esterilización planificados heredados
     """,
 
     'author': "Healthic",
@@ -24,7 +28,7 @@
     # Check https://github.com/odoo/odoo/blob/15.0/odoo/addons/base/data/ir_module_category_data.xml
     # for the full list
     'category': 'Healthcare',
-    'version': '1.3.0',
+    'version': '1.4.0',
 
     # Dependencias necesarias para el funcionamiento
     'depends': ['base', 'web'],
@@ -32,12 +36,10 @@
     # Archivos de datos a cargar
     'data': [
         'security/ir.model.access.csv',
-        'data/instrument_method_data.xml',
         'data/instrument_catalog.xml',
         'data/surgery_type_data.xml',
         'views/hospital_client_views.xml',
         'views/instrument_catalog_views.xml',
-        'views/instrument_method_views.xml',
         'views/surgery_type_views.xml',
         'views/medical_doctor_views.xml',
         'views/instrument_order_views.xml',

@@ -3,7 +3,7 @@
   <record id="instrument_catalog_1" model="instrument.catalog">
     <field name="name">Abatelenguas</field>
     <field name="equivalente_stu">0.3</field>
-    <field name="tipo_material">desechable</field>
+    <field name="tipo_material">instrumental</field>
     <field name="codigo">AUTO-001</field>
     <field name="numero_dispositivo">HC-001</field>
     <field name="cantidad_estandar">1</field>
@@ -453,7 +453,7 @@
   <record id="instrument_catalog_46" model="instrument.catalog">
     <field name="name">Ameu</field>
     <field name="equivalente_stu">0.3</field>
-    <field name="tipo_material">desechable</field>
+    <field name="tipo_material">instrumental</field>
     <field name="codigo">AUTO-046</field>
     <field name="numero_dispositivo">HC-046</field>
     <field name="cantidad_estandar">1</field>
@@ -623,7 +623,7 @@
   <record id="instrument_catalog_63" model="instrument.catalog">
     <field name="name">Apoyo Cx Lumbar c/90</field>
     <field name="equivalente_stu">0.75</field>
-    <field name="tipo_material">desechable</field>
+    <field name="tipo_material">instrumental</field>
     <field name="codigo">AUTO-063</field>
     <field name="numero_dispositivo">HC-063</field>
     <field name="cantidad_estandar">1</field>
@@ -683,7 +683,7 @@
   <record id="instrument_catalog_69" model="instrument.catalog">
     <field name="name">Apoyo p/Fusión c/14</field>
     <field name="equivalente_stu">0.5</field>
-    <field name="tipo_material">desechable</field>
+    <field name="tipo_material">instrumental</field>
     <field name="codigo">AUTO-069</field>
     <field name="numero_dispositivo">HC-069</field>
     <field name="cantidad_estandar">1</field>
@@ -703,7 +703,7 @@
   <record id="instrument_catalog_71" model="instrument.catalog">
     <field name="name">Arandelas</field>
     <field name="equivalente_stu">0.2</field>
-    <field name="tipo_material">desechable</field>
+    <field name="tipo_material">instrumental</field>
     <field name="codigo">AUTO-071</field>
     <field name="numero_dispositivo">HC-071</field>
     <field name="cantidad_estandar">1</field>
@@ -713,7 +713,7 @@
   <record id="instrument_catalog_72" model="instrument.catalog">
     <field name="name">Army</field>
     <field name="equivalente_stu">0.1</field>
-    <field name="tipo_material">desechable</field>
+    <field name="tipo_material">instrumental</field>
     <field name="codigo">AUTO-072</field>
     <field name="numero_dispositivo">HC-072</field>
     <field name="cantidad_estandar">1</field>
@@ -773,7 +773,7 @@
   <record id="instrument_catalog_78" model="instrument.catalog">
     <field name="name">Asa de Poli Pediátrica</field>
     <field name="equivalente_stu">0.1</field>
-    <field name="tipo_material">desechable</field>
+    <field name="tipo_material">instrumental</field>
     <field name="codigo">AUTO-078</field>
     <field name="numero_dispositivo">HC-078</field>
     <field name="cantidad_estandar">1</field>
@@ -783,7 +783,7 @@
   <record id="instrument_catalog_79" model="instrument.catalog">
     <field name="name">Asaradores Aguja c/4</field>
     <field name="equivalente_stu">0.2</field>
-    <field name="tipo_material">desechable</field>
+    <field name="tipo_material">instrumental</field>
     <field name="codigo">AUTO-079</field>
     <field name="numero_dispositivo">HC-079</field>
     <field name="cantidad_estandar">1</field>
@@ -793,7 +793,7 @@
   <record id="instrument_catalog_80" model="instrument.catalog">
     <field name="name">Aseo</field>
     <field name="equivalente_stu">0.2</field>
-    <field name="tipo_material">desechable</field>
+    <field name="tipo_material">instrumental</field>
     <field name="codigo">AUTO-080</field>
     <field name="numero_dispositivo">HC-080</field>
     <field name="cantidad_estandar">1</field>
@@ -803,7 +803,7 @@
   <record id="instrument_catalog_81" model="instrument.catalog">
     <field name="name">Aseo</field>
     <field name="equivalente_stu">0.2</field>
-    <field name="tipo_material">desechable</field>
+    <field name="tipo_material">instrumental</field>
     <field name="codigo">AUTO-081</field>
     <field name="numero_dispositivo">HC-081</field>
     <field name="cantidad_estandar">1</field>
@@ -823,7 +823,7 @@
   <record id="instrument_catalog_83" model="instrument.catalog">
     <field name="name">Asepto Jeringa</field>
     <field name="equivalente_stu">0.05</field>
-    <field name="tipo_material">desechable</field>
+    <field name="tipo_material">instrumental</field>
     <field name="codigo">AUTO-083</field>
     <field name="numero_dispositivo">HC-083</field>
     <field name="cantidad_estandar">1</field>
@@ -833,7 +833,7 @@
   <record id="instrument_catalog_84" model="instrument.catalog">
     <field name="name">Aspirador cauterio</field>
     <field name="equivalente_stu">0.2</field>
-    <field name="tipo_material">desechable</field>
+    <field name="tipo_material">instrumental</field>
     <field name="codigo">AUTO-084</field>
     <field name="numero_dispositivo">HC-084</field>
     <field name="cantidad_estandar">1</field>
@@ -843,7 +843,7 @@
   <record id="instrument_catalog_85" model="instrument.catalog">
     <field name="name">Aspirador Cauterio</field>
     <field name="equivalente_stu">0.05</field>
-    <field name="tipo_material">desechable</field>
+    <field name="tipo_material">instrumental</field>
     <field name="codigo">AUTO-085</field>
     <field name="numero_dispositivo">HC-085</field>
     <field name="cantidad_estandar">1</field>
@@ -853,7 +853,7 @@
   <record id="instrument_catalog_86" model="instrument.catalog">
     <field name="name">Aspirador Irrigador Neumo</field>
     <field name="equivalente_stu">0.2</field>
-    <field name="tipo_material">desechable</field>
+    <field name="tipo_material">instrumental</field>
     <field name="codigo">AUTO-086</field>
     <field name="numero_dispositivo">HC-086</field>
     <field name="cantidad_estandar">1</field>
@@ -863,7 +863,7 @@
   <record id="instrument_catalog_87" model="instrument.catalog">
     <field name="name">Aspirador Ultrasonico c/5</field>
     <field name="equivalente_stu">0.2</field>
-    <field name="tipo_material">desechable</field>
+    <field name="tipo_material">instrumental</field>
     <field name="codigo">AUTO-087</field>
     <field name="numero_dispositivo">HC-087</field>
     <field name="cantidad_estandar">1</field>
@@ -883,7 +883,7 @@
   <record id="instrument_catalog_89" model="instrument.catalog">
     <field name="name">Aspiradores Articulados c/5</field>
     <field name="equivalente_stu">0.3</field>
-    <field name="tipo_material">desechable</field>
+    <field name="tipo_material">instrumental</field>
     <field name="codigo">AUTO-089</field>
     <field name="numero_dispositivo">HC-089</field>
     <field name="cantidad_estandar">1</field>
@@ -1143,7 +1143,7 @@
   <record id="instrument_catalog_115" model="instrument.catalog">
     <field name="name">Barras Synapse</field>
     <field name="equivalente_stu">0.1</field>
-    <field name="tipo_material">desechable</field>
+    <field name="tipo_material">instrumental</field>
     <field name="codigo">AUTO-115</field>
     <field name="numero_dispositivo">HC-115</field>
     <field name="cantidad_estandar">1</field>
@@ -1163,7 +1163,7 @@
   <record id="instrument_catalog_117" model="instrument.catalog">
     <field name="name">Barril</field>
     <field name="equivalente_stu">0.05</field>
-    <field name="tipo_material">desechable</field>
+    <field name="tipo_material">instrumental</field>
     <field name="codigo">AUTO-117</field>
     <field name="numero_dispositivo">HC-117</field>
     <field name="cantidad_estandar">1</field>
@@ -1413,7 +1413,7 @@
   <record id="instrument_catalog_142" model="instrument.catalog">
     <field name="name">Bayonetas c/7</field>
     <field name="equivalente_stu">0.1</field>
-    <field name="tipo_material">desechable</field>
+    <field name="tipo_material">instrumental</field>
     <field name="codigo">AUTO-142</field>
     <field name="numero_dispositivo">HC-142</field>
     <field name="cantidad_estandar">1</field>
@@ -1443,7 +1443,7 @@
   <record id="instrument_catalog_145" model="instrument.catalog">
     <field name="name">Benefix c/22 + Implantes</field>
     <field name="equivalente_stu">1.0</field>
-    <field name="tipo_material">desechable</field>
+    <field name="tipo_material">instrumental</field>
     <field name="codigo">AUTO-145</field>
     <field name="numero_dispositivo">HC-145</field>
     <field name="cantidad_estandar">1</field>
@@ -1533,7 +1533,7 @@
   <record id="instrument_catalog_154" model="instrument.catalog">
     <field name="name">Blount</field>
     <field name="equivalente_stu">0.2</field>
-    <field name="tipo_material">desechable</field>
+    <field name="tipo_material">instrumental</field>
     <field name="codigo">AUTO-154</field>
     <field name="numero_dispositivo">HC-154</field>
     <field name="cantidad_estandar">1</field>
@@ -2303,7 +2303,7 @@
   <record id="instrument_catalog_231" model="instrument.catalog">
     <field name="name">Caja c/124</field>
     <field name="equivalente_stu">0.3</field>
-    <field name="tipo_material">desechable</field>
+    <field name="tipo_material">instrumental</field>
     <field name="codigo">AUTO-231</field>
     <field name="numero_dispositivo">HC-231</field>
     <field name="cantidad_estandar">1</field>
@@ -2333,7 +2333,7 @@
   <record id="instrument_catalog_234" model="instrument.catalog">
     <field name="name">Caja c/21</field>
     <field name="equivalente_stu">0.3</field>
-    <field name="tipo_material">desechable</field>
+    <field name="tipo_material">instrumental</field>
     <field name="codigo">AUTO-234</field>
     <field name="numero_dispositivo">HC-234</field>
     <field name="cantidad_estandar">1</field>
@@ -2343,7 +2343,7 @@
   <record id="instrument_catalog_235" model="instrument.catalog">
     <field name="name">Caja c/29</field>
     <field name="equivalente_stu">0.3</field>
-    <field name="tipo_material">desechable</field>
+    <field name="tipo_material">instrumental</field>
     <field name="codigo">AUTO-235</field>
     <field name="numero_dispositivo">HC-235</field>
     <field name="cantidad_estandar">1</field>
@@ -2363,7 +2363,7 @@
   <record id="instrument_catalog_237" model="instrument.catalog">
     <field name="name">Caja c/41</field>
     <field name="equivalente_stu">0.5</field>
-    <field name="tipo_material">desechable</field>
+    <field name="tipo_material">instrumental</field>
     <field name="codigo">AUTO-237</field>
     <field name="numero_dispositivo">HC-237</field>
     <field name="cantidad_estandar">1</field>
@@ -2403,7 +2403,7 @@
   <record id="instrument_catalog_241" model="instrument.catalog">
     <field name="name">Caja c/5</field>
     <field name="equivalente_stu">0.7</field>
-    <field name="tipo_material">desechable</field>
+    <field name="tipo_material">instrumental</field>
     <field name="codigo">AUTO-241</field>
     <field name="numero_dispositivo">HC-241</field>
     <field name="cantidad_estandar">1</field>
@@ -2413,7 +2413,7 @@
   <record id="instrument_catalog_242" model="instrument.catalog">
     <field name="name">Caja c/50</field>
     <field name="equivalente_stu">0.5</field>
-    <field name="tipo_material">desechable</field>
+    <field name="tipo_material">instrumental</field>
     <field name="codigo">AUTO-242</field>
     <field name="numero_dispositivo">HC-242</field>
     <field name="cantidad_estandar">1</field>
@@ -2423,7 +2423,7 @@
   <record id="instrument_catalog_243" model="instrument.catalog">
     <field name="name">Caja c/62</field>
     <field name="equivalente_stu">0.3</field>
-    <field name="tipo_material">desechable</field>
+    <field name="tipo_material">instrumental</field>
     <field name="codigo">AUTO-243</field>
     <field name="numero_dispositivo">HC-243</field>
     <field name="cantidad_estandar">1</field>
@@ -2883,7 +2883,7 @@
   <record id="instrument_catalog_289" model="instrument.catalog">
     <field name="name">Caja Maxces</field>
     <field name="equivalente_stu">0.75</field>
-    <field name="tipo_material">desechable</field>
+    <field name="tipo_material">instrumental</field>
     <field name="codigo">AUTO-289</field>
     <field name="numero_dispositivo">HC-289</field>
     <field name="cantidad_estandar">1</field>
@@ -2893,7 +2893,7 @@
   <record id="instrument_catalog_290" model="instrument.catalog">
     <field name="name">Caja mediana</field>
     <field name="equivalente_stu">0.5</field>
-    <field name="tipo_material">desechable</field>
+    <field name="tipo_material">instrumental</field>
     <field name="codigo">AUTO-290</field>
     <field name="numero_dispositivo">HC-290</field>
     <field name="cantidad_estandar">1</field>
@@ -2913,7 +2913,7 @@
   <record id="instrument_catalog_292" model="instrument.catalog">
     <field name="name">Caja Mediana Caneva</field>
     <field name="equivalente_stu">0.5</field>
-    <field name="tipo_material">desechable</field>
+    <field name="tipo_material">instrumental</field>
     <field name="codigo">AUTO-292</field>
     <field name="numero_dispositivo">HC-292</field>
     <field name="cantidad_estandar">1</field>
@@ -2933,7 +2933,7 @@
   <record id="instrument_catalog_294" model="instrument.catalog">
     <field name="name">caja Mediana Proveedor HR</field>
     <field name="equivalente_stu">0.7</field>
-    <field name="tipo_material">desechable</field>
+    <field name="tipo_material">instrumental</field>
     <field name="codigo">AUTO-294</field>
     <field name="numero_dispositivo">HC-294</field>
     <field name="cantidad_estandar">1</field>
@@ -2943,7 +2943,7 @@
   <record id="instrument_catalog_295" model="instrument.catalog">
     <field name="name">Caja Mediana San Camilo</field>
     <field name="equivalente_stu">0.5</field>
-    <field name="tipo_material">desechable</field>
+    <field name="tipo_material">instrumental</field>
     <field name="codigo">AUTO-295</field>
     <field name="numero_dispositivo">HC-295</field>
     <field name="cantidad_estandar">1</field>
@@ -3003,7 +3003,7 @@
   <record id="instrument_catalog_301" model="instrument.catalog">
     <field name="name">Caja proveedor mediana</field>
     <field name="equivalente_stu">0.5</field>
-    <field name="tipo_material">desechable</field>
+    <field name="tipo_material">instrumental</field>
     <field name="codigo">AUTO-301</field>
     <field name="numero_dispositivo">HC-301</field>
     <field name="cantidad_estandar">1</field>
@@ -3073,7 +3073,7 @@
   <record id="instrument_catalog_308" model="instrument.catalog">
     <field name="name">Caja TLIF 12x31 c/25</field>
     <field name="equivalente_stu">1.0</field>
-    <field name="tipo_material">desechable</field>
+    <field name="tipo_material">instrumental</field>
     <field name="codigo">AUTO-308</field>
     <field name="numero_dispositivo">HC-308</field>
     <field name="cantidad_estandar">1</field>
@@ -3453,7 +3453,7 @@
   <record id="instrument_catalog_346" model="instrument.catalog">
     <field name="name">Canulados</field>
     <field name="equivalente_stu">0.1</field>
-    <field name="tipo_material">desechable</field>
+    <field name="tipo_material">instrumental</field>
     <field name="codigo">AUTO-346</field>
     <field name="numero_dispositivo">HC-346</field>
     <field name="cantidad_estandar">1</field>
@@ -4443,7 +4443,7 @@
   <record id="instrument_catalog_445" model="instrument.catalog">
     <field name="name">Cincel</field>
     <field name="equivalente_stu">0.1</field>
-    <field name="tipo_material">desechable</field>
+    <field name="tipo_material">instrumental</field>
     <field name="codigo">AUTO-445</field>
     <field name="numero_dispositivo">HC-445</field>
     <field name="cantidad_estandar">1</field>
@@ -4803,7 +4803,7 @@
   <record id="instrument_catalog_481" model="instrument.catalog">
     <field name="name">Clavos chicos Artimedica</field>
     <field name="equivalente_stu">0.1</field>
-    <field name="tipo_material">desechable</field>
+    <field name="tipo_material">instrumental</field>
     <field name="codigo">AUTO-481</field>
     <field name="numero_dispositivo">HC-481</field>
     <field name="cantidad_estandar">1</field>
@@ -4813,7 +4813,7 @@
   <record id="instrument_catalog_482" model="instrument.catalog">
     <field name="name">Clavos de Tibia</field>
     <field name="equivalente_stu">0.2</field>
-    <field name="tipo_material">desechable</field>
+    <field name="tipo_material">instrumental</field>
     <field name="codigo">AUTO-482</field>
     <field name="numero_dispositivo">HC-482</field>
     <field name="cantidad_estandar">1</field>
@@ -4883,7 +4883,7 @@
   <record id="instrument_catalog_489" model="instrument.catalog">
     <field name="name">Clip</field>
     <field name="equivalente_stu">0.1</field>
-    <field name="tipo_material">desechable</field>
+    <field name="tipo_material">instrumental</field>
     <field name="codigo">AUTO-489</field>
     <field name="numero_dispositivo">HC-489</field>
     <field name="cantidad_estandar">1</field>
@@ -4893,7 +4893,7 @@
   <record id="instrument_catalog_490" model="instrument.catalog">
     <field name="name">Clip de Neuro</field>
     <field name="equivalente_stu">0.1</field>
-    <field name="tipo_material">desechable</field>
+    <field name="tipo_material">instrumental</field>
     <field name="codigo">AUTO-490</field>
     <field name="numero_dispositivo">HC-490</field>
     <field name="cantidad_estandar">1</field>
@@ -4913,7 +4913,7 @@
   <record id="instrument_catalog_492" model="instrument.catalog">
     <field name="name">Clipadora</field>
     <field name="equivalente_stu">0.2</field>
-    <field name="tipo_material">desechable</field>
+    <field name="tipo_material">instrumental</field>
     <field name="codigo">AUTO-492</field>
     <field name="numero_dispositivo">HC-492</field>
     <field name="cantidad_estandar">1</field>
@@ -4923,7 +4923,7 @@
   <record id="instrument_catalog_493" model="instrument.catalog">
     <field name="name">Clipadora, Sonda y Carte Thomas</field>
     <field name="equivalente_stu">0.3</field>
-    <field name="tipo_material">desechable</field>
+    <field name="tipo_material">instrumental</field>
     <field name="codigo">AUTO-493</field>
     <field name="numero_dispositivo">HC-493</field>
     <field name="cantidad_estandar">1</field>
@@ -4933,7 +4933,7 @@
   <record id="instrument_catalog_494" model="instrument.catalog">
     <field name="name">Clips Azules</field>
     <field name="equivalente_stu">0.3</field>
-    <field name="tipo_material">desechable</field>
+    <field name="tipo_material">instrumental</field>
     <field name="codigo">AUTO-494</field>
     <field name="numero_dispositivo">HC-494</field>
     <field name="cantidad_estandar">1</field>
@@ -6923,7 +6923,7 @@
   <record id="instrument_catalog_693" model="instrument.catalog">
     <field name="name">Endophat Control</field>
     <field name="equivalente_stu">0.2</field>
-    <field name="tipo_material">desechable</field>
+    <field name="tipo_material">instrumental</field>
     <field name="codigo">AUTO-693</field>
     <field name="numero_dispositivo">HC-693</field>
     <field name="cantidad_estandar">1</field>
@@ -6933,7 +6933,7 @@
   <record id="instrument_catalog_694" model="instrument.catalog">
     <field name="name">Endoscopia Senos Paranasales c/24</field>
     <field name="equivalente_stu">0.3</field>
-    <field name="tipo_material">desechable</field>
+    <field name="tipo_material">instrumental</field>
     <field name="codigo">AUTO-694</field>
     <field name="numero_dispositivo">HC-694</field>
     <field name="cantidad_estandar">1</field>
@@ -7463,7 +7463,7 @@
   <record id="instrument_catalog_747" model="instrument.catalog">
     <field name="name">Eq c/18</field>
     <field name="equivalente_stu">0.25</field>
-    <field name="tipo_material">desechable</field>
+    <field name="tipo_material">instrumental</field>
     <field name="codigo">AUTO-747</field>
     <field name="numero_dispositivo">HC-747</field>
     <field name="cantidad_estandar">1</field>
@@ -7933,7 +7933,7 @@
   <record id="instrument_catalog_794" model="instrument.catalog">
     <field name="name">Eq Dr Bernardo c/17</field>
     <field name="equivalente_stu">0.3</field>
-    <field name="tipo_material">desechable</field>
+    <field name="tipo_material">instrumental</field>
     <field name="codigo">AUTO-794</field>
     <field name="numero_dispositivo">HC-794</field>
     <field name="cantidad_estandar">1</field>
@@ -7943,7 +7943,7 @@
   <record id="instrument_catalog_795" model="instrument.catalog">
     <field name="name">Eq Dr Bernardo c/18</field>
     <field name="equivalente_stu">0.3</field>
-    <field name="tipo_material">desechable</field>
+    <field name="tipo_material">instrumental</field>
     <field name="codigo">AUTO-795</field>
     <field name="numero_dispositivo">HC-795</field>
     <field name="cantidad_estandar">1</field>
@@ -7953,7 +7953,7 @@
   <record id="instrument_catalog_796" model="instrument.catalog">
     <field name="name">Eq Dr Carlos Cortés c/32</field>
     <field name="equivalente_stu">0.2</field>
-    <field name="tipo_material">desechable</field>
+    <field name="tipo_material">instrumental</field>
     <field name="codigo">AUTO-796</field>
     <field name="numero_dispositivo">HC-796</field>
     <field name="cantidad_estandar">1</field>
@@ -8203,7 +8203,7 @@
   <record id="instrument_catalog_821" model="instrument.catalog">
     <field name="name">Eq Fresado c/9</field>
     <field name="equivalente_stu">0.2</field>
-    <field name="tipo_material">desechable</field>
+    <field name="tipo_material">instrumental</field>
     <field name="codigo">AUTO-821</field>
     <field name="numero_dispositivo">HC-821</field>
     <field name="cantidad_estandar">1</field>
@@ -8273,7 +8273,7 @@
   <record id="instrument_catalog_828" model="instrument.catalog">
     <field name="name">Eq Hombro c/42</field>
     <field name="equivalente_stu">1.0</field>
-    <field name="tipo_material">desechable</field>
+    <field name="tipo_material">instrumental</field>
     <field name="codigo">AUTO-828</field>
     <field name="numero_dispositivo">HC-828</field>
     <field name="cantidad_estandar">1</field>
@@ -9043,7 +9043,7 @@
   <record id="instrument_catalog_905" model="instrument.catalog">
     <field name="name">Eq Poder c/5</field>
     <field name="equivalente_stu">0.3</field>
-    <field name="tipo_material">desechable</field>
+    <field name="tipo_material">instrumental</field>
     <field name="codigo">AUTO-905</field>
     <field name="numero_dispositivo">HC-905</field>
     <field name="cantidad_estandar">1</field>
@@ -9053,7 +9053,7 @@
   <record id="instrument_catalog_906" model="instrument.catalog">
     <field name="name">Eq Poder c/6</field>
     <field name="equivalente_stu">0.3</field>
-    <field name="tipo_material">desechable</field>
+    <field name="tipo_material">instrumental</field>
     <field name="codigo">AUTO-906</field>
     <field name="numero_dispositivo">HC-906</field>
     <field name="cantidad_estandar">1</field>
@@ -9063,7 +9063,7 @@
   <record id="instrument_catalog_907" model="instrument.catalog">
     <field name="name">Eq Poder c/7</field>
     <field name="equivalente_stu">0.3</field>
-    <field name="tipo_material">desechable</field>
+    <field name="tipo_material">instrumental</field>
     <field name="codigo">AUTO-907</field>
     <field name="numero_dispositivo">HC-907</field>
     <field name="cantidad_estandar">1</field>
@@ -9073,7 +9073,7 @@
   <record id="instrument_catalog_908" model="instrument.catalog">
     <field name="name">Eq Poder c/8</field>
     <field name="equivalente_stu">0.3</field>
-    <field name="tipo_material">desechable</field>
+    <field name="tipo_material">instrumental</field>
     <field name="codigo">AUTO-908</field>
     <field name="numero_dispositivo">HC-908</field>
     <field name="cantidad_estandar">1</field>
@@ -10093,7 +10093,7 @@
   <record id="instrument_catalog_1010" model="instrument.catalog">
     <field name="name">Eq. Busto Dr. Noe</field>
     <field name="equivalente_stu">0.3</field>
-    <field name="tipo_material">desechable</field>
+    <field name="tipo_material">instrumental</field>
     <field name="codigo">AUTO-1010</field>
     <field name="numero_dispositivo">HC-1010</field>
     <field name="cantidad_estandar">1</field>
@@ -10103,7 +10103,7 @@
   <record id="instrument_catalog_1011" model="instrument.catalog">
     <field name="name">Eq. Caja bloqueada Marbet</field>
     <field name="equivalente_stu">0.3</field>
-    <field name="tipo_material">desechable</field>
+    <field name="tipo_material">instrumental</field>
     <field name="codigo">AUTO-1011</field>
     <field name="numero_dispositivo">HC-1011</field>
     <field name="cantidad_estandar">1</field>
@@ -10193,7 +10193,7 @@
   <record id="instrument_catalog_1020" model="instrument.catalog">
     <field name="name">Eq. Craneo Dr. Cadena</field>
     <field name="equivalente_stu">0.5</field>
-    <field name="tipo_material">desechable</field>
+    <field name="tipo_material">instrumental</field>
     <field name="codigo">AUTO-1020</field>
     <field name="numero_dispositivo">HC-1020</field>
     <field name="cantidad_estandar">1</field>
@@ -10213,7 +10213,7 @@
   <record id="instrument_catalog_1022" model="instrument.catalog">
     <field name="name">Eq. de apoyo c/16</field>
     <field name="equivalente_stu">0.3</field>
-    <field name="tipo_material">desechable</field>
+    <field name="tipo_material">instrumental</field>
     <field name="codigo">AUTO-1022</field>
     <field name="numero_dispositivo">HC-1022</field>
     <field name="cantidad_estandar">1</field>
@@ -10223,7 +10223,7 @@
   <record id="instrument_catalog_1023" model="instrument.catalog">
     <field name="name">Eq. de apoyo c/45</field>
     <field name="equivalente_stu">1.0</field>
-    <field name="tipo_material">desechable</field>
+    <field name="tipo_material">instrumental</field>
     <field name="codigo">AUTO-1023</field>
     <field name="numero_dispositivo">HC-1023</field>
     <field name="cantidad_estandar">1</field>
@@ -10243,7 +10243,7 @@
   <record id="instrument_catalog_1025" model="instrument.catalog">
     <field name="name">Eq. de Artroscopia Swiss Hospital</field>
     <field name="equivalente_stu">0.6</field>
-    <field name="tipo_material">desechable</field>
+    <field name="tipo_material">instrumental</field>
     <field name="codigo">AUTO-1025</field>
     <field name="numero_dispositivo">HC-1025</field>
     <field name="cantidad_estandar">1</field>
@@ -10263,7 +10263,7 @@
   <record id="instrument_catalog_1027" model="instrument.catalog">
     <field name="name">Eq. de Camara (caja) Artimedica</field>
     <field name="equivalente_stu">0.6</field>
-    <field name="tipo_material">desechable</field>
+    <field name="tipo_material">instrumental</field>
     <field name="codigo">AUTO-1027</field>
     <field name="numero_dispositivo">HC-1027</field>
     <field name="cantidad_estandar">1</field>
@@ -10273,7 +10273,7 @@
   <record id="instrument_catalog_1028" model="instrument.catalog">
     <field name="name">Eq. de Canulados Artimedica</field>
     <field name="equivalente_stu">0.4</field>
-    <field name="tipo_material">desechable</field>
+    <field name="tipo_material">instrumental</field>
     <field name="codigo">AUTO-1028</field>
     <field name="numero_dispositivo">HC-1028</field>
     <field name="cantidad_estandar">1</field>
@@ -10383,7 +10383,7 @@
   <record id="instrument_catalog_1039" model="instrument.catalog">
     <field name="name">Eq. de Retiro Artimedica</field>
     <field name="equivalente_stu">0.5</field>
-    <field name="tipo_material">desechable</field>
+    <field name="tipo_material">instrumental</field>
     <field name="codigo">AUTO-1039</field>
     <field name="numero_dispositivo">HC-1039</field>
     <field name="cantidad_estandar">1</field>
@@ -10393,7 +10393,7 @@
   <record id="instrument_catalog_1040" model="instrument.catalog">
     <field name="name">Eq. de rodilla</field>
     <field name="equivalente_stu">0.7</field>
-    <field name="tipo_material">desechable</field>
+    <field name="tipo_material">instrumental</field>
     <field name="codigo">AUTO-1040</field>
     <field name="numero_dispositivo">HC-1040</field>
     <field name="cantidad_estandar">1</field>
@@ -10403,7 +10403,7 @@
   <record id="instrument_catalog_1041" model="instrument.catalog">
     <field name="name">Eq. de Rodilla Artimedica</field>
     <field name="equivalente_stu">0.7</field>
-    <field name="tipo_material">desechable</field>
+    <field name="tipo_material">instrumental</field>
     <field name="codigo">AUTO-1041</field>
     <field name="numero_dispositivo">HC-1041</field>
     <field name="cantidad_estandar">1</field>
@@ -10563,7 +10563,7 @@
   <record id="instrument_catalog_1057" model="instrument.catalog">
     <field name="name">Eq. Lamina c/68</field>
     <field name="equivalente_stu">0.7</field>
-    <field name="tipo_material">desechable</field>
+    <field name="tipo_material">instrumental</field>
     <field name="codigo">AUTO-1057</field>
     <field name="numero_dispositivo">HC-1057</field>
     <field name="cantidad_estandar">1</field>
@@ -10573,7 +10573,7 @@
   <record id="instrument_catalog_1058" model="instrument.catalog">
     <field name="name">Eq. Lamina cervical Marbet</field>
     <field name="equivalente_stu">1.0</field>
-    <field name="tipo_material">desechable</field>
+    <field name="tipo_material">instrumental</field>
     <field name="codigo">AUTO-1058</field>
     <field name="numero_dispositivo">HC-1058</field>
     <field name="cantidad_estandar">1</field>
@@ -10613,7 +10613,7 @@
   <record id="instrument_catalog_1062" model="instrument.catalog">
     <field name="name">Eq. Lamino No. 1 Marbet</field>
     <field name="equivalente_stu">0.5</field>
-    <field name="tipo_material">desechable</field>
+    <field name="tipo_material">instrumental</field>
     <field name="codigo">AUTO-1062</field>
     <field name="numero_dispositivo">HC-1062</field>
     <field name="cantidad_estandar">1</field>
@@ -10623,7 +10623,7 @@
   <record id="instrument_catalog_1063" model="instrument.catalog">
     <field name="name">Eq. Lamino No. 2 Canastilla 1 Marbet</field>
     <field name="equivalente_stu">0.3</field>
-    <field name="tipo_material">desechable</field>
+    <field name="tipo_material">instrumental</field>
     <field name="codigo">AUTO-1063</field>
     <field name="numero_dispositivo">HC-1063</field>
     <field name="cantidad_estandar">1</field>
@@ -10633,7 +10633,7 @@
   <record id="instrument_catalog_1064" model="instrument.catalog">
     <field name="name">Eq. Lamino No. 2 Canastilla 2 Marbet</field>
     <field name="equivalente_stu">0.3</field>
-    <field name="tipo_material">desechable</field>
+    <field name="tipo_material">instrumental</field>
     <field name="codigo">AUTO-1064</field>
     <field name="numero_dispositivo">HC-1064</field>
     <field name="cantidad_estandar">1</field>
@@ -10673,7 +10673,7 @@
   <record id="instrument_catalog_1068" model="instrument.catalog">
     <field name="name">Eq. legaci c/16</field>
     <field name="equivalente_stu">1.0</field>
-    <field name="tipo_material">desechable</field>
+    <field name="tipo_material">instrumental</field>
     <field name="codigo">AUTO-1068</field>
     <field name="numero_dispositivo">HC-1068</field>
     <field name="cantidad_estandar">1</field>
@@ -10743,7 +10743,7 @@
   <record id="instrument_catalog_1075" model="instrument.catalog">
     <field name="name">Eq. Nautilios Artimedica</field>
     <field name="equivalente_stu">0.7</field>
-    <field name="tipo_material">desechable</field>
+    <field name="tipo_material">instrumental</field>
     <field name="codigo">AUTO-1075</field>
     <field name="numero_dispositivo">HC-1075</field>
     <field name="cantidad_estandar">1</field>
@@ -11043,7 +11043,7 @@
   <record id="instrument_catalog_1105" model="instrument.catalog">
     <field name="name">Equipo Doctor</field>
     <field name="equivalente_stu">0.5</field>
-    <field name="tipo_material">desechable</field>
+    <field name="tipo_material">instrumental</field>
     <field name="codigo">AUTO-1105</field>
     <field name="numero_dispositivo">HC-1105</field>
     <field name="cantidad_estandar">1</field>
@@ -11113,7 +11113,7 @@
   <record id="instrument_catalog_1112" model="instrument.catalog">
     <field name="name">Esfinterotomo</field>
     <field name="equivalente_stu">0.2</field>
-    <field name="tipo_material">desechable</field>
+    <field name="tipo_material">instrumental</field>
     <field name="codigo">AUTO-1112</field>
     <field name="numero_dispositivo">HC-1112</field>
     <field name="cantidad_estandar">1</field>
@@ -11123,7 +11123,7 @@
   <record id="instrument_catalog_1113" model="instrument.catalog">
     <field name="name">Espaciador Lateral c/18</field>
     <field name="equivalente_stu">0.5</field>
-    <field name="tipo_material">desechable</field>
+    <field name="tipo_material">instrumental</field>
     <field name="codigo">AUTO-1113</field>
     <field name="numero_dispositivo">HC-1113</field>
     <field name="cantidad_estandar">1</field>
@@ -11333,7 +11333,7 @@
   <record id="instrument_catalog_1134" model="instrument.catalog">
     <field name="name">Extensión Lipo</field>
     <field name="equivalente_stu">0.1</field>
-    <field name="tipo_material">desechable</field>
+    <field name="tipo_material">instrumental</field>
     <field name="codigo">AUTO-1134</field>
     <field name="numero_dispositivo">HC-1134</field>
     <field name="cantidad_estandar">1</field>
@@ -11343,7 +11343,7 @@
   <record id="instrument_catalog_1135" model="instrument.catalog">
     <field name="name">Extractor cervical c/41 Synapse</field>
     <field name="equivalente_stu">0.5</field>
-    <field name="tipo_material">desechable</field>
+    <field name="tipo_material">instrumental</field>
     <field name="codigo">AUTO-1135</field>
     <field name="numero_dispositivo">HC-1135</field>
     <field name="cantidad_estandar">1</field>
@@ -11373,7 +11373,7 @@
   <record id="instrument_catalog_1138" model="instrument.catalog">
     <field name="name">Femoral Set Artimedica</field>
     <field name="equivalente_stu">0.7</field>
-    <field name="tipo_material">desechable</field>
+    <field name="tipo_material">instrumental</field>
     <field name="codigo">AUTO-1138</field>
     <field name="numero_dispositivo">HC-1138</field>
     <field name="cantidad_estandar">1</field>
@@ -11383,7 +11383,7 @@
   <record id="instrument_catalog_1139" model="instrument.catalog">
     <field name="name">Fémur c/67</field>
     <field name="equivalente_stu">1.0</field>
-    <field name="tipo_material">desechable</field>
+    <field name="tipo_material">instrumental</field>
     <field name="codigo">AUTO-1139</field>
     <field name="numero_dispositivo">HC-1139</field>
     <field name="cantidad_estandar">1</field>
@@ -11393,7 +11393,7 @@
   <record id="instrument_catalog_1140" model="instrument.catalog">
     <field name="name">Fémur Distal c/15</field>
     <field name="equivalente_stu">0.75</field>
-    <field name="tipo_material">desechable</field>
+    <field name="tipo_material">instrumental</field>
     <field name="codigo">AUTO-1140</field>
     <field name="numero_dispositivo">HC-1140</field>
     <field name="cantidad_estandar">1</field>
@@ -11453,7 +11453,7 @@
   <record id="instrument_catalog_1146" model="instrument.catalog">
     <field name="name">Fibra c/Camisa</field>
     <field name="equivalente_stu">0.2</field>
-    <field name="tipo_material">desechable</field>
+    <field name="tipo_material">instrumental</field>
     <field name="codigo">AUTO-1146</field>
     <field name="numero_dispositivo">HC-1146</field>
     <field name="cantidad_estandar">1</field>
@@ -11463,7 +11463,7 @@
   <record id="instrument_catalog_1147" model="instrument.catalog">
     <field name="name">Fibra de Luz</field>
     <field name="equivalente_stu">0.1</field>
-    <field name="tipo_material">desechable</field>
+    <field name="tipo_material">instrumental</field>
     <field name="codigo">AUTO-1147</field>
     <field name="numero_dispositivo">HC-1147</field>
     <field name="cantidad_estandar">1</field>
@@ -11473,7 +11473,7 @@
   <record id="instrument_catalog_1148" model="instrument.catalog">
     <field name="name">Fibra de luz Synapse</field>
     <field name="equivalente_stu">0.2</field>
-    <field name="tipo_material">desechable</field>
+    <field name="tipo_material">instrumental</field>
     <field name="codigo">AUTO-1148</field>
     <field name="numero_dispositivo">HC-1148</field>
     <field name="cantidad_estandar">1</field>
@@ -11483,7 +11483,7 @@
   <record id="instrument_catalog_1149" model="instrument.catalog">
     <field name="name">Fibra de luz y Bisturí</field>
     <field name="equivalente_stu">0.3</field>
-    <field name="tipo_material">desechable</field>
+    <field name="tipo_material">instrumental</field>
     <field name="codigo">AUTO-1149</field>
     <field name="numero_dispositivo">HC-1149</field>
     <field name="cantidad_estandar">1</field>
@@ -11493,7 +11493,7 @@
   <record id="instrument_catalog_1150" model="instrument.catalog">
     <field name="name">Fibra de Luz, Cámara y Neumo</field>
     <field name="equivalente_stu">0.2</field>
-    <field name="tipo_material">desechable</field>
+    <field name="tipo_material">instrumental</field>
     <field name="codigo">AUTO-1150</field>
     <field name="numero_dispositivo">HC-1150</field>
     <field name="cantidad_estandar">1</field>
@@ -11503,7 +11503,7 @@
   <record id="instrument_catalog_1151" model="instrument.catalog">
     <field name="name">Fibra de Vidrio</field>
     <field name="equivalente_stu">0.2</field>
-    <field name="tipo_material">desechable</field>
+    <field name="tipo_material">instrumental</field>
     <field name="codigo">AUTO-1151</field>
     <field name="numero_dispositivo">HC-1151</field>
     <field name="cantidad_estandar">1</field>
@@ -11513,7 +11513,7 @@
   <record id="instrument_catalog_1152" model="instrument.catalog">
     <field name="name">Fibra Dr Heredia</field>
     <field name="equivalente_stu">0.1</field>
-    <field name="tipo_material">desechable</field>
+    <field name="tipo_material">instrumental</field>
     <field name="codigo">AUTO-1152</field>
     <field name="numero_dispositivo">HC-1152</field>
     <field name="cantidad_estandar">1</field>
@@ -12053,7 +12053,7 @@
   <record id="instrument_catalog_1206" model="instrument.catalog">
     <field name="name">Fresas Cortantes</field>
     <field name="equivalente_stu">0.1</field>
-    <field name="tipo_material">desechable</field>
+    <field name="tipo_material">instrumental</field>
     <field name="codigo">AUTO-1206</field>
     <field name="numero_dispositivo">HC-1206</field>
     <field name="cantidad_estandar">1</field>
@@ -12963,7 +12963,7 @@
   <record id="instrument_catalog_1297" model="instrument.catalog">
     <field name="name">Histeroscopio (caja)</field>
     <field name="equivalente_stu">0.5</field>
-    <field name="tipo_material">desechable</field>
+    <field name="tipo_material">instrumental</field>
     <field name="codigo">AUTO-1297</field>
     <field name="numero_dispositivo">HC-1297</field>
     <field name="cantidad_estandar">1</field>
@@ -12993,7 +12993,7 @@
   <record id="instrument_catalog_1300" model="instrument.catalog">
     <field name="name">Hoja #0</field>
     <field name="equivalente_stu">0.05</field>
-    <field name="tipo_material">desechable</field>
+    <field name="tipo_material">instrumental</field>
     <field name="codigo">AUTO-1300</field>
     <field name="numero_dispositivo">HC-1300</field>
     <field name="cantidad_estandar">1</field>
@@ -13003,7 +13003,7 @@
   <record id="instrument_catalog_1301" model="instrument.catalog">
     <field name="name">Hoja #0 recta</field>
     <field name="equivalente_stu">0.05</field>
-    <field name="tipo_material">desechable</field>
+    <field name="tipo_material">instrumental</field>
     <field name="codigo">AUTO-1301</field>
     <field name="numero_dispositivo">HC-1301</field>
     <field name="cantidad_estandar">1</field>
@@ -13013,7 +13013,7 @@
   <record id="instrument_catalog_1302" model="instrument.catalog">
     <field name="name">Hoja #00 recta</field>
     <field name="equivalente_stu">0.05</field>
-    <field name="tipo_material">desechable</field>
+    <field name="tipo_material">instrumental</field>
     <field name="codigo">AUTO-1302</field>
     <field name="numero_dispositivo">HC-1302</field>
     <field name="cantidad_estandar">1</field>
@@ -13023,7 +13023,7 @@
   <record id="instrument_catalog_1303" model="instrument.catalog">
     <field name="name">Hoja #1</field>
     <field name="equivalente_stu">0.05</field>
-    <field name="tipo_material">desechable</field>
+    <field name="tipo_material">instrumental</field>
     <field name="codigo">AUTO-1303</field>
     <field name="numero_dispositivo">HC-1303</field>
     <field name="cantidad_estandar">1</field>
@@ -13033,7 +13033,7 @@
   <record id="instrument_catalog_1304" model="instrument.catalog">
     <field name="name">Hoja #1 curva</field>
     <field name="equivalente_stu">0.05</field>
-    <field name="tipo_material">desechable</field>
+    <field name="tipo_material">instrumental</field>
     <field name="codigo">AUTO-1304</field>
     <field name="numero_dispositivo">HC-1304</field>
     <field name="cantidad_estandar">1</field>
@@ -13303,7 +13303,7 @@
   <record id="instrument_catalog_1331" model="instrument.catalog">
     <field name="name">Implantes c/2</field>
     <field name="equivalente_stu">0.2</field>
-    <field name="tipo_material">desechable</field>
+    <field name="tipo_material">instrumental</field>
     <field name="codigo">AUTO-1331</field>
     <field name="numero_dispositivo">HC-1331</field>
     <field name="cantidad_estandar">1</field>
@@ -13863,7 +13863,7 @@
   <record id="instrument_catalog_1387" model="instrument.catalog">
     <field name="name">Instrumental General c/37</field>
     <field name="equivalente_stu">0.3</field>
-    <field name="tipo_material">desechable</field>
+    <field name="tipo_material">instrumental</field>
     <field name="codigo">AUTO-1387</field>
     <field name="numero_dispositivo">HC-1387</field>
     <field name="cantidad_estandar">1</field>
@@ -13953,7 +13953,7 @@
   <record id="instrument_catalog_1396" model="instrument.catalog">
     <field name="name">Instrumental Lumbar c/14</field>
     <field name="equivalente_stu">0.3</field>
-    <field name="tipo_material">desechable</field>
+    <field name="tipo_material">instrumental</field>
     <field name="codigo">AUTO-1396</field>
     <field name="numero_dispositivo">HC-1396</field>
     <field name="cantidad_estandar">1</field>
@@ -14213,7 +14213,7 @@
   <record id="instrument_catalog_1422" model="instrument.catalog">
     <field name="name">Instrumental S4 c/53</field>
     <field name="equivalente_stu">1.0</field>
-    <field name="tipo_material">desechable</field>
+    <field name="tipo_material">instrumental</field>
     <field name="codigo">AUTO-1422</field>
     <field name="numero_dispositivo">HC-1422</field>
     <field name="cantidad_estandar">1</field>
@@ -14443,7 +14443,7 @@
   <record id="instrument_catalog_1445" model="instrument.catalog">
     <field name="name">Introductor c/Guía</field>
     <field name="equivalente_stu">0.05</field>
-    <field name="tipo_material">desechable</field>
+    <field name="tipo_material">instrumental</field>
     <field name="codigo">AUTO-1445</field>
     <field name="numero_dispositivo">HC-1445</field>
     <field name="cantidad_estandar">1</field>
@@ -14453,7 +14453,7 @@
   <record id="instrument_catalog_1446" model="instrument.catalog">
     <field name="name">Introductor Dr Heredia</field>
     <field name="equivalente_stu">0.1</field>
-    <field name="tipo_material">desechable</field>
+    <field name="tipo_material">instrumental</field>
     <field name="codigo">AUTO-1446</field>
     <field name="numero_dispositivo">HC-1446</field>
     <field name="cantidad_estandar">1</field>
@@ -14823,7 +14823,7 @@
   <record id="instrument_catalog_1483" model="instrument.catalog">
     <field name="name">Kit Laparoscopia c/10</field>
     <field name="equivalente_stu">0.5</field>
-    <field name="tipo_material">desechable</field>
+    <field name="tipo_material">instrumental</field>
     <field name="codigo">AUTO-1483</field>
     <field name="numero_dispositivo">HC-1483</field>
     <field name="cantidad_estandar">1</field>
@@ -14943,7 +14943,7 @@
   <record id="instrument_catalog_1495" model="instrument.catalog">
     <field name="name">Kit Punción c/3</field>
     <field name="equivalente_stu">0.1</field>
-    <field name="tipo_material">desechable</field>
+    <field name="tipo_material">instrumental</field>
     <field name="codigo">AUTO-1495</field>
     <field name="numero_dispositivo">HC-1495</field>
     <field name="cantidad_estandar">1</field>
@@ -16353,7 +16353,7 @@
   <record id="instrument_catalog_1636" model="instrument.catalog">
     <field name="name">Mascarilla de Laringe</field>
     <field name="equivalente_stu">0.15</field>
-    <field name="tipo_material">desechable</field>
+    <field name="tipo_material">instrumental</field>
     <field name="codigo">AUTO-1636</field>
     <field name="numero_dispositivo">HC-1636</field>
     <field name="cantidad_estandar">1</field>
@@ -16403,7 +16403,7 @@
   <record id="instrument_catalog_1641" model="instrument.catalog">
     <field name="name">Material de Apoyo c/17</field>
     <field name="equivalente_stu">0.5</field>
-    <field name="tipo_material">desechable</field>
+    <field name="tipo_material">instrumental</field>
     <field name="codigo">AUTO-1641</field>
     <field name="numero_dispositivo">HC-1641</field>
     <field name="cantidad_estandar">1</field>
@@ -16463,7 +16463,7 @@
   <record id="instrument_catalog_1647" model="instrument.catalog">
     <field name="name">Micro disectores</field>
     <field name="equivalente_stu">0.3</field>
-    <field name="tipo_material">desechable</field>
+    <field name="tipo_material">instrumental</field>
     <field name="codigo">AUTO-1647</field>
     <field name="numero_dispositivo">HC-1647</field>
     <field name="cantidad_estandar">1</field>
@@ -16703,7 +16703,7 @@
   <record id="instrument_catalog_1671" model="instrument.catalog">
     <field name="name">Midas Rex c/4</field>
     <field name="equivalente_stu">0.3</field>
-    <field name="tipo_material">desechable</field>
+    <field name="tipo_material">instrumental</field>
     <field name="codigo">AUTO-1671</field>
     <field name="numero_dispositivo">HC-1671</field>
     <field name="cantidad_estandar">1</field>
@@ -16713,7 +16713,7 @@
   <record id="instrument_catalog_1672" model="instrument.catalog">
     <field name="name">Mini fragmentos Artimedica</field>
     <field name="equivalente_stu">0.7</field>
-    <field name="tipo_material">desechable</field>
+    <field name="tipo_material">instrumental</field>
     <field name="codigo">AUTO-1672</field>
     <field name="numero_dispositivo">HC-1672</field>
     <field name="cantidad_estandar">1</field>
@@ -17163,7 +17163,7 @@
   <record id="instrument_catalog_1717" model="instrument.catalog">
     <field name="name">Paneti c/17</field>
     <field name="equivalente_stu">0.3</field>
-    <field name="tipo_material">desechable</field>
+    <field name="tipo_material">instrumental</field>
     <field name="codigo">AUTO-1717</field>
     <field name="numero_dispositivo">HC-1717</field>
     <field name="cantidad_estandar">1</field>
@@ -17173,7 +17173,7 @@
   <record id="instrument_catalog_1718" model="instrument.catalog">
     <field name="name">Paquete consumible</field>
     <field name="equivalente_stu">0.05</field>
-    <field name="tipo_material">desechable</field>
+    <field name="tipo_material">instrumental</field>
     <field name="codigo">AUTO-1718</field>
     <field name="numero_dispositivo">HC-1718</field>
     <field name="cantidad_estandar">1</field>
@@ -17183,7 +17183,7 @@
   <record id="instrument_catalog_1719" model="instrument.catalog">
     <field name="name">Paquete craneo</field>
     <field name="equivalente_stu">0.0</field>
-    <field name="tipo_material">desechable</field>
+    <field name="tipo_material">instrumental</field>
     <field name="codigo">AUTO-1719</field>
     <field name="numero_dispositivo">HC-1719</field>
     <field name="cantidad_estandar">1</field>
@@ -17193,7 +17193,7 @@
   <record id="instrument_catalog_1720" model="instrument.catalog">
     <field name="name">Paquete de Torundas</field>
     <field name="equivalente_stu">0.05</field>
-    <field name="tipo_material">desechable</field>
+    <field name="tipo_material">instrumental</field>
     <field name="codigo">AUTO-1720</field>
     <field name="numero_dispositivo">HC-1720</field>
     <field name="cantidad_estandar">1</field>
@@ -17223,7 +17223,7 @@
   <record id="instrument_catalog_1723" model="instrument.catalog">
     <field name="name">Paquete neuroscopio c/7</field>
     <field name="equivalente_stu">1.0</field>
-    <field name="tipo_material">desechable</field>
+    <field name="tipo_material">instrumental</field>
     <field name="codigo">AUTO-1723</field>
     <field name="numero_dispositivo">HC-1723</field>
     <field name="cantidad_estandar">1</field>
@@ -17233,7 +17233,7 @@
   <record id="instrument_catalog_1724" model="instrument.catalog">
     <field name="name">Paquetes</field>
     <field name="equivalente_stu">0.3</field>
-    <field name="tipo_material">desechable</field>
+    <field name="tipo_material">instrumental</field>
     <field name="codigo">AUTO-1724</field>
     <field name="numero_dispositivo">HC-1724</field>
     <field name="cantidad_estandar">1</field>
@@ -17243,7 +17243,7 @@
   <record id="instrument_catalog_1725" model="instrument.catalog">
     <field name="name">Paquetes Desechables Individuales</field>
     <field name="equivalente_stu">0.1</field>
-    <field name="tipo_material">desechable</field>
+    <field name="tipo_material">instrumental</field>
     <field name="codigo">AUTO-1725</field>
     <field name="numero_dispositivo">HC-1725</field>
     <field name="cantidad_estandar">1</field>
@@ -17253,7 +17253,7 @@
   <record id="instrument_catalog_1726" model="instrument.catalog">
     <field name="name">Parche desfibrilador</field>
     <field name="equivalente_stu">0.2</field>
-    <field name="tipo_material">desechable</field>
+    <field name="tipo_material">instrumental</field>
     <field name="codigo">AUTO-1726</field>
     <field name="numero_dispositivo">HC-1726</field>
     <field name="cantidad_estandar">1</field>
@@ -17273,7 +17273,7 @@
   <record id="instrument_catalog_1728" model="instrument.catalog">
     <field name="name">Parpades Curvos</field>
     <field name="equivalente_stu">0.2</field>
-    <field name="tipo_material">desechable</field>
+    <field name="tipo_material">instrumental</field>
     <field name="codigo">AUTO-1728</field>
     <field name="numero_dispositivo">HC-1728</field>
     <field name="cantidad_estandar">1</field>
@@ -17283,7 +17283,7 @@
   <record id="instrument_catalog_1729" model="instrument.catalog">
     <field name="name">Parpadores Curvos</field>
     <field name="equivalente_stu">0.2</field>
-    <field name="tipo_material">desechable</field>
+    <field name="tipo_material">instrumental</field>
     <field name="codigo">AUTO-1729</field>
     <field name="numero_dispositivo">HC-1729</field>
     <field name="cantidad_estandar">1</field>
@@ -17293,7 +17293,7 @@
   <record id="instrument_catalog_1730" model="instrument.catalog">
     <field name="name">Parpadores Rectos</field>
     <field name="equivalente_stu">0.2</field>
-    <field name="tipo_material">desechable</field>
+    <field name="tipo_material">instrumental</field>
     <field name="codigo">AUTO-1730</field>
     <field name="numero_dispositivo">HC-1730</field>
     <field name="cantidad_estandar">1</field>
@@ -17353,7 +17353,7 @@
   <record id="instrument_catalog_1736" model="instrument.catalog">
     <field name="name">Penfield #02</field>
     <field name="equivalente_stu">0.05</field>
-    <field name="tipo_material">desechable</field>
+    <field name="tipo_material">instrumental</field>
     <field name="codigo">AUTO-1736</field>
     <field name="numero_dispositivo">HC-1736</field>
     <field name="cantidad_estandar">1</field>
@@ -17373,7 +17373,7 @@
   <record id="instrument_catalog_1738" model="instrument.catalog">
     <field name="name">Penfield #04</field>
     <field name="equivalente_stu">0.05</field>
-    <field name="tipo_material">desechable</field>
+    <field name="tipo_material">instrumental</field>
     <field name="codigo">AUTO-1738</field>
     <field name="numero_dispositivo">HC-1738</field>
     <field name="cantidad_estandar">1</field>
@@ -17383,7 +17383,7 @@
   <record id="instrument_catalog_1739" model="instrument.catalog">
     <field name="name">Pequeños Fragmentos (caja grande) Artimedica</field>
     <field name="equivalente_stu">1.0</field>
-    <field name="tipo_material">desechable</field>
+    <field name="tipo_material">instrumental</field>
     <field name="codigo">AUTO-1739</field>
     <field name="numero_dispositivo">HC-1739</field>
     <field name="cantidad_estandar">1</field>
@@ -17393,7 +17393,7 @@
   <record id="instrument_catalog_1740" model="instrument.catalog">
     <field name="name">Finocheto</field>
     <field name="equivalente_stu">0.5</field>
-    <field name="tipo_material">desechable</field>
+    <field name="tipo_material">instrumental</field>
     <field name="codigo">AUTO-1740</field>
     <field name="numero_dispositivo">HC-1740</field>
     <field name="cantidad_estandar">1</field>
@@ -17403,7 +17403,7 @@
   <record id="instrument_catalog_1741" model="instrument.catalog">
     <field name="name">Pequeños Fragmentos c/258</field>
     <field name="equivalente_stu">1.0</field>
-    <field name="tipo_material">desechable</field>
+    <field name="tipo_material">instrumental</field>
     <field name="codigo">AUTO-1741</field>
     <field name="numero_dispositivo">HC-1741</field>
     <field name="cantidad_estandar">1</field>
@@ -17413,7 +17413,7 @@
   <record id="instrument_catalog_1742" model="instrument.catalog">
     <field name="name">Pequeños Fragmentos c/383</field>
     <field name="equivalente_stu">1.0</field>
-    <field name="tipo_material">desechable</field>
+    <field name="tipo_material">instrumental</field>
     <field name="codigo">AUTO-1742</field>
     <field name="numero_dispositivo">HC-1742</field>
     <field name="cantidad_estandar">1</field>
@@ -17433,7 +17433,7 @@
   <record id="instrument_catalog_1744" model="instrument.catalog">
     <field name="name">Pequeños Fragmentos c/44</field>
     <field name="equivalente_stu">1.0</field>
-    <field name="tipo_material">desechable</field>
+    <field name="tipo_material">instrumental</field>
     <field name="codigo">AUTO-1744</field>
     <field name="numero_dispositivo">HC-1744</field>
     <field name="cantidad_estandar">1</field>
@@ -17443,7 +17443,7 @@
   <record id="instrument_catalog_1745" model="instrument.catalog">
     <field name="name">Pequeños Fragmentos c/64</field>
     <field name="equivalente_stu">1.0</field>
-    <field name="tipo_material">desechable</field>
+    <field name="tipo_material">instrumental</field>
     <field name="codigo">AUTO-1745</field>
     <field name="numero_dispositivo">HC-1745</field>
     <field name="cantidad_estandar">1</field>
@@ -17453,7 +17453,7 @@
   <record id="instrument_catalog_1746" model="instrument.catalog">
     <field name="name">Pequeños Fragmentos c/7</field>
     <field name="equivalente_stu">0.5</field>
-    <field name="tipo_material">desechable</field>
+    <field name="tipo_material">instrumental</field>
     <field name="codigo">AUTO-1746</field>
     <field name="numero_dispositivo">HC-1746</field>
     <field name="cantidad_estandar">1</field>
@@ -17733,7 +17733,7 @@
   <record id="instrument_catalog_1774" model="instrument.catalog">
     <field name="name">Perrillas</field>
     <field name="equivalente_stu">0.1</field>
-    <field name="tipo_material">desechable</field>
+    <field name="tipo_material">instrumental</field>
     <field name="codigo">AUTO-1774</field>
     <field name="numero_dispositivo">HC-1774</field>
     <field name="cantidad_estandar">1</field>
@@ -17913,7 +17913,7 @@
   <record id="instrument_catalog_1792" model="instrument.catalog">
     <field name="name">Pieza de Mano c/4</field>
     <field name="equivalente_stu">0.3</field>
-    <field name="tipo_material">desechable</field>
+    <field name="tipo_material">instrumental</field>
     <field name="codigo">AUTO-1792</field>
     <field name="numero_dispositivo">HC-1792</field>
     <field name="cantidad_estandar">1</field>
@@ -18043,7 +18043,7 @@
   <record id="instrument_catalog_1805" model="instrument.catalog">
     <field name="name">Pieza de Mano Metro</field>
     <field name="equivalente_stu">0.2</field>
-    <field name="tipo_material">desechable</field>
+    <field name="tipo_material">instrumental</field>
     <field name="codigo">AUTO-1805</field>
     <field name="numero_dispositivo">HC-1805</field>
     <field name="cantidad_estandar">1</field>
@@ -18463,7 +18463,7 @@
   <record id="instrument_catalog_1847" model="instrument.catalog">
     <field name="name">Pinza Bipolar c/8</field>
     <field name="equivalente_stu">0.3</field>
-    <field name="tipo_material">desechable</field>
+    <field name="tipo_material">instrumental</field>
     <field name="codigo">AUTO-1847</field>
     <field name="numero_dispositivo">HC-1847</field>
     <field name="cantidad_estandar">1</field>
@@ -18503,7 +18503,7 @@
   <record id="instrument_catalog_1851" model="instrument.catalog">
     <field name="name">Pinza Clinch extra</field>
     <field name="equivalente_stu">0.2</field>
-    <field name="tipo_material">desechable</field>
+    <field name="tipo_material">instrumental</field>
     <field name="codigo">AUTO-1851</field>
     <field name="numero_dispositivo">HC-1851</field>
     <field name="cantidad_estandar">1</field>
@@ -18513,7 +18513,7 @@
   <record id="instrument_catalog_1852" model="instrument.catalog">
     <field name="name">Pinza Control</field>
     <field name="equivalente_stu">0.2</field>
-    <field name="tipo_material">desechable</field>
+    <field name="tipo_material">instrumental</field>
     <field name="codigo">AUTO-1852</field>
     <field name="numero_dispositivo">HC-1852</field>
     <field name="cantidad_estandar">1</field>
@@ -19793,7 +19793,7 @@
   <record id="instrument_catalog_1980" model="instrument.catalog">
     <field name="name">Placas Montemorelos c/22</field>
     <field name="equivalente_stu">0.75</field>
-    <field name="tipo_material">desechable</field>
+    <field name="tipo_material">instrumental</field>
     <field name="codigo">AUTO-1980</field>
     <field name="numero_dispositivo">HC-1980</field>
     <field name="cantidad_estandar">1</field>
@@ -20363,7 +20363,7 @@
   <record id="instrument_catalog_2037" model="instrument.catalog">
     <field name="name">Pulmon de prueba neonatal Hospital Materno</field>
     <field name="equivalente_stu">0.2</field>
-    <field name="tipo_material">desechable</field>
+    <field name="tipo_material">instrumental</field>
     <field name="codigo">AUTO-2037</field>
     <field name="numero_dispositivo">HC-2037</field>
     <field name="cantidad_estandar">1</field>
@@ -20373,7 +20373,7 @@
   <record id="instrument_catalog_2038" model="instrument.catalog">
     <field name="name">Punta</field>
     <field name="equivalente_stu">0.05</field>
-    <field name="tipo_material">desechable</field>
+    <field name="tipo_material">instrumental</field>
     <field name="codigo">AUTO-2038</field>
     <field name="numero_dispositivo">HC-2038</field>
     <field name="cantidad_estandar">1</field>
@@ -20383,7 +20383,7 @@
   <record id="instrument_catalog_2039" model="instrument.catalog">
     <field name="name">Punta + 2 tapones</field>
     <field name="equivalente_stu">0.0</field>
-    <field name="tipo_material">desechable</field>
+    <field name="tipo_material">instrumental</field>
     <field name="codigo">AUTO-2039</field>
     <field name="numero_dispositivo">HC-2039</field>
     <field name="cantidad_estandar">1</field>
@@ -20393,7 +20393,7 @@
   <record id="instrument_catalog_2040" model="instrument.catalog">
     <field name="name">Punta cauterio</field>
     <field name="equivalente_stu">0.05</field>
-    <field name="tipo_material">desechable</field>
+    <field name="tipo_material">instrumental</field>
     <field name="codigo">AUTO-2040</field>
     <field name="numero_dispositivo">HC-2040</field>
     <field name="cantidad_estandar">1</field>
@@ -20443,7 +20443,7 @@
   <record id="instrument_catalog_2045" model="instrument.catalog">
     <field name="name">Punta</field>
     <field name="equivalente_stu">0.05</field>
-    <field name="tipo_material">desechable</field>
+    <field name="tipo_material">instrumental</field>
     <field name="codigo">AUTO-2045</field>
     <field name="numero_dispositivo">HC-2045</field>
     <field name="cantidad_estandar">1</field>
@@ -20453,7 +20453,7 @@
   <record id="instrument_catalog_2046" model="instrument.catalog">
     <field name="name">Punta Fina Roja</field>
     <field name="equivalente_stu">0.05</field>
-    <field name="tipo_material">desechable</field>
+    <field name="tipo_material">instrumental</field>
     <field name="codigo">AUTO-2046</field>
     <field name="numero_dispositivo">HC-2046</field>
     <field name="cantidad_estandar">1</field>
@@ -20463,7 +20463,7 @@
   <record id="instrument_catalog_2047" model="instrument.catalog">
     <field name="name">Punta larga</field>
     <field name="equivalente_stu">0.05</field>
-    <field name="tipo_material">desechable</field>
+    <field name="tipo_material">instrumental</field>
     <field name="codigo">AUTO-2047</field>
     <field name="numero_dispositivo">HC-2047</field>
     <field name="cantidad_estandar">1</field>
@@ -20473,7 +20473,7 @@
   <record id="instrument_catalog_2048" model="instrument.catalog">
     <field name="name">Punta larga de cauterio</field>
     <field name="equivalente_stu">0.05</field>
-    <field name="tipo_material">desechable</field>
+    <field name="tipo_material">instrumental</field>
     <field name="codigo">AUTO-2048</field>
     <field name="numero_dispositivo">HC-2048</field>
     <field name="cantidad_estandar">1</field>
@@ -20483,7 +20483,7 @@
   <record id="instrument_catalog_2049" model="instrument.catalog">
     <field name="name">Punta M5</field>
     <field name="equivalente_stu">0.1</field>
-    <field name="tipo_material">desechable</field>
+    <field name="tipo_material">instrumental</field>
     <field name="codigo">AUTO-2049</field>
     <field name="numero_dispositivo">HC-2049</field>
     <field name="cantidad_estandar">1</field>
@@ -20493,7 +20493,7 @@
   <record id="instrument_catalog_2050" model="instrument.catalog">
     <field name="name">Punta M5 Cornetes</field>
     <field name="equivalente_stu">0.1</field>
-    <field name="tipo_material">desechable</field>
+    <field name="tipo_material">instrumental</field>
     <field name="codigo">AUTO-2050</field>
     <field name="numero_dispositivo">HC-2050</field>
     <field name="cantidad_estandar">1</field>
@@ -20503,7 +20503,7 @@
   <record id="instrument_catalog_2051" model="instrument.catalog">
     <field name="name">Punta p/Crío</field>
     <field name="equivalente_stu">0.2</field>
-    <field name="tipo_material">desechable</field>
+    <field name="tipo_material">instrumental</field>
     <field name="codigo">AUTO-2051</field>
     <field name="numero_dispositivo">HC-2051</field>
     <field name="cantidad_estandar">1</field>
@@ -20513,7 +20513,7 @@
   <record id="instrument_catalog_2052" model="instrument.catalog">
     <field name="name">Punta p/Nucleoplastia</field>
     <field name="equivalente_stu">0.1</field>
-    <field name="tipo_material">desechable</field>
+    <field name="tipo_material">instrumental</field>
     <field name="codigo">AUTO-2052</field>
     <field name="numero_dispositivo">HC-2052</field>
     <field name="cantidad_estandar">1</field>
@@ -20523,7 +20523,7 @@
   <record id="instrument_catalog_2053" model="instrument.catalog">
     <field name="name">Punta y Sonda</field>
     <field name="equivalente_stu">0.2</field>
-    <field name="tipo_material">desechable</field>
+    <field name="tipo_material">instrumental</field>
     <field name="codigo">AUTO-2053</field>
     <field name="numero_dispositivo">HC-2053</field>
     <field name="cantidad_estandar">1</field>
@@ -20533,7 +20533,7 @@
   <record id="instrument_catalog_2054" model="instrument.catalog">
     <field name="name">Puntas Midas c/7</field>
     <field name="equivalente_stu">0.1</field>
-    <field name="tipo_material">desechable</field>
+    <field name="tipo_material">instrumental</field>
     <field name="codigo">AUTO-2054</field>
     <field name="numero_dispositivo">HC-2054</field>
     <field name="cantidad_estandar">1</field>
@@ -20633,7 +20633,7 @@
   <record id="instrument_catalog_2064" model="instrument.catalog">
     <field name="name">Punzón</field>
     <field name="equivalente_stu">0.1</field>
-    <field name="tipo_material">desechable</field>
+    <field name="tipo_material">instrumental</field>
     <field name="codigo">AUTO-2064</field>
     <field name="numero_dispositivo">HC-2064</field>
     <field name="cantidad_estandar">1</field>
@@ -20643,7 +20643,7 @@
   <record id="instrument_catalog_2065" model="instrument.catalog">
     <field name="name">Punzon (caja chica) Artimedica</field>
     <field name="equivalente_stu">0.3</field>
-    <field name="tipo_material">desechable</field>
+    <field name="tipo_material">instrumental</field>
     <field name="codigo">AUTO-2065</field>
     <field name="numero_dispositivo">HC-2065</field>
     <field name="cantidad_estandar">1</field>
@@ -20673,7 +20673,7 @@
   <record id="instrument_catalog_2068" model="instrument.catalog">
     <field name="name">Quita Puntos</field>
     <field name="equivalente_stu">0.15</field>
-    <field name="tipo_material">desechable</field>
+    <field name="tipo_material">instrumental</field>
     <field name="codigo">AUTO-2068</field>
     <field name="numero_dispositivo">HC-2068</field>
     <field name="cantidad_estandar">1</field>
@@ -20683,7 +20683,7 @@
   <record id="instrument_catalog_2069" model="instrument.catalog">
     <field name="name">Quita Puntos 2do Piso</field>
     <field name="equivalente_stu">0.15</field>
-    <field name="tipo_material">desechable</field>
+    <field name="tipo_material">instrumental</field>
     <field name="codigo">AUTO-2069</field>
     <field name="numero_dispositivo">HC-2069</field>
     <field name="cantidad_estandar">1</field>
@@ -20693,7 +20693,7 @@
   <record id="instrument_catalog_2070" model="instrument.catalog">
     <field name="name">Quitapuntos c/2</field>
     <field name="equivalente_stu">0.15</field>
-    <field name="tipo_material">desechable</field>
+    <field name="tipo_material">instrumental</field>
     <field name="codigo">AUTO-2070</field>
     <field name="numero_dispositivo">HC-2070</field>
     <field name="cantidad_estandar">1</field>
@@ -20743,7 +20743,7 @@
   <record id="instrument_catalog_2075" model="instrument.catalog">
     <field name="name">Radiofrecuencia (proveedor)</field>
     <field name="equivalente_stu">0.3</field>
-    <field name="tipo_material">desechable</field>
+    <field name="tipo_material">instrumental</field>
     <field name="codigo">AUTO-2075</field>
     <field name="numero_dispositivo">HC-2075</field>
     <field name="cantidad_estandar">1</field>
@@ -20773,7 +20773,7 @@
   <record id="instrument_catalog_2078" model="instrument.catalog">
     <field name="name">Randall</field>
     <field name="equivalente_stu">0.1</field>
-    <field name="tipo_material">desechable</field>
+    <field name="tipo_material">instrumental</field>
     <field name="codigo">AUTO-2078</field>
     <field name="numero_dispositivo">HC-2078</field>
     <field name="cantidad_estandar">1</field>
@@ -20783,7 +20783,7 @@
   <record id="instrument_catalog_2079" model="instrument.catalog">
     <field name="name">Recanalización</field>
     <field name="equivalente_stu">0.2</field>
-    <field name="tipo_material">desechable</field>
+    <field name="tipo_material">instrumental</field>
     <field name="codigo">AUTO-2079</field>
     <field name="numero_dispositivo">HC-2079</field>
     <field name="cantidad_estandar">1</field>
@@ -20803,7 +20803,7 @@
   <record id="instrument_catalog_2081" model="instrument.catalog">
     <field name="name">Receptor c/4</field>
     <field name="equivalente_stu">0.2</field>
-    <field name="tipo_material">desechable</field>
+    <field name="tipo_material">instrumental</field>
     <field name="codigo">AUTO-2081</field>
     <field name="numero_dispositivo">HC-2081</field>
     <field name="cantidad_estandar">1</field>
@@ -20853,7 +20853,7 @@
   <record id="instrument_catalog_2086" model="instrument.catalog">
     <field name="name">Reconstrucción Articular c/13</field>
     <field name="equivalente_stu">0.3</field>
-    <field name="tipo_material">desechable</field>
+    <field name="tipo_material">instrumental</field>
     <field name="codigo">AUTO-2086</field>
     <field name="numero_dispositivo">HC-2086</field>
     <field name="cantidad_estandar">1</field>
@@ -20983,7 +20983,7 @@
   <record id="instrument_catalog_2099" model="instrument.catalog">
     <field name="name">Reparación de Menisco c/9</field>
     <field name="equivalente_stu">0.3</field>
-    <field name="tipo_material">desechable</field>
+    <field name="tipo_material">instrumental</field>
     <field name="codigo">AUTO-2099</field>
     <field name="numero_dispositivo">HC-2099</field>
     <field name="cantidad_estandar">1</field>
@@ -20993,7 +20993,7 @@
   <record id="instrument_catalog_2100" model="instrument.catalog">
     <field name="name">Reparación Gráfico c/90</field>
     <field name="equivalente_stu">1.0</field>
-    <field name="tipo_material">desechable</field>
+    <field name="tipo_material">instrumental</field>
     <field name="codigo">AUTO-2100</field>
     <field name="numero_dispositivo">HC-2100</field>
     <field name="cantidad_estandar">1</field>
@@ -21003,7 +21003,7 @@
   <record id="instrument_catalog_2101" model="instrument.catalog">
     <field name="name">Resetoscopio c/3</field>
     <field name="equivalente_stu">0.5</field>
-    <field name="tipo_material">desechable</field>
+    <field name="tipo_material">instrumental</field>
     <field name="codigo">AUTO-2101</field>
     <field name="numero_dispositivo">HC-2101</field>
     <field name="cantidad_estandar">1</field>
@@ -21013,7 +21013,7 @@
   <record id="instrument_catalog_2102" model="instrument.catalog">
     <field name="name">Retiro de Canulado c/12</field>
     <field name="equivalente_stu">0.3</field>
-    <field name="tipo_material">desechable</field>
+    <field name="tipo_material">instrumental</field>
     <field name="codigo">AUTO-2102</field>
     <field name="numero_dispositivo">HC-2102</field>
     <field name="cantidad_estandar">1</field>
@@ -21023,7 +21023,7 @@
   <record id="instrument_catalog_2103" model="instrument.catalog">
     <field name="name">Retiro de Canulado c/8</field>
     <field name="equivalente_stu">0.3</field>
-    <field name="tipo_material">desechable</field>
+    <field name="tipo_material">instrumental</field>
     <field name="codigo">AUTO-2103</field>
     <field name="numero_dispositivo">HC-2103</field>
     <field name="cantidad_estandar">1</field>
@@ -21033,7 +21033,7 @@
   <record id="instrument_catalog_2104" model="instrument.catalog">
     <field name="name">Retiro de Cerclaje c/5</field>
     <field name="equivalente_stu">0.3</field>
-    <field name="tipo_material">desechable</field>
+    <field name="tipo_material">instrumental</field>
     <field name="codigo">AUTO-2104</field>
     <field name="numero_dispositivo">HC-2104</field>
     <field name="cantidad_estandar">1</field>
@@ -21043,7 +21043,7 @@
   <record id="instrument_catalog_2105" model="instrument.catalog">
     <field name="name">Retiro de Placas c/15</field>
     <field name="equivalente_stu">0.3</field>
-    <field name="tipo_material">desechable</field>
+    <field name="tipo_material">instrumental</field>
     <field name="codigo">AUTO-2105</field>
     <field name="numero_dispositivo">HC-2105</field>
     <field name="cantidad_estandar">1</field>
@@ -21053,7 +21053,7 @@
   <record id="instrument_catalog_2106" model="instrument.catalog">
     <field name="name">Retiro de Tercia de Caña</field>
     <field name="equivalente_stu">0.2</field>
-    <field name="tipo_material">desechable</field>
+    <field name="tipo_material">instrumental</field>
     <field name="codigo">AUTO-2106</field>
     <field name="numero_dispositivo">HC-2106</field>
     <field name="cantidad_estandar">1</field>
@@ -21063,7 +21063,7 @@
   <record id="instrument_catalog_2107" model="instrument.catalog">
     <field name="name">Retiro de Tornillo Barrido c/84</field>
     <field name="equivalente_stu">1.0</field>
-    <field name="tipo_material">desechable</field>
+    <field name="tipo_material">instrumental</field>
     <field name="codigo">AUTO-2107</field>
     <field name="numero_dispositivo">HC-2107</field>
     <field name="cantidad_estandar">1</field>
@@ -21073,7 +21073,7 @@
   <record id="instrument_catalog_2108" model="instrument.catalog">
     <field name="name">Retiro de Tornillo c/6</field>
     <field name="equivalente_stu">0.3</field>
-    <field name="tipo_material">desechable</field>
+    <field name="tipo_material">instrumental</field>
     <field name="codigo">AUTO-2108</field>
     <field name="numero_dispositivo">HC-2108</field>
     <field name="cantidad_estandar">1</field>
@@ -21083,7 +21083,7 @@
   <record id="instrument_catalog_2109" model="instrument.catalog">
     <field name="name">Retiro FVC</field>
     <field name="equivalente_stu">0.2</field>
-    <field name="tipo_material">desechable</field>
+    <field name="tipo_material">instrumental</field>
     <field name="codigo">AUTO-2109</field>
     <field name="numero_dispositivo">HC-2109</field>
     <field name="cantidad_estandar">1</field>
@@ -21093,7 +21093,7 @@
   <record id="instrument_catalog_2110" model="instrument.catalog">
     <field name="name">Retiro Osteosíntesis c/5</field>
     <field name="equivalente_stu">0.5</field>
-    <field name="tipo_material">desechable</field>
+    <field name="tipo_material">instrumental</field>
     <field name="codigo">AUTO-2110</field>
     <field name="numero_dispositivo">HC-2110</field>
     <field name="cantidad_estandar">1</field>
@@ -21113,7 +21113,7 @@
   <record id="instrument_catalog_2112" model="instrument.catalog">
     <field name="name">Retractor Lumbar c/34</field>
     <field name="equivalente_stu">1.0</field>
-    <field name="tipo_material">desechable</field>
+    <field name="tipo_material">instrumental</field>
     <field name="codigo">AUTO-2112</field>
     <field name="numero_dispositivo">HC-2112</field>
     <field name="cantidad_estandar">1</field>
@@ -21183,7 +21183,7 @@
   <record id="instrument_catalog_2119" model="instrument.catalog">
     <field name="name">Richardson Doble</field>
     <field name="equivalente_stu">0.2</field>
-    <field name="tipo_material">desechable</field>
+    <field name="tipo_material">instrumental</field>
     <field name="codigo">AUTO-2119</field>
     <field name="numero_dispositivo">HC-2119</field>
     <field name="cantidad_estandar">1</field>
@@ -21253,7 +21253,7 @@
   <record id="instrument_catalog_2126" model="instrument.catalog">
     <field name="name">Rinoscopio</field>
     <field name="equivalente_stu">0.1</field>
-    <field name="tipo_material">desechable</field>
+    <field name="tipo_material">instrumental</field>
     <field name="codigo">AUTO-2126</field>
     <field name="numero_dispositivo">HC-2126</field>
     <field name="cantidad_estandar">1</field>
@@ -21273,7 +21273,7 @@
   <record id="instrument_catalog_2128" model="instrument.catalog">
     <field name="name">Riñón</field>
     <field name="equivalente_stu">0.15</field>
-    <field name="tipo_material">desechable</field>
+    <field name="tipo_material">instrumental</field>
     <field name="codigo">AUTO-2128</field>
     <field name="numero_dispositivo">HC-2128</field>
     <field name="cantidad_estandar">1</field>
@@ -21283,7 +21283,7 @@
   <record id="instrument_catalog_2129" model="instrument.catalog">
     <field name="name">Riñon metalico</field>
     <field name="equivalente_stu">0.2</field>
-    <field name="tipo_material">desechable</field>
+    <field name="tipo_material">instrumental</field>
     <field name="codigo">AUTO-2129</field>
     <field name="numero_dispositivo">HC-2129</field>
     <field name="cantidad_estandar">1</field>
@@ -21293,7 +21293,7 @@
   <record id="instrument_catalog_2130" model="instrument.catalog">
     <field name="name">Riñón Plástico</field>
     <field name="equivalente_stu">0.15</field>
-    <field name="tipo_material">desechable</field>
+    <field name="tipo_material">instrumental</field>
     <field name="codigo">AUTO-2130</field>
     <field name="numero_dispositivo">HC-2130</field>
     <field name="cantidad_estandar">1</field>
@@ -21303,7 +21303,7 @@
   <record id="instrument_catalog_2131" model="instrument.catalog">
     <field name="name">Riñon plastico San Camilo</field>
     <field name="equivalente_stu">0.1</field>
-    <field name="tipo_material">desechable</field>
+    <field name="tipo_material">instrumental</field>
     <field name="codigo">AUTO-2131</field>
     <field name="numero_dispositivo">HC-2131</field>
     <field name="cantidad_estandar">1</field>
@@ -21313,7 +21313,7 @@
   <record id="instrument_catalog_2132" model="instrument.catalog">
     <field name="name">Rodia Metro Posterior c/16</field>
     <field name="equivalente_stu">0.3</field>
-    <field name="tipo_material">desechable</field>
+    <field name="tipo_material">instrumental</field>
     <field name="codigo">AUTO-2132</field>
     <field name="numero_dispositivo">HC-2132</field>
     <field name="cantidad_estandar">1</field>
@@ -21363,7 +21363,7 @@
   <record id="instrument_catalog_2137" model="instrument.catalog">
     <field name="name">Roton c/38</field>
     <field name="equivalente_stu">0.4</field>
-    <field name="tipo_material">desechable</field>
+    <field name="tipo_material">instrumental</field>
     <field name="codigo">AUTO-2137</field>
     <field name="numero_dispositivo">HC-2137</field>
     <field name="cantidad_estandar">1</field>
@@ -21553,7 +21553,7 @@
   <record id="instrument_catalog_2156" model="instrument.catalog">
     <field name="name">Separador Alexis</field>
     <field name="equivalente_stu">0.2</field>
-    <field name="tipo_material">desechable</field>
+    <field name="tipo_material">instrumental</field>
     <field name="codigo">AUTO-2156</field>
     <field name="numero_dispositivo">HC-2156</field>
     <field name="cantidad_estandar">1</field>
@@ -21583,7 +21583,7 @@
   <record id="instrument_catalog_2159" model="instrument.catalog">
     <field name="name">Separador articulado</field>
     <field name="equivalente_stu">0.2</field>
-    <field name="tipo_material">desechable</field>
+    <field name="tipo_material">instrumental</field>
     <field name="codigo">AUTO-2159</field>
     <field name="numero_dispositivo">HC-2159</field>
     <field name="cantidad_estandar">1</field>
@@ -21593,7 +21593,7 @@
   <record id="instrument_catalog_2160" model="instrument.catalog">
     <field name="name">Separador automatico</field>
     <field name="equivalente_stu">0.2</field>
-    <field name="tipo_material">desechable</field>
+    <field name="tipo_material">instrumental</field>
     <field name="codigo">AUTO-2160</field>
     <field name="numero_dispositivo">HC-2160</field>
     <field name="cantidad_estandar">1</field>
@@ -21603,7 +21603,7 @@
   <record id="instrument_catalog_2161" model="instrument.catalog">
     <field name="name">Separador Barret</field>
     <field name="equivalente_stu">0.2</field>
-    <field name="tipo_material">desechable</field>
+    <field name="tipo_material">instrumental</field>
     <field name="codigo">AUTO-2161</field>
     <field name="numero_dispositivo">HC-2161</field>
     <field name="cantidad_estandar">1</field>
@@ -21663,7 +21663,7 @@
   <record id="instrument_catalog_2167" model="instrument.catalog">
     <field name="name">Separador Cervical c/51</field>
     <field name="equivalente_stu">1.0</field>
-    <field name="tipo_material">desechable</field>
+    <field name="tipo_material">instrumental</field>
     <field name="codigo">AUTO-2167</field>
     <field name="numero_dispositivo">HC-2167</field>
     <field name="cantidad_estandar">1</field>
@@ -21713,7 +21713,7 @@
   <record id="instrument_catalog_2172" model="instrument.catalog">
     <field name="name">Separador de Hombros c/15</field>
     <field name="equivalente_stu">0.7</field>
-    <field name="tipo_material">desechable</field>
+    <field name="tipo_material">instrumental</field>
     <field name="codigo">AUTO-2172</field>
     <field name="numero_dispositivo">HC-2172</field>
     <field name="cantidad_estandar">1</field>
@@ -22363,7 +22363,7 @@
   <record id="instrument_catalog_2237" model="instrument.catalog">
     <field name="name">Set de Bayonetas bipolares c/5</field>
     <field name="equivalente_stu">0.2</field>
-    <field name="tipo_material">desechable</field>
+    <field name="tipo_material">instrumental</field>
     <field name="codigo">AUTO-2237</field>
     <field name="numero_dispositivo">HC-2237</field>
     <field name="cantidad_estandar">1</field>
@@ -22433,7 +22433,7 @@
   <record id="instrument_catalog_2244" model="instrument.catalog">
     <field name="name">Set de Cucharillas</field>
     <field name="equivalente_stu">0.2</field>
-    <field name="tipo_material">desechable</field>
+    <field name="tipo_material">instrumental</field>
     <field name="codigo">AUTO-2244</field>
     <field name="numero_dispositivo">HC-2244</field>
     <field name="cantidad_estandar">1</field>
@@ -22443,7 +22443,7 @@
   <record id="instrument_catalog_2245" model="instrument.catalog">
     <field name="name">Set de Cucharillas c/26</field>
     <field name="equivalente_stu">0.2</field>
-    <field name="tipo_material">desechable</field>
+    <field name="tipo_material">instrumental</field>
     <field name="codigo">AUTO-2245</field>
     <field name="numero_dispositivo">HC-2245</field>
     <field name="cantidad_estandar">1</field>
@@ -22453,7 +22453,7 @@
   <record id="instrument_catalog_2246" model="instrument.catalog">
     <field name="name">Set de Endoscopia</field>
     <field name="equivalente_stu">0.3</field>
-    <field name="tipo_material">desechable</field>
+    <field name="tipo_material">instrumental</field>
     <field name="codigo">AUTO-2246</field>
     <field name="numero_dispositivo">HC-2246</field>
     <field name="cantidad_estandar">1</field>
@@ -22493,7 +22493,7 @@
   <record id="instrument_catalog_2250" model="instrument.catalog">
     <field name="name">Set de Fibra, Cable y Bayoneta</field>
     <field name="equivalente_stu">0.1</field>
-    <field name="tipo_material">desechable</field>
+    <field name="tipo_material">instrumental</field>
     <field name="codigo">AUTO-2250</field>
     <field name="numero_dispositivo">HC-2250</field>
     <field name="cantidad_estandar">1</field>
@@ -22553,7 +22553,7 @@
   <record id="instrument_catalog_2256" model="instrument.catalog">
     <field name="name">Set de Instrumental Posterior</field>
     <field name="equivalente_stu">0.7</field>
-    <field name="tipo_material">desechable</field>
+    <field name="tipo_material">instrumental</field>
     <field name="codigo">AUTO-2256</field>
     <field name="numero_dispositivo">HC-2256</field>
     <field name="cantidad_estandar">1</field>
@@ -23453,7 +23453,7 @@
   <record id="instrument_catalog_2346" model="instrument.catalog">
     <field name="name">Sistema vertex c/41</field>
     <field name="equivalente_stu">1.0</field>
-    <field name="tipo_material">desechable</field>
+    <field name="tipo_material">instrumental</field>
     <field name="codigo">AUTO-2346</field>
     <field name="numero_dispositivo">HC-2346</field>
     <field name="cantidad_estandar">1</field>
@@ -23583,7 +23583,7 @@
   <record id="instrument_catalog_2359" model="instrument.catalog">
     <field name="name">Sonda Nasogástrica #32</field>
     <field name="equivalente_stu">0.1</field>
-    <field name="tipo_material">desechable</field>
+    <field name="tipo_material">instrumental</field>
     <field name="codigo">AUTO-2359</field>
     <field name="numero_dispositivo">HC-2359</field>
     <field name="cantidad_estandar">1</field>
@@ -23593,7 +23593,7 @@
   <record id="instrument_catalog_2360" model="instrument.catalog">
     <field name="name">Sonda orogástrica</field>
     <field name="equivalente_stu">0.35</field>
-    <field name="tipo_material">desechable</field>
+    <field name="tipo_material">instrumental</field>
     <field name="codigo">AUTO-2360</field>
     <field name="numero_dispositivo">HC-2360</field>
     <field name="cantidad_estandar">1</field>
@@ -23623,7 +23623,7 @@
   <record id="instrument_catalog_2363" model="instrument.catalog">
     <field name="name">Sonotrodos c/4 + 2 llaves</field>
     <field name="equivalente_stu">0.2</field>
-    <field name="tipo_material">desechable</field>
+    <field name="tipo_material">instrumental</field>
     <field name="codigo">AUTO-2363</field>
     <field name="numero_dispositivo">HC-2363</field>
     <field name="cantidad_estandar">1</field>
@@ -23633,7 +23633,7 @@
   <record id="instrument_catalog_2364" model="instrument.catalog">
     <field name="name">Sonotrodos c/5</field>
     <field name="equivalente_stu">0.1</field>
-    <field name="tipo_material">desechable</field>
+    <field name="tipo_material">instrumental</field>
     <field name="codigo">AUTO-2364</field>
     <field name="numero_dispositivo">HC-2364</field>
     <field name="cantidad_estandar">1</field>
@@ -23753,7 +23753,7 @@
   <record id="instrument_catalog_2376" model="instrument.catalog">
     <field name="name">Tabla de preparacion c/9</field>
     <field name="equivalente_stu">0.5</field>
-    <field name="tipo_material">desechable</field>
+    <field name="tipo_material">instrumental</field>
     <field name="codigo">AUTO-2376</field>
     <field name="numero_dispositivo">HC-2376</field>
     <field name="cantidad_estandar">1</field>
@@ -23763,7 +23763,7 @@
   <record id="instrument_catalog_2377" model="instrument.catalog">
     <field name="name">Tabla de reparacion c/15</field>
     <field name="equivalente_stu">0.2</field>
-    <field name="tipo_material">desechable</field>
+    <field name="tipo_material">instrumental</field>
     <field name="codigo">AUTO-2377</field>
     <field name="numero_dispositivo">HC-2377</field>
     <field name="cantidad_estandar">1</field>
@@ -23773,7 +23773,7 @@
   <record id="instrument_catalog_2378" model="instrument.catalog">
     <field name="name">Taladro</field>
     <field name="equivalente_stu">0.5</field>
-    <field name="tipo_material">desechable</field>
+    <field name="tipo_material">instrumental</field>
     <field name="codigo">AUTO-2378</field>
     <field name="numero_dispositivo">HC-2378</field>
     <field name="cantidad_estandar">1</field>
@@ -23783,7 +23783,7 @@
   <record id="instrument_catalog_2379" model="instrument.catalog">
     <field name="name">Taladro</field>
     <field name="equivalente_stu">0.5</field>
-    <field name="tipo_material">desechable</field>
+    <field name="tipo_material">instrumental</field>
     <field name="codigo">AUTO-2379</field>
     <field name="numero_dispositivo">HC-2379</field>
     <field name="cantidad_estandar">1</field>
@@ -23793,7 +23793,7 @@
   <record id="instrument_catalog_2380" model="instrument.catalog">
     <field name="name">Taladro</field>
     <field name="equivalente_stu">0.5</field>
-    <field name="tipo_material">desechable</field>
+    <field name="tipo_material">instrumental</field>
     <field name="codigo">AUTO-2380</field>
     <field name="numero_dispositivo">HC-2380</field>
     <field name="cantidad_estandar">1</field>
@@ -23803,7 +23803,7 @@
   <record id="instrument_catalog_2381" model="instrument.catalog">
     <field name="name">Tapa decantador</field>
     <field name="equivalente_stu">0.2</field>
-    <field name="tipo_material">desechable</field>
+    <field name="tipo_material">instrumental</field>
     <field name="codigo">AUTO-2381</field>
     <field name="numero_dispositivo">HC-2381</field>
     <field name="cantidad_estandar">1</field>
@@ -23813,7 +23813,7 @@
   <record id="instrument_catalog_2382" model="instrument.catalog">
     <field name="name">Tapas UCIN</field>
     <field name="equivalente_stu">0.1</field>
-    <field name="tipo_material">desechable</field>
+    <field name="tipo_material">instrumental</field>
     <field name="codigo">AUTO-2382</field>
     <field name="numero_dispositivo">HC-2382</field>
     <field name="cantidad_estandar">1</field>
@@ -23823,7 +23823,7 @@
   <record id="instrument_catalog_2383" model="instrument.catalog">
     <field name="name">Tapas UCIN c/2</field>
     <field name="equivalente_stu">0.1</field>
-    <field name="tipo_material">desechable</field>
+    <field name="tipo_material">instrumental</field>
     <field name="codigo">AUTO-2383</field>
     <field name="numero_dispositivo">HC-2383</field>
     <field name="cantidad_estandar">1</field>
@@ -23923,7 +23923,7 @@
   <record id="instrument_catalog_2393" model="instrument.catalog">
     <field name="name">Thompson #02 c/26</field>
     <field name="equivalente_stu">0.5</field>
-    <field name="tipo_material">desechable</field>
+    <field name="tipo_material">instrumental</field>
     <field name="codigo">AUTO-2393</field>
     <field name="numero_dispositivo">HC-2393</field>
     <field name="cantidad_estandar">1</field>
@@ -23933,7 +23933,7 @@
   <record id="instrument_catalog_2394" model="instrument.catalog">
     <field name="name">Thompson c/40</field>
     <field name="equivalente_stu">0.5</field>
-    <field name="tipo_material">desechable</field>
+    <field name="tipo_material">instrumental</field>
     <field name="codigo">AUTO-2394</field>
     <field name="numero_dispositivo">HC-2394</field>
     <field name="cantidad_estandar">1</field>
@@ -23943,7 +23943,7 @@
   <record id="instrument_catalog_2395" model="instrument.catalog">
     <field name="name">Thompson Implantes</field>
     <field name="equivalente_stu">0.5</field>
-    <field name="tipo_material">desechable</field>
+    <field name="tipo_material">instrumental</field>
     <field name="codigo">AUTO-2395</field>
     <field name="numero_dispositivo">HC-2395</field>
     <field name="cantidad_estandar">1</field>
@@ -24043,7 +24043,7 @@
   <record id="instrument_catalog_2405" model="instrument.catalog">
     <field name="name">Tijera Laparoscopia</field>
     <field name="equivalente_stu">0.2</field>
-    <field name="tipo_material">desechable</field>
+    <field name="tipo_material">instrumental</field>
     <field name="codigo">AUTO-2405</field>
     <field name="numero_dispositivo">HC-2405</field>
     <field name="cantidad_estandar">1</field>
@@ -24053,7 +24053,7 @@
   <record id="instrument_catalog_2406" model="instrument.catalog">
     <field name="name">Tijera Metzen</field>
     <field name="equivalente_stu">0.05</field>
-    <field name="tipo_material">desechable</field>
+    <field name="tipo_material">instrumental</field>
     <field name="codigo">AUTO-2406</field>
     <field name="numero_dispositivo">HC-2406</field>
     <field name="cantidad_estandar">1</field>
@@ -24093,7 +24093,7 @@
   <record id="instrument_catalog_2410" model="instrument.catalog">
     <field name="name">Timpanoplastia c/67</field>
     <field name="equivalente_stu">0.5</field>
-    <field name="tipo_material">desechable</field>
+    <field name="tipo_material">instrumental</field>
     <field name="codigo">AUTO-2410</field>
     <field name="numero_dispositivo">HC-2410</field>
     <field name="cantidad_estandar">1</field>
@@ -24263,7 +24263,7 @@
   <record id="instrument_catalog_2427" model="instrument.catalog">
     <field name="name">Tornillo 4.9x30</field>
     <field name="equivalente_stu">0.5</field>
-    <field name="tipo_material">desechable</field>
+    <field name="tipo_material">instrumental</field>
     <field name="codigo">AUTO-2427</field>
     <field name="numero_dispositivo">HC-2427</field>
     <field name="cantidad_estandar">1</field>
@@ -24293,7 +24293,7 @@
   <record id="instrument_catalog_2430" model="instrument.catalog">
     <field name="name">Tornillo Bloqueo c/50</field>
     <field name="equivalente_stu">0.5</field>
-    <field name="tipo_material">desechable</field>
+    <field name="tipo_material">instrumental</field>
     <field name="codigo">AUTO-2430</field>
     <field name="numero_dispositivo">HC-2430</field>
     <field name="cantidad_estandar">1</field>
@@ -24303,7 +24303,7 @@
   <record id="instrument_catalog_2431" model="instrument.catalog">
     <field name="name">Tornillo c/2</field>
     <field name="equivalente_stu">0.1</field>
-    <field name="tipo_material">desechable</field>
+    <field name="tipo_material">instrumental</field>
     <field name="codigo">AUTO-2431</field>
     <field name="numero_dispositivo">HC-2431</field>
     <field name="cantidad_estandar">1</field>
@@ -24343,7 +24343,7 @@
   <record id="instrument_catalog_2435" model="instrument.catalog">
     <field name="name">Tornillos (paquete) Artimedica</field>
     <field name="equivalente_stu">0.05</field>
-    <field name="tipo_material">desechable</field>
+    <field name="tipo_material">instrumental</field>
     <field name="codigo">AUTO-2435</field>
     <field name="numero_dispositivo">HC-2435</field>
     <field name="cantidad_estandar">1</field>
@@ -24393,7 +24393,7 @@
   <record id="instrument_catalog_2440" model="instrument.catalog">
     <field name="name">Mastoides</field>
     <field name="equivalente_stu">0.3</field>
-    <field name="tipo_material">desechable</field>
+    <field name="tipo_material">instrumental</field>
     <field name="codigo">AUTO-2440</field>
     <field name="numero_dispositivo">HC-2440</field>
     <field name="cantidad_estandar">1</field>
@@ -24453,7 +24453,7 @@
   <record id="instrument_catalog_2446" model="instrument.catalog">
     <field name="name">Tornillos grandes (paquete) Synapse</field>
     <field name="equivalente_stu">0.2</field>
-    <field name="tipo_material">desechable</field>
+    <field name="tipo_material">instrumental</field>
     <field name="codigo">AUTO-2446</field>
     <field name="numero_dispositivo">HC-2446</field>
     <field name="cantidad_estandar">1</field>
@@ -24513,7 +24513,7 @@
   <record id="instrument_catalog_2452" model="instrument.catalog">
     <field name="name">Torre Metropolitano c/9</field>
     <field name="equivalente_stu">0.3</field>
-    <field name="tipo_material">desechable</field>
+    <field name="tipo_material">instrumental</field>
     <field name="codigo">AUTO-2452</field>
     <field name="numero_dispositivo">HC-2452</field>
     <field name="cantidad_estandar">1</field>
@@ -24563,7 +24563,7 @@
   <record id="instrument_catalog_2457" model="instrument.catalog">
     <field name="name">Trauma Tornillera c/46</field>
     <field name="equivalente_stu">0.5</field>
-    <field name="tipo_material">desechable</field>
+    <field name="tipo_material">instrumental</field>
     <field name="codigo">AUTO-2457</field>
     <field name="numero_dispositivo">HC-2457</field>
     <field name="cantidad_estandar">1</field>
@@ -24573,7 +24573,7 @@
   <record id="instrument_catalog_2458" model="instrument.catalog">
     <field name="name">Travesaños Marbet</field>
     <field name="equivalente_stu">0.05</field>
-    <field name="tipo_material">desechable</field>
+    <field name="tipo_material">instrumental</field>
     <field name="codigo">AUTO-2458</field>
     <field name="numero_dispositivo">HC-2458</field>
     <field name="cantidad_estandar">1</field>
@@ -24583,7 +24583,7 @@
   <record id="instrument_catalog_2459" model="instrument.catalog">
     <field name="name">Trigación</field>
     <field name="equivalente_stu">0.1</field>
-    <field name="tipo_material">desechable</field>
+    <field name="tipo_material">instrumental</field>
     <field name="codigo">AUTO-2459</field>
     <field name="numero_dispositivo">HC-2459</field>
     <field name="cantidad_estandar">1</field>
@@ -24593,7 +24593,7 @@
   <record id="instrument_catalog_2460" model="instrument.catalog">
     <field name="name">Trigen c/59</field>
     <field name="equivalente_stu">0.7</field>
-    <field name="tipo_material">desechable</field>
+    <field name="tipo_material">instrumental</field>
     <field name="codigo">AUTO-2460</field>
     <field name="numero_dispositivo">HC-2460</field>
     <field name="cantidad_estandar">1</field>
@@ -24643,7 +24643,7 @@
   <record id="instrument_catalog_2465" model="instrument.catalog">
     <field name="name">Trócar</field>
     <field name="equivalente_stu">0.1</field>
-    <field name="tipo_material">desechable</field>
+    <field name="tipo_material">instrumental</field>
     <field name="codigo">AUTO-2465</field>
     <field name="numero_dispositivo">HC-2465</field>
     <field name="cantidad_estandar">1</field>
@@ -24653,7 +24653,7 @@
   <record id="instrument_catalog_2466" model="instrument.catalog">
     <field name="name">Trócar</field>
     <field name="equivalente_stu">0.1</field>
-    <field name="tipo_material">desechable</field>
+    <field name="tipo_material">instrumental</field>
     <field name="codigo">AUTO-2466</field>
     <field name="numero_dispositivo">HC-2466</field>
     <field name="cantidad_estandar">1</field>
@@ -24663,7 +24663,7 @@
   <record id="instrument_catalog_2467" model="instrument.catalog">
     <field name="name">Trócar #12 c/6 Dr Andrew</field>
     <field name="equivalente_stu">0.2</field>
-    <field name="tipo_material">desechable</field>
+    <field name="tipo_material">instrumental</field>
     <field name="codigo">AUTO-2467</field>
     <field name="numero_dispositivo">HC-2467</field>
     <field name="cantidad_estandar">1</field>
@@ -24703,7 +24703,7 @@
   <record id="instrument_catalog_2471" model="instrument.catalog">
     <field name="name">Trócar c/9 Dr Andrew</field>
     <field name="equivalente_stu">0.2</field>
-    <field name="tipo_material">desechable</field>
+    <field name="tipo_material">instrumental</field>
     <field name="codigo">AUTO-2471</field>
     <field name="numero_dispositivo">HC-2471</field>
     <field name="cantidad_estandar">1</field>
@@ -24763,7 +24763,7 @@
   <record id="instrument_catalog_2477" model="instrument.catalog">
     <field name="name">Trompetas</field>
     <field name="equivalente_stu">0.2</field>
-    <field name="tipo_material">desechable</field>
+    <field name="tipo_material">instrumental</field>
     <field name="codigo">AUTO-2477</field>
     <field name="numero_dispositivo">HC-2477</field>
     <field name="cantidad_estandar">1</field>
@@ -24783,7 +24783,7 @@
   <record id="instrument_catalog_2479" model="instrument.catalog">
     <field name="name">Tubo Caucho</field>
     <field name="equivalente_stu">0.1</field>
-    <field name="tipo_material">desechable</field>
+    <field name="tipo_material">instrumental</field>
     <field name="codigo">AUTO-2479</field>
     <field name="numero_dispositivo">HC-2479</field>
     <field name="cantidad_estandar">1</field>
@@ -24793,7 +24793,7 @@
   <record id="instrument_catalog_2480" model="instrument.catalog">
     <field name="name">Tubo Cilindro c/4</field>
     <field name="equivalente_stu">0.2</field>
-    <field name="tipo_material">desechable</field>
+    <field name="tipo_material">instrumental</field>
     <field name="codigo">AUTO-2480</field>
     <field name="numero_dispositivo">HC-2480</field>
     <field name="cantidad_estandar">1</field>
@@ -24993,7 +24993,7 @@
   <record id="instrument_catalog_2500" model="instrument.catalog">
     <field name="name">Tx Hx c/2</field>
     <field name="equivalente_stu">0.1</field>
-    <field name="tipo_material">desechable</field>
+    <field name="tipo_material">instrumental</field>
     <field name="codigo">AUTO-2500</field>
     <field name="numero_dispositivo">HC-2500</field>
     <field name="cantidad_estandar">1</field>
@@ -25113,7 +25113,7 @@
   <record id="instrument_catalog_2512" model="instrument.catalog">
     <field name="name">Ureteroscopio Rígido c/2</field>
     <field name="equivalente_stu">0.2</field>
-    <field name="tipo_material">desechable</field>
+    <field name="tipo_material">instrumental</field>
     <field name="codigo">AUTO-2512</field>
     <field name="numero_dispositivo">HC-2512</field>
     <field name="cantidad_estandar">1</field>
@@ -25133,7 +25133,7 @@
   <record id="instrument_catalog_2514" model="instrument.catalog">
     <field name="name">Urgencia c/6</field>
     <field name="equivalente_stu">0.1</field>
-    <field name="tipo_material">desechable</field>
+    <field name="tipo_material">instrumental</field>
     <field name="codigo">AUTO-2514</field>
     <field name="numero_dispositivo">HC-2514</field>
     <field name="cantidad_estandar">1</field>
@@ -25143,7 +25143,7 @@
   <record id="instrument_catalog_2515" model="instrument.catalog">
     <field name="name">Uterina</field>
     <field name="equivalente_stu">0.1</field>
-    <field name="tipo_material">desechable</field>
+    <field name="tipo_material">instrumental</field>
     <field name="codigo">AUTO-2515</field>
     <field name="numero_dispositivo">HC-2515</field>
     <field name="cantidad_estandar">1</field>
@@ -25153,7 +25153,7 @@
   <record id="instrument_catalog_2516" model="instrument.catalog">
     <field name="name">Valcas Boss c/79</field>
     <field name="equivalente_stu">0.7</field>
-    <field name="tipo_material">desechable</field>
+    <field name="tipo_material">instrumental</field>
     <field name="codigo">AUTO-2516</field>
     <field name="numero_dispositivo">HC-2516</field>
     <field name="cantidad_estandar">1</field>
@@ -25393,7 +25393,7 @@
   <record id="instrument_catalog_2540" model="instrument.catalog">
     <field name="name">Venda smarch</field>
     <field name="equivalente_stu">0.1</field>
-    <field name="tipo_material">desechable</field>
+    <field name="tipo_material">instrumental</field>
     <field name="codigo">AUTO-2540</field>
     <field name="numero_dispositivo">HC-2540</field>
     <field name="cantidad_estandar">1</field>
@@ -25403,7 +25403,7 @@
   <record id="instrument_catalog_2541" model="instrument.catalog">
     <field name="name">Vendas coban</field>
     <field name="equivalente_stu">0.05</field>
-    <field name="tipo_material">desechable</field>
+    <field name="tipo_material">instrumental</field>
     <field name="codigo">AUTO-2541</field>
     <field name="numero_dispositivo">HC-2541</field>
     <field name="cantidad_estandar">1</field>
@@ -25413,7 +25413,7 @@
   <record id="instrument_catalog_2542" model="instrument.catalog">
     <field name="name">Via aerea</field>
     <field name="equivalente_stu">0.2</field>
-    <field name="tipo_material">desechable</field>
+    <field name="tipo_material">instrumental</field>
     <field name="codigo">AUTO-2542</field>
     <field name="numero_dispositivo">HC-2542</field>
     <field name="cantidad_estandar">1</field>
@@ -25483,7 +25483,7 @@
   <record id="instrument_catalog_2549" model="instrument.catalog">
     <field name="name">Yankawer</field>
     <field name="equivalente_stu">0.1</field>
-    <field name="tipo_material">desechable</field>
+    <field name="tipo_material">instrumental</field>
     <field name="codigo">AUTO-2549</field>
     <field name="numero_dispositivo">HC-2549</field>
     <field name="cantidad_estandar">1</field>
@@ -25523,7 +25523,7 @@
   <record id="instrument_catalog_2553" model="instrument.catalog">
     <field name="name">Set 1 neonatal - pediatrico c/156</field>
     <field name="equivalente_stu">1.0</field>
-    <field name="tipo_material">desechable</field>
+    <field name="tipo_material">instrumental</field>
     <field name="codigo">AUTO-2553</field>
     <field name="numero_dispositivo">HC-2553</field>
     <field name="cantidad_estandar">1</field>
@@ -25533,7 +25533,7 @@
   <record id="instrument_catalog_2554" model="instrument.catalog">
     <field name="name">Set 1 neonatal - pediatrico c/29</field>
     <field name="equivalente_stu">0.3</field>
-    <field name="tipo_material">desechable</field>
+    <field name="tipo_material">instrumental</field>
     <field name="codigo">AUTO-2554</field>
     <field name="numero_dispositivo">HC-2554</field>
     <field name="cantidad_estandar">1</field>
@@ -25543,7 +25543,7 @@
   <record id="instrument_catalog_2555" model="instrument.catalog">
     <field name="name">Set 2 neonatal - pediatrico c/156</field>
     <field name="equivalente_stu">1.0</field>
-    <field name="tipo_material">desechable</field>
+    <field name="tipo_material">instrumental</field>
     <field name="codigo">AUTO-2555</field>
     <field name="numero_dispositivo">HC-2555</field>
     <field name="cantidad_estandar">1</field>
@@ -25553,7 +25553,7 @@
   <record id="instrument_catalog_2556" model="instrument.catalog">
     <field name="name">Set 2 neonatal - pediatrico c/19</field>
     <field name="equivalente_stu">0.3</field>
-    <field name="tipo_material">desechable</field>
+    <field name="tipo_material">instrumental</field>
     <field name="codigo">AUTO-2556</field>
     <field name="numero_dispositivo">HC-2556</field>
     <field name="cantidad_estandar">1</field>
@@ -25563,7 +25563,7 @@
   <record id="instrument_catalog_2557" model="instrument.catalog">
     <field name="name">Set neonatal - pediatrico c/10</field>
     <field name="equivalente_stu">0.3</field>
-    <field name="tipo_material">desechable</field>
+    <field name="tipo_material">instrumental</field>
     <field name="codigo">AUTO-2557</field>
     <field name="numero_dispositivo">HC-2557</field>
     <field name="cantidad_estandar">1</field>
@@ -25673,7 +25673,7 @@
   <record id="instrument_catalog_2568" model="instrument.catalog">
     <field name="name">Instumental 2.012 4/3.0c/17 +consumible</field>
     <field name="equivalente_stu">0.4</field>
-    <field name="tipo_material">desechable</field>
+    <field name="tipo_material">instrumental</field>
     <field name="codigo">AUTO-2568</field>
     <field name="numero_dispositivo">HC-2568</field>
     <field name="cantidad_estandar">1</field>
@@ -25713,7 +25713,7 @@
   <record id="instrument_catalog_2572" model="instrument.catalog">
     <field name="name">Trimline c/36</field>
     <field name="equivalente_stu">0.4</field>
-    <field name="tipo_material">desechable</field>
+    <field name="tipo_material">instrumental</field>
     <field name="codigo">AUTO-2572</field>
     <field name="numero_dispositivo">HC-2572</field>
     <field name="cantidad_estandar">1</field>
@@ -25723,7 +25723,7 @@
   <record id="instrument_catalog_2573" model="instrument.catalog">
     <field name="name">Eq ascot c/13</field>
     <field name="equivalente_stu">0.4</field>
-    <field name="tipo_material">desechable</field>
+    <field name="tipo_material">instrumental</field>
     <field name="codigo">AUTO-2573</field>
     <field name="numero_dispositivo">HC-2573</field>
     <field name="cantidad_estandar">1</field>
@@ -25753,7 +25753,7 @@
   <record id="instrument_catalog_2576" model="instrument.catalog">
     <field name="name">ENDOSCOPIO PEDIATRICO C/5</field>
     <field name="equivalente_stu">0.3</field>
-    <field name="tipo_material">desechable</field>
+    <field name="tipo_material">instrumental</field>
     <field name="codigo">AUTO-2576</field>
     <field name="numero_dispositivo">HC-2576</field>
     <field name="cantidad_estandar">1</field>
@@ -25783,7 +25783,7 @@
   <record id="instrument_catalog_2579" model="instrument.catalog">
     <field name="name">Instrumental de clavo c/62</field>
     <field name="equivalente_stu">0.5</field>
-    <field name="tipo_material">desechable</field>
+    <field name="tipo_material">instrumental</field>
     <field name="codigo">AUTO-2579</field>
     <field name="numero_dispositivo">HC-2579</field>
     <field name="cantidad_estandar">1</field>
@@ -25793,7 +25793,7 @@
   <record id="instrument_catalog_2580" model="instrument.catalog">
     <field name="name">Set de traccion c/15</field>
     <field name="equivalente_stu">0.4</field>
-    <field name="tipo_material">desechable</field>
+    <field name="tipo_material">instrumental</field>
     <field name="codigo">AUTO-2580</field>
     <field name="numero_dispositivo">HC-2580</field>
     <field name="cantidad_estandar">1</field>
@@ -25803,7 +25803,7 @@
   <record id="instrument_catalog_2581" model="instrument.catalog">
     <field name="name">Set canulado c/10+cobnsumible</field>
     <field name="equivalente_stu">0.3</field>
-    <field name="tipo_material">desechable</field>
+    <field name="tipo_material">instrumental</field>
     <field name="codigo">AUTO-2581</field>
     <field name="numero_dispositivo">HC-2581</field>
     <field name="cantidad_estandar">1</field>
@@ -25813,7 +25813,7 @@
   <record id="instrument_catalog_2582" model="instrument.catalog">
     <field name="name">Set de reduccion c/31</field>
     <field name="equivalente_stu">0.3</field>
-    <field name="tipo_material">desechable</field>
+    <field name="tipo_material">instrumental</field>
     <field name="codigo">AUTO-2582</field>
     <field name="numero_dispositivo">HC-2582</field>
     <field name="cantidad_estandar">1</field>
@@ -25933,7 +25933,7 @@
   <record id="instrument_catalog_2594" model="instrument.catalog">
     <field name="name">Insrumental c/23 + consumible</field>
     <field name="equivalente_stu">1.0</field>
-    <field name="tipo_material">desechable</field>
+    <field name="tipo_material">instrumental</field>
     <field name="codigo">AUTO-2594</field>
     <field name="numero_dispositivo">HC-2594</field>
     <field name="cantidad_estandar">1</field>
@@ -25943,7 +25943,7 @@
   <record id="instrument_catalog_2595" model="instrument.catalog">
     <field name="name">Instrumental de apoyo c/23|</field>
     <field name="equivalente_stu">1.0</field>
-    <field name="tipo_material">desechable</field>
+    <field name="tipo_material">instrumental</field>
     <field name="codigo">AUTO-2595</field>
     <field name="numero_dispositivo">HC-2595</field>
     <field name="cantidad_estandar">1</field>
@@ -25953,7 +25953,7 @@
   <record id="instrument_catalog_2596" model="instrument.catalog">
     <field name="name">Caja 6 c/41</field>
     <field name="equivalente_stu">1.0</field>
-    <field name="tipo_material">desechable</field>
+    <field name="tipo_material">instrumental</field>
     <field name="codigo">AUTO-2596</field>
     <field name="numero_dispositivo">HC-2596</field>
     <field name="cantidad_estandar">1</field>
@@ -25963,7 +25963,7 @@
   <record id="instrument_catalog_2597" model="instrument.catalog">
     <field name="name">Caja A C/24</field>
     <field name="equivalente_stu">1.0</field>
-    <field name="tipo_material">desechable</field>
+    <field name="tipo_material">instrumental</field>
     <field name="codigo">AUTO-2597</field>
     <field name="numero_dispositivo">HC-2597</field>
     <field name="cantidad_estandar">1</field>
@@ -25973,7 +25973,7 @@
   <record id="instrument_catalog_2598" model="instrument.catalog">
     <field name="name">Caja C c/70</field>
     <field name="equivalente_stu">1.0</field>
-    <field name="tipo_material">desechable</field>
+    <field name="tipo_material">instrumental</field>
     <field name="codigo">AUTO-2598</field>
     <field name="numero_dispositivo">HC-2598</field>
     <field name="cantidad_estandar">1</field>
@@ -25983,7 +25983,7 @@
   <record id="instrument_catalog_2599" model="instrument.catalog">
     <field name="name">Caja D c/27</field>
     <field name="equivalente_stu">1.0</field>
-    <field name="tipo_material">desechable</field>
+    <field name="tipo_material">instrumental</field>
     <field name="codigo">AUTO-2599</field>
     <field name="numero_dispositivo">HC-2599</field>
     <field name="cantidad_estandar">1</field>
@@ -26003,7 +26003,7 @@
   <record id="instrument_catalog_2601" model="instrument.catalog">
     <field name="name">Instrumental de placa caja cervical c/10 + implante</field>
     <field name="equivalente_stu">1.0</field>
-    <field name="tipo_material">desechable</field>
+    <field name="tipo_material">instrumental</field>
     <field name="codigo">AUTO-2601</field>
     <field name="numero_dispositivo">HC-2601</field>
     <field name="cantidad_estandar">1</field>
@@ -26013,7 +26013,7 @@
   <record id="instrument_catalog_2602" model="instrument.catalog">
     <field name="name">Set instrumental placa cervical c/24</field>
     <field name="equivalente_stu">1.0</field>
-    <field name="tipo_material">desechable</field>
+    <field name="tipo_material">instrumental</field>
     <field name="codigo">AUTO-2602</field>
     <field name="numero_dispositivo">HC-2602</field>
     <field name="cantidad_estandar">1</field>
@@ -26023,7 +26023,7 @@
   <record id="instrument_catalog_2603" model="instrument.catalog">
     <field name="name">Pinzas set kerrison y disco c/18</field>
     <field name="equivalente_stu">0.5</field>
-    <field name="tipo_material">desechable</field>
+    <field name="tipo_material">instrumental</field>
     <field name="codigo">AUTO-2603</field>
     <field name="numero_dispositivo">HC-2603</field>
     <field name="cantidad_estandar">1</field>
@@ -26033,7 +26033,7 @@
   <record id="instrument_catalog_2604" model="instrument.catalog">
     <field name="name">Eq microlamina c/24</field>
     <field name="equivalente_stu">0.5</field>
-    <field name="tipo_material">desechable</field>
+    <field name="tipo_material">instrumental</field>
     <field name="codigo">AUTO-2604</field>
     <field name="numero_dispositivo">HC-2604</field>
     <field name="cantidad_estandar">1</field>
@@ -26043,7 +26043,7 @@
   <record id="instrument_catalog_2605" model="instrument.catalog">
     <field name="name">Set de legra c/17</field>
     <field name="equivalente_stu">0.5</field>
-    <field name="tipo_material">desechable</field>
+    <field name="tipo_material">instrumental</field>
     <field name="codigo">AUTO-2605</field>
     <field name="numero_dispositivo">HC-2605</field>
     <field name="cantidad_estandar">1</field>
@@ -26053,7 +26053,7 @@
   <record id="instrument_catalog_2606" model="instrument.catalog">
     <field name="name">Microdisectores c/50</field>
     <field name="equivalente_stu">0.5</field>
-    <field name="tipo_material">desechable</field>
+    <field name="tipo_material">instrumental</field>
     <field name="codigo">AUTO-2606</field>
     <field name="numero_dispositivo">HC-2606</field>
     <field name="cantidad_estandar">1</field>
@@ -26153,7 +26153,7 @@
   <record id="instrument_catalog_2616" model="instrument.catalog">
     <field name="name">Espinal system c/30</field>
     <field name="equivalente_stu">1.0</field>
-    <field name="tipo_material">desechable</field>
+    <field name="tipo_material">instrumental</field>
     <field name="codigo">AUTO-2616</field>
     <field name="numero_dispositivo">HC-2616</field>
     <field name="cantidad_estandar">1</field>
@@ -26543,7 +26543,7 @@
   <record id="instrument_catalog_2655" model="instrument.catalog">
     <field name="name">Set de tornillo canulados 4.0 + consumible</field>
     <field name="equivalente_stu">0.5</field>
-    <field name="tipo_material">desechable</field>
+    <field name="tipo_material">instrumental</field>
     <field name="codigo">AUTO-2655</field>
     <field name="numero_dispositivo">HC-2655</field>
     <field name="cantidad_estandar">1</field>
@@ -26553,7 +26553,7 @@
   <record id="instrument_catalog_2656" model="instrument.catalog">
     <field name="name">Eq. mini mano c/28 + consumible</field>
     <field name="equivalente_stu">0.4</field>
-    <field name="tipo_material">desechable</field>
+    <field name="tipo_material">instrumental</field>
     <field name="codigo">AUTO-2656</field>
     <field name="numero_dispositivo">HC-2656</field>
     <field name="cantidad_estandar">1</field>
@@ -26563,7 +26563,7 @@
   <record id="instrument_catalog_2657" model="instrument.catalog">
     <field name="name">Cabezal de prueba</field>
     <field name="equivalente_stu">0.3</field>
-    <field name="tipo_material">desechable</field>
+    <field name="tipo_material">instrumental</field>
     <field name="codigo">AUTO-2657</field>
     <field name="numero_dispositivo">HC-2657</field>
     <field name="cantidad_estandar">1</field>
@@ -26573,7 +26573,7 @@
   <record id="instrument_catalog_2658" model="instrument.catalog">
     <field name="name">Inst general c/22</field>
     <field name="equivalente_stu">0.5</field>
-    <field name="tipo_material">desechable</field>
+    <field name="tipo_material">instrumental</field>
     <field name="codigo">AUTO-2658</field>
     <field name="numero_dispositivo">HC-2658</field>
     <field name="cantidad_estandar">1</field>
@@ -26583,7 +26583,7 @@
   <record id="instrument_catalog_2659" model="instrument.catalog">
     <field name="name">Doble movilizado c/26</field>
     <field name="equivalente_stu">0.6</field>
-    <field name="tipo_material">desechable</field>
+    <field name="tipo_material">instrumental</field>
     <field name="codigo">AUTO-2659</field>
     <field name="numero_dispositivo">HC-2659</field>
     <field name="cantidad_estandar">1</field>
@@ -26593,7 +26593,7 @@
   <record id="instrument_catalog_2660" model="instrument.catalog">
     <field name="name">Set de vastago reducido distal c/25</field>
     <field name="equivalente_stu">0.6</field>
-    <field name="tipo_material">desechable</field>
+    <field name="tipo_material">instrumental</field>
     <field name="codigo">AUTO-2660</field>
     <field name="numero_dispositivo">HC-2660</field>
     <field name="cantidad_estandar">1</field>
@@ -26603,7 +26603,7 @@
   <record id="instrument_catalog_2661" model="instrument.catalog">
     <field name="name">Microtoperlock c/26</field>
     <field name="equivalente_stu">0.5</field>
-    <field name="tipo_material">desechable</field>
+    <field name="tipo_material">instrumental</field>
     <field name="codigo">AUTO-2661</field>
     <field name="numero_dispositivo">HC-2661</field>
     <field name="cantidad_estandar">1</field>
@@ -26613,7 +26613,7 @@
   <record id="instrument_catalog_2662" model="instrument.catalog">
     <field name="name">Cable ready c/22</field>
     <field name="equivalente_stu">0.4</field>
-    <field name="tipo_material">desechable</field>
+    <field name="tipo_material">instrumental</field>
     <field name="codigo">AUTO-2662</field>
     <field name="numero_dispositivo">HC-2662</field>
     <field name="cantidad_estandar">1</field>
@@ -26623,7 +26623,7 @@
   <record id="instrument_catalog_2663" model="instrument.catalog">
     <field name="name">osteotomos c/12</field>
     <field name="equivalente_stu">0.3</field>
-    <field name="tipo_material">desechable</field>
+    <field name="tipo_material">instrumental</field>
     <field name="codigo">AUTO-2663</field>
     <field name="numero_dispositivo">HC-2663</field>
     <field name="cantidad_estandar">1</field>
@@ -26653,7 +26653,7 @@
   <record id="instrument_catalog_2666" model="instrument.catalog">
     <field name="name">Eq. colocacion expandible c/38</field>
     <field name="equivalente_stu">0.7</field>
-    <field name="tipo_material">desechable</field>
+    <field name="tipo_material">instrumental</field>
     <field name="codigo">AUTO-2666</field>
     <field name="numero_dispositivo">HC-2666</field>
     <field name="cantidad_estandar">1</field>
@@ -26663,7 +26663,7 @@
   <record id="instrument_catalog_2667" model="instrument.catalog">
     <field name="name">Retractor lumbar c/69</field>
     <field name="equivalente_stu">0.9</field>
-    <field name="tipo_material">desechable</field>
+    <field name="tipo_material">instrumental</field>
     <field name="codigo">AUTO-2667</field>
     <field name="numero_dispositivo">HC-2667</field>
     <field name="cantidad_estandar">1</field>
@@ -26673,7 +26673,7 @@
   <record id="instrument_catalog_2668" model="instrument.catalog">
     <field name="name">Pinza duval</field>
     <field name="equivalente_stu">0.2</field>
-    <field name="tipo_material">desechable</field>
+    <field name="tipo_material">instrumental</field>
     <field name="codigo">AUTO-2668</field>
     <field name="numero_dispositivo">HC-2668</field>
     <field name="cantidad_estandar">1</field>
@@ -26693,7 +26693,7 @@
   <record id="instrument_catalog_2670" model="instrument.catalog">
     <field name="name">Pieza 26</field>
     <field name="equivalente_stu">0.4</field>
-    <field name="tipo_material">desechable</field>
+    <field name="tipo_material">instrumental</field>
     <field name="codigo">AUTO-2670</field>
     <field name="numero_dispositivo">HC-2670</field>
     <field name="cantidad_estandar">1</field>
@@ -26993,7 +26993,7 @@
   <record id="instrument_catalog_2700" model="instrument.catalog">
     <field name="name">Trocar</field>
     <field name="equivalente_stu">0.5</field>
-    <field name="tipo_material">desechable</field>
+    <field name="tipo_material">instrumental</field>
     <field name="codigo">AUTO-2700</field>
     <field name="numero_dispositivo">HC-2700</field>
     <field name="cantidad_estandar">1</field>
@@ -27193,7 +27193,7 @@
   <record id="instrument_catalog_2720" model="instrument.catalog">
     <field name="name">Frasco, 2 mangueras y aditamentos </field>
     <field name="equivalente_stu">0.9</field>
-    <field name="tipo_material">desechable</field>
+    <field name="tipo_material">instrumental</field>
     <field name="codigo">AUTO-2720</field>
     <field name="numero_dispositivo">HC-2720</field>
     <field name="cantidad_estandar">1</field>
@@ -27203,7 +27203,7 @@
   <record id="instrument_catalog_2721" model="instrument.catalog">
     <field name="name">Asa</field>
     <field name="equivalente_stu">0.06</field>
-    <field name="tipo_material">desechable</field>
+    <field name="tipo_material">instrumental</field>
     <field name="codigo">AUTO-2721</field>
     <field name="numero_dispositivo">HC-2721</field>
     <field name="cantidad_estandar">1</field>
@@ -27213,7 +27213,7 @@
   <record id="instrument_catalog_2722" model="instrument.catalog">
     <field name="name">Esfera</field>
     <field name="equivalente_stu">0.06</field>
-    <field name="tipo_material">desechable</field>
+    <field name="tipo_material">instrumental</field>
     <field name="codigo">AUTO-2722</field>
     <field name="numero_dispositivo">HC-2722</field>
     <field name="cantidad_estandar">1</field>
@@ -27733,7 +27733,7 @@
   <record id="instrument_catalog_2774" model="instrument.catalog">
     <field name="name">Bisturi laser</field>
     <field name="equivalente_stu">0.05</field>
-    <field name="tipo_material">desechable</field>
+    <field name="tipo_material">instrumental</field>
     <field name="codigo">AUTO-2774</field>
     <field name="numero_dispositivo">HC-2774</field>
     <field name="cantidad_estandar">1</field>
@@ -27803,7 +27803,7 @@
   <record id="instrument_catalog_2781" model="instrument.catalog">
     <field name="name">Bolsa esteril mixto</field>
     <field name="equivalente_stu">0.5</field>
-    <field name="tipo_material">desechable</field>
+    <field name="tipo_material">instrumental</field>
     <field name="codigo">AUTO-2781</field>
     <field name="numero_dispositivo">HC-2781</field>
     <field name="cantidad_estandar">1</field>
@@ -28003,7 +28003,7 @@
   <record id="instrument_catalog_2801" model="instrument.catalog">
     <field name="name">Pinza small</field>
     <field name="equivalente_stu">0.2</field>
-    <field name="tipo_material">desechable</field>
+    <field name="tipo_material">instrumental</field>
     <field name="codigo">AUTO-2801</field>
     <field name="numero_dispositivo">HC-2801</field>
     <field name="cantidad_estandar">1</field>
@@ -28013,7 +28013,7 @@
   <record id="instrument_catalog_2802" model="instrument.catalog">
     <field name="name">Eq canulas c/7</field>
     <field name="equivalente_stu">0.1</field>
-    <field name="tipo_material">desechable</field>
+    <field name="tipo_material">instrumental</field>
     <field name="codigo">AUTO-2802</field>
     <field name="numero_dispositivo">HC-2802</field>
     <field name="cantidad_estandar">1</field>
@@ -28053,7 +28053,7 @@
   <record id="instrument_catalog_2806" model="instrument.catalog">
     <field name="name">Guante de nitilo</field>
     <field name="equivalente_stu">0.1</field>
-    <field name="tipo_material">desechable</field>
+    <field name="tipo_material">instrumental</field>
     <field name="codigo">AUTO-2806</field>
     <field name="numero_dispositivo">HC-2806</field>
     <field name="cantidad_estandar">1</field>
@@ -28063,7 +28063,7 @@
   <record id="instrument_catalog_2807" model="instrument.catalog">
     <field name="name">Septumplastia c/97</field>
     <field name="equivalente_stu">0.5</field>
-    <field name="tipo_material">desechable</field>
+    <field name="tipo_material">instrumental</field>
     <field name="codigo">AUTO-2807</field>
     <field name="numero_dispositivo">HC-2807</field>
     <field name="cantidad_estandar">1</field>
@@ -31113,7 +31113,7 @@
   <record id="instrument_catalog_3112" model="instrument.catalog">
     <field name="name">Humidificador Cunas</field>
     <field name="equivalente_stu">0.2</field>
-    <field name="tipo_material">desechable</field>
+    <field name="tipo_material">instrumental</field>
     <field name="codigo">AUTO-3112</field>
     <field name="numero_dispositivo">HC-3112</field>
     <field name="cantidad_estandar">1</field>
