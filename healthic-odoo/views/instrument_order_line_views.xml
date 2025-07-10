@@ -15,7 +15,7 @@
                             <field name="tipo_material" readonly="1"/>
                         </group>
                         <group name="process_info">
-                            <field name="lavado_aplicado" domain="[('tipo', '=', 'lavado')]" required="1"/>
+                            <field name="lavado_metodo" widget="radio" options="{'horizontal': true}"/>
                             <field name="estado_entrega"/>
                             <field name="fecha_entrada" widget="datetime"/>
                         </group>
@@ -39,10 +39,10 @@
                         <group name="instrument_info">
                             <field name="instrumento_id" readonly="1"/>
                             <field name="cantidad" readonly="1"/>
-                            <field name="lavado_aplicado" readonly="1"/>
+                            <field name="lavado_metodo" readonly="1"/>
                         </group>
                         <group name="sterilization_info">
-                            <field name="esterilizacion_aplicada" domain="[('tipo', '=', 'esterilizacion')]" required="1"/>
+                            <field name="esterilizacion_metodo" widget="radio" options="{'horizontal': true}"/>
                             <field name="fecha_salida" widget="datetime"/>
                         </group>
                     </group>
@@ -81,8 +81,8 @@
                 <field name="estado_entrega"/>
                 <field name="fecha_entrada" widget="datetime"/>
                 <field name="fecha_salida" widget="datetime"/>
-                <field name="lavado_aplicado"/>
-                <field name="esterilizacion_aplicada"/>
+                <field name="lavado_metodo"/>
+                <field name="esterilizacion_metodo"/>
                 <field name="observaciones"/>
                 <field name="active" invisible="1"/>
             </list>
@@ -151,7 +151,7 @@
                     <notebook>
                         <page string="🔧 Lavado" name="lavado">
                             <group>
-                                <field name="lavado_aplicado"/>
+                                <field name="lavado_metodo" widget="radio" options="{'horizontal': true}"/>
                                 <field name="observaciones"/>
                             </group>
                         </page>
@@ -173,7 +173,7 @@
                         
                         <page string="🔬 Esterilización" name="esterilizacion">
                             <group>
-                                <field name="esterilizacion_aplicada"/>
+                                <field name="esterilizacion_metodo" widget="radio" options="{'horizontal': true}"/>
                             </group>
                         </page>
                     </notebook>

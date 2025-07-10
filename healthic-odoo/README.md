@@ -29,6 +29,8 @@ Sistema completo para la digitalización del proceso de recepción, seguimiento,
 - Validación de métodos compatibles
 - Registro de responsables por proceso
 - Cálculos automáticos de STU y duración
+- Evidencias fotográficas en recepción
+- Firmas separadas y etiquetadas por proceso
 
 ### 📱 Optimización para Operadores
 - Interfaces tablet-friendly (10" pantallas)

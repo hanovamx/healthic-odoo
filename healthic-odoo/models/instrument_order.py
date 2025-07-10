@@ -255,7 +255,7 @@ class InstrumentOrder(models.Model):
         ('empaque', 'En Empaque'),
         ('esterilizado', 'Esterilizado'),
         ('entregado', 'Entregado')
-    ], string='Estado', required=True, default='pendiente', tracking=True)
+    ], string='Estado', required=True, default='pendiente')
     
     # Responsables del proceso
     responsable_lavado = fields.Many2one(
@@ -269,33 +269,7 @@ class InstrumentOrder(models.Model):
         help='Nombre de la persona que realizó el lavado'
     )
     
-    metodo_lavado_id = fields.Many2one(
-        'instrument.method',
-        string='Método de Lavado',
-        domain=[('tipo', '=', 'lavado')],
-        help='Método de lavado utilizado'
-    )
-    
-    # Métodos de esterilización planificados
-    usar_autoclave = fields.Boolean(
-        string='Autoclave',
-        help='Se utilizará autoclave para esterilización'
-    )
-    
-    usar_peroxido = fields.Boolean(
-        string='Peróxido',
-        help='Se utilizará peróxido para esterilización'
-    )
-    
-    usar_oxido_etileno = fields.Boolean(
-        string='Óxido de Etileno',
-        help='Se utilizará óxido de etileno para esterilización'
-    )
-    
-    usar_plasma = fields.Boolean(
-        string='Plasma',
-        help='Se utilizará plasma para esterilización'
-    )
+    # Eliminar campos y lógica de métodos de lavado y esterilización antiguos
     
     responsable_esterilizacion = fields.Many2one(
         'res.users', 
@@ -380,6 +354,18 @@ class InstrumentOrder(models.Model):
         help='Archivos adjuntos (imágenes, PDFs) del proceso'
     )
     
+    # ============================================================================
+    # MEJORA BACKLOG: Evidencias fotográficas en área de recepción
+    # ============================================================================
+    evidencia_recepcion_ids = fields.Many2many(
+        'ir.attachment',
+        'order_reception_attachment_rel',
+        'order_id',
+        'attachment_id',
+        string='Evidencias de Recepción',
+        help='Evidencias fotográficas del instrumental al momento de la recepción'
+    )
+    
     # Observaciones
     observaciones = fields.Text(
         string='Observaciones',
@@ -427,7 +413,32 @@ class InstrumentOrder(models.Model):
         help='Número de guía o referencia de la devolución'
     )
     
-    # Campos de firma - Recepción
+    # ============================================================================
+    # MEJORA BACKLOG: Firmas separadas y etiquetadas claramente
+    # ============================================================================
+    # Firmas de Salida de Instrumental (Recepción)
+    firma_salida_instrumental_hospitalaria = fields.Binary(
+        string='Firma Hospitalaria - Salida de Instrumental',
+        help='Firma del personal del hospital que entrega el instrumental para procesamiento'
+    )
+    
+    firma_salida_instrumental_healthic = fields.Binary(
+        string='Firma Healthic - Recibe Instrumental',
+        help='Firma del personal de Healthic que recibe el instrumental para procesamiento'
+    )
+    
+    # Firmas de Recepción/Recolección (Entrega)
+    firma_recepcion_recoleccion_healthic = fields.Binary(
+        string='Firma Healthic - Entrega Procesado',
+        help='Firma del personal de Healthic que entrega el instrumental procesado'
+    )
+    
+    firma_recepcion_recoleccion_hospitalaria = fields.Binary(
+        string='Firma Hospitalaria - Recibe Procesado',
+        help='Firma del personal del hospital que recibe el instrumental procesado'
+    )
+    
+    # Campos de firma - Recepción (Compatibilidad)
     firma_entrega_hospitalaria = fields.Binary(
         string='Firma Hospitalaria - Entrega',
         help='Firma del personal del hospital que entrega el instrumental'

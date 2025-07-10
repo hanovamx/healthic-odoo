@@ -1,8 +1,6 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
 access_hospital_client_user,hospital.client.user,model_hospital_client,base.group_user,1,1,1,0
 access_hospital_client_manager,hospital.client.manager,model_hospital_client,base.group_system,1,1,1,1
-access_instrument_method_user,instrument.method.user,model_instrument_method,base.group_user,1,0,0,0
-access_instrument_method_manager,instrument.method.manager,model_instrument_method,base.group_system,1,1,1,1
 access_instrument_catalog_user,instrument.catalog.user,model_instrument_catalog,base.group_user,1,1,1,0
 access_instrument_catalog_manager,instrument.catalog.manager,model_instrument_catalog,base.group_system,1,1,1,1
 access_instrument_order_user,instrument.order.user,model_instrument_order,base.group_user,1,1,1,0

@@ -18,7 +18,7 @@
                 <field name="puede_esterilizar"/>
                 <field name="puede_entregar"/>
                 <templates>
-                    <t t-name="kanban-box">
+                    <t t-name="card">
                         <div class="oe_kanban_card oe_kanban_global_click">
                             <!-- Estado con color -->
                             <div class="oe_kanban_content">
@@ -170,16 +170,7 @@
                                     <field name="cincho_integro" widget="radio" options="{'horizontal': true}"/>
                                 </group>
                             </group>
-                            <group string="Métodos de Esterilización Planificados">
-                                <group>
-                                    <field name="usar_autoclave" widget="boolean_toggle"/>
-                                    <field name="usar_peroxido" widget="boolean_toggle"/>
-                                </group>
-                                <group>
-                                    <field name="usar_oxido_etileno" widget="boolean_toggle"/>
-                                    <field name="usar_plasma" widget="boolean_toggle"/>
-                                </group>
-                            </group>
+                            
                             <group string="Instrumentos a Procesar">
                                 <field name="linea_ids" nolabel="1">
                                     <list editable="bottom" create="true" delete="true">
@@ -191,7 +182,39 @@
                                     </list>
                                 </field>
                             </group>
-                            <group string="Firmas de Recepción">
+                            
+                            <!-- ============================================================================ -->
+                            <!-- MEJORA BACKLOG: Evidencias fotográficas en área de recepción -->
+                            <!-- ============================================================================ -->
+                            <group string="📸 Evidencias de Recepción">
+                                <div class="alert alert-success" role="alert" colspan="4">
+                                    <i class="fa fa-camera" title="Evidencias Fotográficas"></i> <strong>Evidencias Fotográficas:</strong> 
+                                    Cargue imágenes del instrumental al momento de la recepción (opcional pero recomendado).
+                                </div>
+                                <field name="evidencia_recepcion_ids" widget="many2many_binary" nolabel="1" 
+                                       options="{'accepted_file_extensions': '.jpg,.jpeg,.png,.pdf'}"/>
+                            </group>
+                            
+                            <!-- ============================================================================ -->
+                            <!-- MEJORA BACKLOG: Firmas separadas y etiquetadas claramente -->
+                            <!-- ============================================================================ -->
+                            <group string="✍️ Firmas de Salida de Instrumental" invisible="estado not in ['pendiente', 'en_lavado', 'empaque', 'esterilizado', 'entregado']">
+                                <div class="alert alert-warning" role="alert" colspan="4">
+                                    <i class="fa fa-exclamation-triangle" title="Obligatorio"></i> <strong>Obligatorio:</strong> 
+                                    Ambas firmas son requeridas antes de iniciar el lavado.
+                                </div>
+                                <group string="🏥 Firma Hospitalaria" name="firma_hospital_salida">
+                                    <label for="firma_salida_instrumental_hospitalaria" string="Personal del Hospital"/>
+                                    <field name="firma_salida_instrumental_hospitalaria" widget="signature" nolabel="1"/>
+                                </group>
+                                <group string="🏢 Firma Healthic" name="firma_healthic_salida">
+                                    <label for="firma_salida_instrumental_healthic" string="Personal de Healthic"/>
+                                    <field name="firma_salida_instrumental_healthic" widget="signature" nolabel="1"/>
+                                </group>
+                            </group>
+                            
+                            <!-- Mantener firmas originales ocultas para compatibilidad -->
+                            <group string="Firmas de Recepción (Compatibilidad)" invisible="1">
                                 <group string="Hospital Entrega">
                                     <field name="firma_entrega_hospitalaria" widget="signature" nolabel="1"/>
                                 </group>
@@ -199,6 +222,7 @@
                                     <field name="firma_recibe_healthic" widget="signature" nolabel="1"/>
                                 </group>
                             </group>
+                            
                             <group string="Observaciones Generales">
                                 <field name="observaciones" nolabel="1" placeholder="Observaciones generales de la orden..."/>
                             </group>
@@ -214,7 +238,6 @@
                                 <group>
                                     <field name="responsable_lavado"/>
                                     <field name="quien_realiza_lavado"/>
-                                    <field name="metodo_lavado_id"/>
                                 </group>
                                 <group>
                                     <field name="observaciones_lavado" placeholder="Observaciones del proceso de lavado..."/>
@@ -227,9 +250,8 @@
                                     <field name="instrumento_id" readonly="1"/>
                                     <field name="cantidad" readonly="1"/>
                                     <field name="entregado_en" readonly="1"/>
-                                    <field name="tipo_esterilizacion_previo"/>
-                                    <field name="lavado_aplicado" domain="[('tipo', '=', 'lavado')]"/>
-                                    <field name="esterilizacion_aplicada" domain="[('tipo', '=', 'esterilizacion')]"/>
+                                    <field name="lavado_metodo" widget="radio" options="{'horizontal': true}"/>
+                                    <field name="esterilizacion_metodo" widget="radio" options="{'horizontal': true}"/>
                                     <field name="estado_entrega_area_negra" invisible="entregado_en != 'area_negra'"/>
                                     <field name="estado_entrega_area_blanca" invisible="entregado_en != 'area_blanca'"/>
                                     <field name="fecha_entrada" widget="datetime"/>
@@ -273,13 +295,18 @@
                                 </group>
                             </group>
                             
-                            <group string="Indicador Biológico" invisible="not tiene_indicador_biologico">
+                            <!-- ============================================================================ -->
+                            <!-- MEJORA BACKLOG: Configuración de biológicos según tecnología -->
+                            <!-- ============================================================================ -->
+                            <group string="🧪 Indicadores Biológicos" invisible="not tiene_indicador_biologico">
+                                <div class="alert alert-warning" role="alert">
+                                    <i class="fa fa-flask" title="Indicadores Biológicos"></i> <strong>Indicadores Biológicos:</strong> 
+                                    Configure según el tipo de tecnología de esterilización utilizada.
+                                </div>
+                                
                                 <group>
-                                    <!-- TODO: Reactivar required="tiene_indicador_biologico" después de fase de pruebas -->
                                     <field name="resultado_indicador_biologico" widget="radio" options="{'horizontal': true}"/>
                                     <field name="fecha_lectura_biologico"/>
-                                </group>
-                                <group>
                                     <field name="responsable_lectura_biologico"/>
                                 </group>
                             </group>
@@ -314,7 +341,26 @@
                                 <field name="evidencia_ids" widget="many2many_binary" nolabel="1"/>
                             </group>
                             
-                            <group string="Firmas de Entrega">
+                            <!-- ============================================================================ -->
+                            <!-- MEJORA BACKLOG: Firmas de Recepción/Recolección claramente etiquetadas -->
+                            <!-- ============================================================================ -->
+                            <group string="✍️ Firmas de Recepción/Recolección">
+                                <div class="alert alert-warning" role="alert">
+                                    <i class="fa fa-exclamation-triangle"></i> <strong>Obligatorio:</strong> 
+                                    Ambas firmas son requeridas antes de completar la entrega.
+                                </div>
+                                <group string="🏢 Firma Healthic" name="firma_healthic_recepcion">
+                                    <label for="firma_recepcion_recoleccion_healthic" string="Personal de Healthic"/>
+                                    <field name="firma_recepcion_recoleccion_healthic" widget="signature" nolabel="1"/>
+                                </group>
+                                <group string="🏥 Firma Hospitalaria" name="firma_hospital_recepcion">
+                                    <label for="firma_recepcion_recoleccion_hospitalaria" string="Personal del Hospital"/>
+                                    <field name="firma_recepcion_recoleccion_hospitalaria" widget="signature" nolabel="1"/>
+                                </group>
+                            </group>
+                            
+                            <!-- Mantener firmas originales ocultas para compatibilidad -->
+                            <group string="Firmas de Entrega (Compatibilidad)" invisible="1">
                                 <group string="Healthic Entrega">
                                     <field name="firma_entrega_healthic" widget="signature" nolabel="1"/>
                                 </group>
